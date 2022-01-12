@@ -1,3 +1,4 @@
-- [Home](/)
+- [Home](/ "Botcopy Docs")
 - The Basics
-  - [Bot Prompts](bot-prompts.md)
+  - [Bot Prompts](basics/bot-prompts.md "Bot Prompts")
+  - [Branding](basics/branding.md)
