@@ -1,0 +1,3 @@
+- [Home](/)
+- The Basics
+  - [Bot Prompts](bot-prompts.md)
