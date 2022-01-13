@@ -35,3 +35,6 @@ Adjust the font type of your bot, show the Bot's avatar image, and hide the "UI 
 
 ### Input Bar Settings
 Choose from Input Bar types and if the microphone should be displayed.
+
+## CUI Mode
+CUI stands for **Conversational User Interface**. It is a full-screen chat experience that replaces a website. The chat window remains the same, with the exception of removing the minimize and close buttons normally seen on the header. This behavior can be set for an entire bot, or for individual pages of your website with a prompt.
