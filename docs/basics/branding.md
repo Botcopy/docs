@@ -13,7 +13,7 @@ The first panel, **Greeter and Prompts** deals with the colors of the minimized 
 
 The second panel, **Chat Window** deals with the maximized chat experience and controls colors of the header, body, and input bar of the chat window.
 
-The final panel, **Components**, controls the colors of Botcopy's components *add hyperlink to components section here*.
+The final panel, **Components**, controls the colors of Botcopy's components *todo: add hyperlink to components section here*.
 
 ## Settings
 The settings section deals with Branding configurations not related to colors.
@@ -25,7 +25,7 @@ Change the animation of the greeter when it first loads on a website.
 Choose to display the greeter and prompts or hide them entirely, and also choose to display suggestion chips under the prompt.
 
 ### Chat Window Settings
-Select the size of the window, or if it should be rendered fullscreen with CUI Mode *add hyperlink to CUI mode*. You may also change the Z-Index of the chat window here.
+Select the size of the window, or if it should be rendered fullscreen with CUI Mode *todo: add hyperlink to CUI mode*. You may also change the Z-Index of the chat window here.
 
 ### Header Settings
 Select from our Header types and choose what functionality is available on the header (Maximize, Clear Conversation, etc.)

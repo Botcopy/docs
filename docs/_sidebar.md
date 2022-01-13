@@ -1,5 +1,6 @@
 - [Home](/ "Botcopy Docs")
 - The Basics
-  - [Bot Prompts](basics/bot-prompts.md "Bot Prompts")
-  - [Branding](basics/branding.md "Branding")
-  - [Connect](basics/connect.md "Connect")
+  - [Bot Prompts](basics/bot-prompts.md "Botcopy Docs | Bot Prompts")
+  - [Branding](basics/branding.md "Botcopy Docs | Branding")
+  - [Chat Components](basics/components.md "Botcopy Docs | Chat Components")
+  - [Connect](basics/connect.md "Botcopy Docs | Connect")

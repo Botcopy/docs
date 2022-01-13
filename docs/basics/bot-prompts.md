@@ -3,7 +3,7 @@ Bot Prompts are the first message users see which "prompt" them to engage with y
 
 For example, a page for Pricing might have a different call to action than a page for Support.
 
-*ADD IMAGE HERE*
+*todo: add image of prompt and greeter*
 
 Botcopy offers different types of prompts and settings to better suit the needs of a variety of use cases.
 
