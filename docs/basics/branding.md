@@ -9,9 +9,9 @@ You may also change the shape of the greeter and the size of the image within th
 ## Colors
 The colors section gives control over every color used in the chat window. Each may be customized to give you full control on the look of the bot's minimized state, messaging, header, components, and more.
 
-The first panel, **Greeter and Prompts** deals with the colors of the minimized greeter and prompt bubble experience.
+The first panel, **Greeter and Prompts**, deals with the colors of the minimized greeter and prompt bubble experience.
 
-The second panel, **Chat Window** deals with the maximized chat experience and controls colors of the header, body, and input bar of the chat window.
+The second panel, **Chat Window**, deals with the maximized chat experience and controls colors of the header, body, and input bar of the chat window.
 
 The final panel, **Components**, controls the colors of Botcopy's components *todo: add hyperlink to components section here*.
 

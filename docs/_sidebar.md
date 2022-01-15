@@ -4,3 +4,6 @@
   - [Branding](basics/branding.md "Botcopy Docs | Branding")
   - [Chat Components](basics/components.md "Botcopy Docs | Chat Components")
   - [Connect](basics/connect.md "Botcopy Docs | Connect")
+- Messaging and Response Types
+  - [Botcopy Custom Payloads](responses/botcopy-custom-payloads.md "Botcopy Docs | Custom Payloads")
+  - [Google Assistant](responses/google-assistant.md "Botcopy Docs | Google Assistant")
