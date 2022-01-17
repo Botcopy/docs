@@ -1,33 +1,35 @@
 # Bot Prompts
-Bot Prompts are the first message users see which "prompt" them to engage with your bot. They are a call to action within the context of the current page the bot is on.
+A Bot Prompt is the small bubble that initially appears next to the bot greeter icon, "prompting" the end-user to engage with the bot by clicking on it and opening up the chat window. Bot Prompts function best when they are different for each page and are a call to action that targets the end user's likely intentions within the context of the page they are on.
 
-For example, a page for Pricing might have a different call to action than a page for Support.
+For example, a bot prompt within a Pricing page might have a call to action such as "Click me to find the best pricing plan to meet your needs." This would be a very different initial message than, say, the Bot Prompt message for your About Us page, which might say "Have more questions about us? I can answer them or set up a meeting." 
 
 *todo: add image of prompt and greeter*
 
-Botcopy offers different types of prompts and settings to better suit the needs of a variety of use cases.
+Botcopy offers different types of Bot Prompts as well as ways to configure each Bot Prompt to suit the needs of your use case.
 
 ## Intent Prompts
-**Intent Prompts** are the default prompt type. They query Dialogflow with a **Trigger**, which is the Training Phrase or Event Name of an intent you've created on your Dialogflow agent.
+**Intent Prompts** are the default prompt type. They query Dialogflow with a **Trigger**, which is the Training Phrase or Event Name of an intent you've created within your Dialogflow agent.
 
 The trigger will only fire on the specified **Page URL**, creating a contextualized call to action to your users.
 
 ## Preset Prompts
-**Preset Prompts** differ in that they do not send a query to Dialogflow. Instead, you provide a **Message** and optional **Suggestions** and **Output Contexts**. These prompts are best for high-traffic websites and can save considerable overhead with Dialogflow.
+**Preset Prompts** differ from Intent Prompts in that they do not send an initial query to Dialogflow. Instead, within Botcopy you will provide a **Message** and optional **Suggestions** and **Output Contexts**. Dialogflow will only be queried when the end-user sends a message or selects a suggestion through the bot. 
 
-The message is rendered on the provided **Page URL**, but a query is not sent to Dialogflow until your user engages with the bot by typing a message or selecting a suggestion.
+Similar to Intent Prompts, for each Preset Prompt the message is rendered on the provided **Page URL**. Each suggestion you add to a Preset Prompt has a **Label** and **Trigger**. The trigger is linked to a Training Phrase or Event Name within your Dialogflow agent.
 
-Each suggestion has a **Label** and **Trigger**. The trigger is similarly linked to a Training Phrase or Event Name.
+**IMPORTANT**: Preset Prompts are a must for high-traffic websites because, unlike with Intent Prompts, Preset prompts don't query Dialogflow – and thus do not incur a Google Cloud Dialogflow charge – until your end-user chooses to engage. 
 
-## Default Prompt and Behavior
-The first prompt in your Portal is the **Default Prompt**. This is your fallback prompt which will display on any pages not set up with a prompt.
+## Default Bot Prompt
+The first Bot Prompt that you set up in your Botcopy Bot Prompts page within the Botcopy Portal will automatically serve as your **Default Prompt**, which simply means that this prompt will be used for any Page URL within your site that currently lacks a contextual Bot Prompt. 
 
-To change your default prompt, select the button at the bottom of the prompt's card. You may then select one of your other existing prompts to replace it.
+However, if you have mulitple Bot Prompts set up, you can easily reassign which one will serve as the **Default Prompt.** At the bottom of the prompt's card, select the button **Change Default Prompt**. You may then assign one of your other prompts to be the **Default Prompt.** 
 
-You may decide you don't want the default prompt to display on pages without prompts. In that case, you can configure it so the Greeter shows without a prompt bubble.
+Additionally, you may not want the Default Prompt to display on Page URLs within your site that currently lack a contextual Bot Prompt. At the top of the Bot Prompts page, you can set the **Prompt Settings** toggle to **Greeter** so that pages without a prompt will only show a greeter icon. 
 
-## Prompt Settings
-Each prompt has a number of settings that may also be configured.
+## Bot Prompt Settings
+Each Bot Prompt has a number of settings that may also be configured.
 
-- **CUI Mode** enables a full screen experience for that prompt only.
-- **Devices** allow you to choose which prompts show on which devices. You may choose a prompt to only show on Mobile, for example. This configuration is also available for individual preset prompt suggestions.
+- Botcopy's **CUI Mode** enables a full-screen experience for that prompt only. This especially comes in handy for mobile experiences, or any situation where you want to make a conversational UX mandatory, or the default UX for a given page or project. 
+- Botcopy's **Devices** allow you to choose which Bot Prompts show on mobile devices and desktop devices. You may assign any prompt to only show on Mobile, or only show on desktop; or both, or neither. 
+
+The **Devices** configuration options can also be applied to **Suggestion Chips** within **Preset Prompts**. (This comes in handy for Mobile, when sometimes suggestion chips under a Bot Prompt will obscure Mobile web content, but look fine on Desktop.)  
