@@ -1,13 +1,13 @@
 # Branding
-Botcopy offers the most customizable chat client on the market today. The **Branding** page on your portal is the master page for the entire look and feel of your bot, and has a live preview so you can see your changes in real time. Every hexcode used in the chat window can be changed here. We also offer a number of **pre-styled themes** on this page. 
+Botcopy offers the most customizable chat client on the market today. The **Branding** page on your portal is the master page for the entire look and feel of your bot, and has a live preview so you can see your changes in real time. Every hexcode used in the chat window can be changed in the Branding page. This page also has a number of **pre-styled color themes** available.
 
 ## Images
-The images section allows you to adjust the images and greeter of your bot. You may upload your own image for the greeter and bot's avatar in the chat here, or choose from a selection of Botcopy's own images.
+The **Images** section allows you to adjust the images and greeter of your bot. You may upload your own image for the greeter and bot's avatar in the chat here, or choose from a selection of Botcopy's greeter and avatar images.
 
-You may also change the shape of the greeter and the size of the image within the bubble.
+You may also change the shape of the greeter and the size of the image within the greeter image field.
 
 ## Colors
-The colors section gives control over every color used in the chat window. Each may be customized to give you full control on the look of the bot's minimized state, messaging, header, components, and more.
+The colors section gives control over every color used in the chat window. Each may be customized to give you full control of the look of the bot's minimized state, messaging, header, components, and more.
 
 The first panel, **Greeter and Prompts**, deals with the colors of the minimized greeter and prompt bubble experience.
 
@@ -31,10 +31,10 @@ Select the size of the window, or if it should be rendered fullscreen with CUI M
 Select from our Header types and choose what functionality is available on the header (Maximize, Clear Conversation, etc.)
 
 ### Body Settings
-Adjust the font type of your bot, show the Bot's avatar image, and hide the "UI by Botcopy" tag.
+Adjust the font type of your bot, show the Bot's avatar image, and hide the "UI by {••}" tag.
 
 ### Input Bar Settings
-Choose from Input Bar types and if the microphone should be displayed.
+Choose from Input Bar types and whether the microphone should be displayed.
 
 ## CUI Mode
-CUI stands for **Conversational User Interface**. It is a full-screen chat experience that replaces a website. The chat window remains the same, with the exception of removing the minimize and close buttons normally seen on the header. This behavior can be set for an entire bot, or for individual pages of your website with a prompt.
+CUI stands for **Conversational User Interface**. It is a full-screen chat experience that replaces a website or specific web page(s) within a site. The chat window remains the same, with the exception of removing the _minimize_ and _close_ buttons normally seen on the header. This behavior can be set for an entire bot, or for individual pages of your website by giving the page a Bot Prompt configured to CUI mode.
