@@ -2,7 +2,7 @@
 Botcopy offers some added utility with **Chat Components**.
 
 ## Feedback
-When enabled, the **Feedback** component will appear after responses marked as **End of Conversation** in Dialogflow. You also have a few choices of triggering the box manually:
+When enabled, the **Feedback** component will appear after responses marked as **End of Conversation** in Dialogflow. You also have a few choices for triggering the box manually:
 
 - Set a context named `botcopy-feedback` on an intent in Dialogflow ES
 - Set a parameter named `botcopyFeedback` equal to `true` on an intent in Dialogflow CX
