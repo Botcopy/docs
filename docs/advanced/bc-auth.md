@@ -1,5 +1,5 @@
-# Authorizing a User
-You may have an use case where you want to authorize a user so they may take actions within the bot. This guide will outline how you can leverage Botcopy's window events and methods to set up an authorization flow.
+# Authorizing an End-User
+You may have a use case where you want to authorize an end-user to take actions within a bot. This guide will outline how you can leverage Botcopy's window events and methods to set up an authorization flow.
 
 Organizations in all categories and sectors benefit from this feature. It allows you to:
 - Pass data from your front-end website to a Dialogflow CX agent with custom parameters
