@@ -63,6 +63,16 @@ Fires when a live agent sends a message to a user.
 }
 ```
 
+## bc-auth-required
+Fires to notify you when your next intent requires authorizing your user. See [Authorizing Users](advanced/bc-auth.md?id=authorizing-a-user) for more details.
+
+```js
+{
+  type: "bc-auth-required",
+  payload: {}
+}
+```
+
 ## bc-bot-response
 Fires when a response is received from a bot.
 
