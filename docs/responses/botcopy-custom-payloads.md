@@ -22,7 +22,7 @@ Examples:
 
 [message](#message) and [link](#link) are used for Suggestions, Cards, Carousel Items, and List Items.
 
-Card can also use a [button](#button) action. Each button has its own individual action.
+Card can also use a [button](#button) action. Each button has its own action.
 
 Only one action should be assigned to each payload element. In case of conflicting actions, Botcopy priorities message > link > button.
 
@@ -39,7 +39,7 @@ Only one action should be assigned to each payload element. In case of conflicti
 }
 ```
 
-Sends a message to the bot on selection
+Sends a message to the bot on selection.
 
 - command (optional): the event name or training phrase sent to the bot. Defaults to title if not provided
 - type: either 'event' or 'training'. This corresponds to an event name or training phrase for an intent.
@@ -57,7 +57,7 @@ Sends a message to the bot on selection
 }
 ```
 
-Sends the user to a destination url within the a new tab, or a Botcopy webview
+Sends the user to a destination url within a new tab, or a Botcopy webview.
 
 - url: the destination url
 - target (optional): new tab or webview. Defaults to a Botcopy webview in the chat if not defined.
@@ -91,7 +91,7 @@ Sends the user to a destination url within the a new tab, or a Botcopy webview
 }
 ```
 
-An array of buttons, each with an action of their own. exclusively used for Cards.
+An array of buttons, each with an action of their own. Exclusively used for Cards.
 
 - title: the title of the button
 - action: defines the behavior of the button. Must be exclusively a single action
@@ -420,7 +420,7 @@ Fields have a max length of 256 characters. At least one field is required for t
 - title: title for the form
 - subtitle: subtitle for the form
 - fields: array containing fields
-- force (optional): defaults to false. if true, the wall component does not have a cancel button. this does not apply to message style forms.
+- force (optional): defaults to false. If true, the wall component does not have a cancel button. This does not apply to message style forms.
 - style: style of the form component (message or wall)
 - fields: array of objects
   - label: text input label
