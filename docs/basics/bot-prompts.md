@@ -1,5 +1,5 @@
 # Bot Prompts
-Bot Prompts are the first message users see which "prompt" them to engage with your bot. They are a call to action within the context of the current page the bot is on.
+Bot Prompts are the first messages users see that "prompt" users to engage with your bot. Bot Prompts are a call to action, ideally within the **context** of the current page the bot is on.
 
 For example, a page for Pricing might have a different call to action than a page for Support.
 
@@ -8,12 +8,12 @@ For example, a page for Pricing might have a different call to action than a pag
 Botcopy offers different types of prompts and settings to better suit the needs of a variety of use cases.
 
 ## Intent Prompts
-**Intent Prompts** are the default prompt type. They query Dialogflow with a **Trigger**, which is the Training Phrase or Event Name of an intent you've created on your Dialogflow agent.
+**Intent Prompts** are the default prompt type. Intent Prompts query Dialogflow with a **Trigger**, which is the Training Phrase or Event Name of an intent you've created on your Dialogflow agent.
 
 The trigger will only fire on the specified **Page URL**, creating a contextualized call to action to your users.
 
 ## Preset Prompts
-**Preset Prompts** differ in that they do not send a query to Dialogflow. Instead, you provide a **Message** and optional **Suggestions** and **Output Contexts**. These prompts are best for high-traffic websites and can save considerable overhead with Dialogflow.
+**Preset Prompts** differ in that they do not send a query to Dialogflow. Instead, you provide a **Message** and optional **Suggestions** and **Output Contexts**. Preset Prompts are best for high-traffic websites and can save considerable overhead with Dialogflow.
 
 The message is rendered on the provided **Page URL**, but a query is not sent to Dialogflow until your user engages with the bot by typing a message or selecting a suggestion.
 
