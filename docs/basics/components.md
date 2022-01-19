@@ -13,7 +13,7 @@ By default, the content of the Feedback box will be rendered in your user's pref
 Additionally, you may choose if a user can leave comments or is restricted to a thumbs up / thumbs down selection.
 
 ## Privacy Policy
-Enabling the **Privacy Policy** component will display a consent screen prior to users engaging with the bot. The Privacy Policy will link to a URL of your chose. Like the Feedback component, you may customize the content of this box, but any custom copy will no longer be automatically translated for your users.
+Enabling the **Privacy Policy** component will display a consent screen prior to users engaging with the bot. The Privacy Policy will link to a URL of your choice. As with the Feedback component, you may customize the content of this box, but any custom copy will no longer be automatically translated for your users.
 
 ## Profile
 Your bot's **Profile** adds supplemental information for users. This information can be viewed by clicking the header or selecting the **Profile** from the dropdown in the header.
