@@ -12,7 +12,7 @@ Please note that Google Assistant response types are *only* supported for Dialog
 ## Simple Responses
 **Simple Responses** are the default text message response. They must be included in a message group with cards, carousels, lists, and suggestions.
 
-Note: If your agent is setup with default responses, you can toggle on "Use Response from the DEFAULT tab as the first response.
+Note: If your agent is set up with default responses, you can toggle on "Use Response from the DEFAULT tab as the first response.
 
 **Simple Response Fulfillment**
 ```js
@@ -75,9 +75,9 @@ Basic cards may contain a URL to an external website. The default behavior for t
 
 Images are rendered in a `16:9` ratio.
 
-Videos are supported by assing a video URL as an image.
+Videos are supported by adding a video URL as an image.
 
-Botcopy supports Dropbox URLs to media as well. Please adjust the URL to the following:
+Botcopy supports Dropbox URLs to media as well. **IMPORTANT:** Please adjust the Dropbox image URL to the following for it to work:
 
 ```
 Original URL
@@ -87,7 +87,7 @@ New URL
 https://**dl**.dropboxusercontent.com/s/49cj0a442kxig1d/FRont%20page%20ad%20%2887060D21-08F8-4195-9F09-340CA2A64C3F%29.mp4?dl=0
 ```
 
-YouTube videos may also be embedded within the card. If you wish to embed a YouTube video, please adjust the URL to the following:
+YouTube videos may also be embedded within the card. **IMPORTANT:** If you wish to embed a YouTube video, please adjust the URL to the following for it to work:
 
 ```
 Original URL
