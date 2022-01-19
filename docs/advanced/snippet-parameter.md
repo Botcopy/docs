@@ -19,7 +19,7 @@ Your bot's embeddable snippet can take in a custom **snippet parameter** that wi
 ## Use Case
 Imagine you own a real estate company with five different vacation rentals. Each vacation rental has a different website, address, contact information, number of units, etc. However, you want to use a single Dialogflow agent to serve all five rentals.
 
-You could use the custom snippet parameter to provide a property ID on each website the bot is posted on. At the beginning of your conversation flow, you could use the ID to pull property-specific information at the beginning of your conversation. This way you aren't required to create a new Dialogflow agent for each location.
+You could use the custom snippet parameter to provide a property ID on each website the bot is posted on. At the beginning of your conversation flow, you could use the ID to pull property-specific information at the beginning of your conversation. This way, you aren't required to create a new Dialogflow agent for each location.
 
 
 ## Snippet Parameter in Practice
