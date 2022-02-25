@@ -13,7 +13,7 @@
 - White-label
 
 [Sign up for Free](https://portal.botcopy.com/signup/step1/ ':target=_blank')
-[Read Docs](#Botcopy)
+[Read Docs](#welcome-to-the-botcopy-docs)
 
 <!-- background color -->
 
