@@ -8,6 +8,7 @@
   - [Snippet Parameter](advanced/snippet-parameter.md "Botcopy Docs | Snippet Parameter")
   - [URL Ref Parameter](advanced/url-ref-parameter.md "Botcopy Docs | URL Ref Parameter")
   - [Authorizing Users](advanced/bc-auth.md "Botcopy Docs | Authorizing Users")
+  - [Human Handover](advanced/handover.md "Botcopy Docs | Human Handover")
 - Messaging and Response Types
   - [Botcopy Custom Payloads](responses/botcopy-custom-payloads.md "Botcopy Docs | Custom Payloads")
   - [Google Assistant](responses/google-assistant.md "Botcopy Docs | Google Assistant")
