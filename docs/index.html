@@ -9,22 +9,35 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
     />
+    <!-- Theme -->
     <link
       rel="stylesheet"
       href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"
     />
+    <!-- Custom theme styles -->
+    <style>
+     :root {
+  --theme-color   : #0A2740;
+  --sidebar-name-height:50;
+}
+    </style>
   </head>
   <body>
     <div id="app"></div>
     <script>
       window.$docsify = {
-        loadSidebar: true,
         name: "Botcopy",
-        subMaxLevel: 3
+        coverpage: true, // Coverpage enabled
+        subMaxLevel: 3,
+        loadSidebar: true, // Sidebar enabled
+        logo: '/_assets/150x30headerlogoblue.png', // Sidebar logo
+        ga: 'UA-98483932-1' // Google Analytics
       };
     </script>
     <!-- Docsify v4 -->
-    <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify@4" data-ga="UA-98483932-1"></script>
+    <!-- Copy to Clipboard  -->
+    <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
       <!-- Botcopy Script -->
     <script type="text/javascript"
     id="botcopy-embedder-d7lcfheammjct"
