@@ -6,7 +6,7 @@
 
 ![logo](/_assets/150x30logo.svg ':size=300x80')
 
-> A front-end UI for Bots.
+> The best custom UI for chat.
 
 - Simple and lightweight
 - Developer friendly
