@@ -15,29 +15,39 @@
       href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"
     />
     <!-- Custom theme styles -->
-    <style>
+    <!-- <style>
      :root {
   --theme-color   : #0A2740;
-  --sidebar-name-height:50;
 }
-    </style>
+    </style> -->
   </head>
   <body>
     <div id="app"></div>
     <script>
       window.$docsify = {
         name: "Botcopy",
+        nameLink: 'https://botcopy.com',
         coverpage: true, // Coverpage enabled
         subMaxLevel: 3,
+        // loadNavbar: true, // Navbar enabled
         loadSidebar: true, // Sidebar enabled
+        themeColor: '#0A2740',
         logo: '/_assets/150x30headerlogoblue.png', // Sidebar logo
-        ga: 'UA-98483932-1' // Google Analytics
+        ga: 'UA-98483932-1', // Google Analytics
+        pagination: { // Pagination 
+    previousText: 'Previous',
+    nextText: 'Next',
+    crossChapter: true,
+    crossChapterText: true,
+  },
       };
     </script>
     <!-- Docsify v4 -->
     <script src="//cdn.jsdelivr.net/npm/docsify@4" data-ga="UA-98483932-1"></script>
     <!-- Copy to Clipboard  -->
     <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+    <!-- Pagination  -->
+    <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
       <!-- Botcopy Script -->
     <script type="text/javascript"
     id="botcopy-embedder-d7lcfheammjct"
