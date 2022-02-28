@@ -7,7 +7,11 @@ The **Agent Details** card allows you to connect your bot to a specific Dialogfl
 You may also deactivate the bot, unlink the bot, and delete the bot.
 
 ## Embed Snippet
-The **Embed Snippet** card gives you two options for embedding the bot to your website. You may choose between a general script and a Google Tag Manager script. For more information on embedding your snippet, see the embed section *todo: add hyperlink to embed section here*.
+The **Embed Snippet** section gives you two options for embedding the bot to your website. You may choose between a general script and a Google Tag Manager script. 
+
+1. Copy the generated embed snippet from the connect page on your portal.
+2. Paste the embed snippet between <body> and </body> of your website.
+3. Your branded chat window will appear in the bottom right of your website
 
 Sometimes you might encounter an undefined error if you're using a service like Atlassian or Confluence. In that case, add `data-requireJSOff="true"` as an attribute to the snippet.
 
@@ -17,14 +21,10 @@ The connect page also handles added features available to your bot.
 ### Dashbot Analytics Integration
 Botcopy has native integration with Dashbot for analytics. When setting up your Dashbot instance, select `Botcopy` from the list of platforms. Enter the instance's Dashbot API Key and your bot's messages will be routed to Dashbot's live dashboard.
 
-*todo: add images here from old docs*
-
 We'll send rich response types to the live transcript and report intents that are not handled.
 
 ### Janis Livechat Integration
 Botcopy integrates with [Janis](https://janis.ai/) for live chat handling. To connect to this service, follow these steps:
-
-*todo: add images from old docs*
 
 1) Create or sign in to your Janis account
 2) Select **Add Bot** on your **Account** page
