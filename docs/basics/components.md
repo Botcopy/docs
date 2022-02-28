@@ -6,7 +6,8 @@ When enabled, the **Feedback** component will appear after responses marked as *
 
 - Set a context named `botcopy-feedback` on an intent in Dialogflow ES
 - Set a parameter named `botcopyFeedback` equal to `true` on an intent in Dialogflow CX
-- Use the Feedback method on the global Botcopy window object - `Botcopy.showFeedback()` *todo: add link to feedback window method*
+- Use the Feedback method on the global Botcopy window object - `Botcopy.showFeedback()` <div onclick="Botcopy.openWindow(); Botcopy.showFeedback()" style="cursor: pointer">**Show Example**<div>
+
 
 By default, the content of the Feedback box will be rendered in your user's preferred browser language. You can change the content of the feedback box, but any changes will be static in the given language.
 
