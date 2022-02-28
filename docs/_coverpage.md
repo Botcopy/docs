@@ -4,7 +4,11 @@
 
 <!-- # Botcopy <small>3.5</small> --> 
 
-![logo](/_assets/150x30logo.svg ':size=300x80')
+
+
+![logo](/_assets/450x90logo.svg ':size=450x90')
+
+
 
 > The best custom UI for chat.
 
