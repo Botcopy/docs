@@ -3,12 +3,9 @@ Dialogflow ES comes with rich response types out-of-the-box with **Google Assist
 
 We've also included an example of using each response type in the **Fulfillment** inline editor or a webhook. Each example will be using the `actions-on-google` package by declaring `agent.conv()` before the response. Each response type must be imported.
 
-Google Assistant has certain design constraints when using their response types in Dialogflow ES. If you would like to design a conversation outside of these constraints, please view our **Custom Payloads** section *todo: link to custom payloads here*.
+Google Assistant has certain design constraints when using their response types in Dialogflow ES. If you would like to design a conversation outside of these constraints, please view our [Custom Payloads](https://botcopy.github.io/docs/#/responses/botcopy-custom-payloads).
 
-Please note that Google Assistant response types are *only* supported for Dialogflow ES. To create rich responses for Dialogflow CX agents, please view our **Custom Payloads** section *todo: link to custom payloads here*.
-
-*todo: add visual aid for each response type*
-
+Please note that Google Assistant response types are **only** supported for Dialogflow ES. 
 ## Simple Responses
 **Simple Responses** are the default text message response. They must be included in a message group with cards, carousels, lists, and suggestions.
 
@@ -130,8 +127,253 @@ function basicCard(agent) {
 
 Carousels do not support video files.
 
+Below is an example of how to add a carousel as a response in fulfillment using the actions-on-google package. We recommend using this package over the dialogflow-fulfillment package.
+
+```js
+// for this example, you must require the 'actions-on-google' library
+// deconstruct the Carousel and Image classes from the library at the top of your document
+// example: const { Carousel, Image } = require('actions-on-google')
+
+function fulfillmentCarousel(agent) {
+  // set your agent's requestSource to 'ACTIONS_ON_GOOGLE'
+  agent.requestSource = agent.ACTIONS_ON_GOOGLE;
+
+  // declare a variable conv (this can be a global variable or within an intent response function)
+  let conv = agent.conv();
+
+  // conv.ask your responses
+
+  // this is a simple text response
+  conv.ask('This is a carousel example.');
+
+  // this is a carousel response
+  conv.ask(
+    new Carousel({
+      // items in your carousel
+      items: {
+        // option key name - sent as a response when a user clicks on this card
+        SELECTION_KEY_ONE: {
+          synonyms: ['synonym 1', 'synonym 2', 'synonym 3'],
+          // title of your carousel item
+          title: 'Title of First Carousel Item',
+          // description of your item
+          description: 'This is a description of a carousel item.',
+          // an image associated with a card. note the new 'Image' class we imported
+          image: new Image({
+            url: 'IMG_URL_AOG.com',
+            alt: 'Image alternate text'
+          })
+        },
+        // second carousel item
+        SELECTION_KEY_GOOGLE_HOME: {
+          synonyms: ['Google Home Assistant', 'Assistant on the Google Home'],
+          title: 'Google Home',
+          description:
+            'Google Home is a voice-activated speaker powered by ' +
+            'the Google Assistant.',
+          image: new Image({
+            url: 'IMG_URL_GOOGLE_HOME.com',
+            alt: 'Google Home'
+          })
+        },
+        // third carousel item
+        SELECTION_KEY_GOOGLE_PIXEL: {
+          synonyms: ['Google Pixel XL', 'Pixel', 'Pixel XL'],
+          title: 'Google Pixel',
+          description: 'Pixel. Phone by Google.',
+          image: new Image({
+            url: 'IMG_URL_GOOGLE_PIXEL.com',
+            alt: 'Google Pixel'
+          })
+        }
+      }
+    })
+  );
+
+  // add your conv variable to your agent
+  // this sends all your responses to your botcopy widget
+  agent.add(conv);
+}
+```
+Below is an example of how to add a carousel as a response in fulfillment using the dialogflow-fulfillment package.
+
+```
+// for this example, you must require the 'dialogflow-fulfillment' library
+// deconstruct the Payload class from the library at the top of your document
+// example: const { Payload } = require('dialogflow-fulfillment')
+
+function fulfillmentPayload(agent) {
+  // set your agent's requestSource to 'ACTIONS_ON_GOOGLE'
+  agent.requestSource = 'ACTIONS_ON_GOOGLE';
+
+  // use agent.add and the new Payload class to send a raw JSON Carousel to botcopy
+  agent.add(
+    new Payload(agent.ACTIONS_ON_GOOGLE, {
+      expectUserResponse: true,
+      richResponse: {
+        items: [
+          {
+            simpleResponse: {
+              textToSpeech: 'Choose a item'
+            }
+          }
+        ]
+      },
+      systemIntent: {
+        intent: 'actions.intent.OPTION',
+        data: {
+          '@type': 'type.googleapis.com/google.actions.v2.OptionValueSpec',
+          carouselSelect: {
+            items: [
+              {
+                optionInfo: {
+                  key: 'first title'
+                },
+                description: 'first description',
+                image: {
+                  url:
+                    'https://developers.google.com/actions/images/badges/XPM_BADGING_GoogleAssistant_VER.png',
+                  accessibilityText: 'first alt'
+                },
+                title: 'first title'
+              },
+              {
+                optionInfo: {
+                  key: 'second'
+                },
+                description: 'second description',
+                image: {
+                  url:
+                    'https://lh3.googleusercontent.com/Nu3a6F80WfixUqf_ec_vgXy_c0-0r4VLJRXjVFF_X_CIilEu8B9fT35qyTEj_PEsKw',
+                  accessibilityText: 'second alt'
+                },
+                title: 'second title'
+              }
+            ]
+          }
+        }
+      }
+    })
+  );
+}
+```
+
+
 ## Browse Carousel Cards
 **Browse Carousel Cards** link to an external web URL when selected.
 
+Here is an example on adding a Browse Carousel Card in fulfillment with the actions-on-google package
+
+Note: To open links in a new tab versus within the chat window, add ?nt=t at the end of your url: https://botcopy.com?nt=t
+
+```
+// deconstruct the BrowseCarousel, BrowseCarouselItem and Image classes from the library at the top of your document
+
+const { BrowseCarousel, BrowseCarouselItem, Image } = require('actions-on-google')
+
+function browseCarousel(agent) {
+        agent.requestSource = "ACTIONS_ON_GOOGLE";
+	let conv = agent.conv();
+	conv.ask('This is a browse carousel example from fulfillment.');
+	// Create a browse carousel
+	conv.ask(new BrowseCarousel({
+		items: [
+			new BrowseCarouselItem({
+				title: 'Title of item 1',
+				url: 'https://botcopy.com',
+				description: 'Description of item 1', 
+				image: new Image({
+					url: 'https://www.botcopy.com/wp-content/uploads/2019/01/Screen-Shot-2019-01-27-at-3.37.28-PM.png',
+					alt: 'Image alternate text',
+				}),
+                                footer: 'Item 1 footer', //Supported in next update
+			}),
+			new BrowseCarouselItem({
+				title: 'Title of Item 2',
+				url: 'https://botcopy.com',
+				description: 'Description of Item 2',
+				image: new Image({
+					url: 'https://www.botcopy.com/wp-content/uploads/2019/01/Screen-Shot-2019-01-25-at-10.31.54-AM.png',
+					alt: 'Image alternate text',
+				}),
+                                footer: 'Item 2 footer', 
+			}),
+		],
+	}));
+	agent.add(conv);
+}
+```
+
 ## Lists
-**Lists** display a header and a number of list items to display to the user. Each list item may have an image and drives the conversation forward when selected. Botcopy's **Custom Payloads** allow for linkout functionality with lists *todo: add link to custom payloads here*.
+**Lists** display a header and a number of list items to display to the user. Each list item may have an image and drives the conversation forward when selected. Botcopy's [Custom Payloads](https://botcopy.github.io/docs/#/responses/botcopy-custom-payloads) allow for linkout functionality with lists.
+
+Below is an example of how to add a List in fulfillment using the actions-on-google package.
+
+```
+// this example uses the List class from 'actions-on-google'
+// the structure of a list is similar to a carousel
+// you'll need to deconstruct the List and Image classes from the actions-on-google package
+
+const { List, Image } = require('actions-on-google')
+
+function list(agent) {
+  // set your agent's requestSource to 'ACTIONS_ON_GOOGLE'
+  agent.requestSource = agent.ACTIONS_ON_GOOGLE;
+
+  // declare a variable conv (this can be a global variable or within an intent response function)
+  let conv = agent.conv();
+
+  // conv.ask your responses
+
+  // this is a simple text response
+  conv.ask('This is a list example.');
+
+  // this is a list response
+  conv.ask(
+    new List({
+      // one main difference between a list and a carousel is the title
+      // this title is optional. if you choose to include one, it will be rendered as a header over the list
+      title: 'List Title',
+      items: {
+        // the fields within a list mirror those in a carousel
+        SELECTION_KEY_ONE: {
+          synonyms: ['synonym 1', 'synonym 2', 'synonym 3'],
+          title: 'Title of First List Item',
+          description: 'This is a description of a list item.',
+          // note the image field uses the Image class like carousels
+          image: new Image({
+            url: 'IMG_URL_AOG.com',
+            alt: 'Image alternate text'
+          })
+        },
+        // Add the second item to the list
+        SELECTION_KEY_GOOGLE_HOME: {
+          synonyms: ['Google Home Assistant', 'Assistant on the Google Home'],
+          title: 'Google Home',
+          description:
+            'Google Home is a voice-activated speaker powered by ' +
+            'the Google Assistant.',
+          image: new Image({
+            url: 'IMG_URL_GOOGLE_HOME.com',
+            alt: 'Google Home'
+          })
+        },
+        // Add the third item to the list
+        SELECTION_KEY_GOOGLE_PIXEL: {
+          synonyms: ['Google Pixel XL', 'Pixel', 'Pixel XL'],
+          title: 'Google Pixel',
+          description: 'Pixel. Phone by Google.',
+          image: new Image({
+            url: 'IMG_URL_GOOGLE_PIXEL.com',
+            alt: 'Google Pixel'
+          })
+        }
+      }
+    })
+  );
+
+  // add your conv variable to your agent
+  // this sends all your responses to your botcopy widget
+  agent.add(conv);
+}
+```
