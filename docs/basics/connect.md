@@ -15,6 +15,24 @@ The **Embed Snippet** section gives you two options for embedding the bot to you
 
 Sometimes you might encounter an undefined error if you're using a service like Atlassian or Confluence. In that case, add `data-requireJSOff="true"` as an attribute to the snippet.
 
+## Environments
+
+You can choose an environment your bot connects to. 
+
+**Dialogflow CX**
+
+Copy/paste the ID found at the end of the environment name in the Dialogflow Environment field found on Connect -> Agent Details
+ 
+Example
+projects/dialogflowcx/locations/global/agents/1234/environments/**3770ce8c-72e5-4e3a-a821-06123cadd12**
+
+**Dialogflow ES**
+
+Add the name of your environment to the Dialogflow Environment field found on Connect -> Agent Details
+
+ 
+
+
 ## Utilities and Third-Party Integrations
 The connect page also handles added features available to your bot.
 
