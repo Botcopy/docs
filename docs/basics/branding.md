@@ -2,7 +2,7 @@
 Botcopy offers the most customizable chat client on the market today. The **Branding** page on your portal is the master page for the entire look and feel of your bot, and has a live preview so you can see your changes in real time. Every hexcode used in the chat window can be changed in the Branding page. This page also has a number of **pre-styled color themes** available.
 
 ## Images
-The **Images** section allows you to adjust the images and greeter of your bot. You may upload your own image for the greeter and bot's avatar in the chat here, or choose from a selection of Botcopy's greeter and avatar images.
+The **Images** section allows you to adjust the images and greeter of your bot. You may upload your own image for the greeter and bot's avatar in the chat here, or choose from a selection of Botcopy's greeter and avatar images. GIFs are also accepted. 
 
 You may also change the shape of the greeter and the size of the image within the greeter image field.
 
@@ -18,7 +18,7 @@ The final panel, **Components**, controls the colors of [Botcopy's components](h
 The settings section deals with Branding configurations not related to colors.
 
 ### Greeter Settings
-Change the animation of the greeter when it first loads on a website.
+Select an animation to add some flair to your greeter when it first loads on a website. Choose a speed and timing function to further configure the animation.
 
 ### Prompts Settings
 Choose to display the greeter and prompts or hide them entirely, and also choose to display suggestion chips under the prompt.
@@ -33,7 +33,39 @@ Select from our Header types and choose what functionality is available on the h
 Adjust the font type of your bot, show the Bot's avatar image, and hide the "UI by {••}" tag.
 
 ### Input Bar Settings
-Choose from Input Bar types and whether the microphone should be displayed.
+Choose from Input Bar types and whether the microphone should be displayed. A menu can also be displayed on the input bar.
 
 ## CUI Mode
 CUI stands for **Conversational User Interface**. It is a full-screen chat experience that replaces a website or specific web page(s) within a site. The chat window remains the same, with the exception of removing the _minimize_ and _close_ buttons normally seen on the header. This behavior can be set for an entire bot, or for individual pages of your website by giving the page a Bot Prompt configured to CUI mode.
+
+## Custom Chat Window Styling
+
+**AppendChild Guide**
+
+For further customization of the chat window, custom styles can be added to the script and attached once the shadow DOM is ready.
+
+Note: In order to use this feature the Botcopy Snippet must be at the end of your <body>, not in <head>.
+
+```
+//Botcopy Snippet
+<script type="text/javascript"
+    id="botcopy-embedder-d7lcfheammjct"
+    class="botcopy-embedder-d7lcfheammjct" 
+    data-botId="BOT_ID_HERE"
+>
+    var s = document.createElement('script'); 
+    s.type = 'text/javascript'; s.async = true; 
+    s.src = 'https://widget.botcopy.com/js/injection.js'; 
+    document.getElementById('botcopy-embedder-d7lcfheammjct').appendChild(s);
+
+    //Attach new styles when shadow DOM is ready:
+    window.addEventListener('load', function() {
+    var botStyles = document.createElement('style');
+    // add custom styles, dont forget ";"
+    botStyles.innerHTML = '.botcopy-class { background-color: rgba(0,0,0,0.0) !important; } 
+    .botcopy--avatar-image { margin-right: 40px !important; }';
+    // make sure everything has loaded, otherwise you'll get an undefined exception
+    document.getElementById('botcopy-widget-root').shadowRoot.appendChild(botStyles);
+});
+</script>
+```
