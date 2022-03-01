@@ -33,7 +33,7 @@ Select from our Header types and choose what functionality is available on the h
 Adjust the font type of your bot, show the Bot's avatar image, and hide the "UI by {••}" tag.
 
 ### Input Bar Settings
-Choose from Input Bar types and whether the microphone should be displayed.
+Choose from Input Bar types and whether the microphone should be displayed. A menu can also be displayed on the input bar.
 
 ## CUI Mode
 CUI stands for **Conversational User Interface**. It is a full-screen chat experience that replaces a website or specific web page(s) within a site. The chat window remains the same, with the exception of removing the _minimize_ and _close_ buttons normally seen on the header. This behavior can be set for an entire bot, or for individual pages of your website by giving the page a Bot Prompt configured to CUI mode.
