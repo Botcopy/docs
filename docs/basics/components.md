@@ -1,5 +1,15 @@
 # Chat Components
-Botcopy offers some added utility with **Chat Components**.
+Botcopy offers some added utility with **Chat Components**. Modular control for custom chat window experiences.
+
+## Disable Input Bar
+
+**Dialogflow ES**
+
+To disable the input bar and force users to make a selection (suggestion chips, card buttons etc), add **botcopy-disable-inputbar** (lifespan: 1) as an **output context** to an intent.
+
+**Dialogflow CX**
+
+To disable the input bar and force users to make a selection (suggestion chips, card buttons etc), add a **session parameter** of **bcDisableInputBar** with a value of **true**.
 
 ## Feedback
 When enabled, the **Feedback** component will appear after responses marked as **End of Conversation** in Dialogflow. You also have a few choices for triggering the box manually:
@@ -25,7 +35,7 @@ Your bot's **Profile** adds supplemental information for users. This information
 
 Can be triggered through your bot or website. 
 
-Use a session parameter (**bcWebviewUrl**) for DialogflowCX or a context (**openWebview**) for DialogflowES to display a webview. 
+Use a session parameter (**bcWebviewUrl**) for Dialogflow CX or a context (**openWebview**) for Dialogflow ES to display a webview. 
 
 **DialogflowCX**
 
