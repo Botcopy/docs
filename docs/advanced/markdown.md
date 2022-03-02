@@ -218,7 +218,7 @@ You can also use raw HTML in your Markdown, and it'll mostly work pretty well.
 
 ## Line Breaks
 
-Our recommendation for learning how line breaks work is to experiment and discover -- hit <Enter> once (i.e., insert one newline), then hit it twice (i.e., insert two newlines), see what happens. Or use <br>. You'll soon learn to get what you want.
+Our recommendation for learning how line breaks work is to experiment and discover -- hit `<Enter>` once (i.e., insert one newline), then hit it twice (i.e., insert two newlines), see what happens. Or use `<br>`. You'll soon learn to get what you want.
 
 Here are some things to try out:
 
