@@ -10,7 +10,7 @@ You may also deactivate the bot, unlink the bot, and delete the bot.
 The **Embed Snippet** section gives you two options for embedding the bot to your website. You may choose between a general script and a Google Tag Manager script. 
 
 1. Copy the generated embed snippet from the connect page on your portal.
-2. Paste the embed snippet between <body> and </body> of your website.
+2. Paste the embed snippet between `<body>` and `</body>` of your website.
 3. Your branded chat window will appear in the bottom right of your website
 
 Sometimes you might encounter an undefined error if you're using a service like Atlassian or Confluence. In that case, add `data-requireJSOff="true"` as an attribute to the snippet.
