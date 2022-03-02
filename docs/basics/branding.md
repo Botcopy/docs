@@ -44,7 +44,7 @@ CUI stands for **Conversational User Interface**. It is a full-screen chat exper
 
 For further customization of the chat window, custom styles can be added to the script and attached once the shadow DOM is ready.
 
-Note: In order to use this feature the Botcopy Snippet must be at the end of your <body>, not in <head>.
+Note: In order to use this feature the Botcopy Snippet must be at the end of your `<body>`, not in `<head>`.
 
 ```
 //Botcopy Snippet
