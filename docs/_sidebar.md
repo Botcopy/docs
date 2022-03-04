@@ -18,3 +18,5 @@
 - Window Events and Methods
   - [Window Events](window/events.md "Botcopy Docs | Window Events")
   - [Window Methods](window/methods.md "Botcopy Docs | Window Methods")
+
+  <footer id="mb-footer"></footer>
