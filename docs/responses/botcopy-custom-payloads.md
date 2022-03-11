@@ -397,7 +397,23 @@ Fields have a max length of 256 characters. At least one field is required for t
                 "required": false,
                 "pattern": "string",
                 "expose": false
-              }
+              },
+				{
+		    	"checkboxes": [{
+					"parameter": "Banana",
+					"checkboxLabel": "Banana",
+					"checked": true
+				      },
+			      	{
+					"parameter": "Apple",
+					"checkboxLabel": "Apple"
+				  }
+				 ],
+					"groupLabel": "Select your fruits below:",
+					"fieldType": "checkbox",
+					"parameter": "fruits",
+					"expose": true
+				}
              ],
           "style": "message" OR "wall",
           "title": "Contact Information",
@@ -415,11 +431,10 @@ Fields have a max length of 256 characters. At least one field is required for t
 }
 ```
 
-**form**
+**Form Attributes**
 
 - title: title for the form
 - subtitle: subtitle for the form
-- fields: array containing fields
 - force (optional): defaults to false. If true, the wall component does not have a cancel button. This does not apply to message style forms.
 - style: style of the form component (message or wall)
 - fields: array of objects
@@ -431,3 +446,32 @@ Fields have a max length of 256 characters. At least one field is required for t
   - required (optional): field required to submit form
   - pattern (optional): regex patterns
   - expose (optional): add the parameter name and field value to the `botcopy-form-submitted` window event
+
+
+Supported Field Types: checkbox, date, datetime-local, email, month, week, number, password, tel, text, time, color, url
+
+Unsupported Field Types: file, image, built-in calendar, radio, button, hidden, range, reset, search, submit.
+
+**Checkboxes**
+
+Checkboxes contain an array of checkbox fields. You can define each checkbox field and expose values in the bc-form-submitted window event.
+
+Checkboxes object attributes
+- groupLabel: name of dialogflow parameter to assign input to
+- fieldType: checkbox
+- parameter: name of dialogflow parameter checkbox parameters are assigned to
+- expose: exposes the user's input in the bc-form-submitted window event
+
+Checkbox field attributes
+- parameter: name of dialogflow parameter value to assign input to
+- checkboxLabel: Label of the checkbox
+- checked (optional): Sets checkbox to 'Checked' on load
+
+**Autocomplete**
+
+The [autocomplete](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) attribute lets web developers specify what if any permission the user agent has to provide automated assistance in filling out form field values, as well as guidance to the browser as to the type of information expected in the field.
+
+- autocomplete (optional): defines what should populate for autocomplete. Defaults to 'on'
+- type (optional): type of the input field
+- name (optional): name of the field
+- id (optional): id of the field
