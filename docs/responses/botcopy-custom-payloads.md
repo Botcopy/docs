@@ -375,59 +375,65 @@ Fields have a max length of 256 characters. At least one field is required for t
 
 ```
 {
-  "botcopy": [
-    {
-      "form": {
-          "fields": [
-              {
-                "label": "Email Address",
-                "placeholder": "matt@botcopy.com",
-                "parameter": "email",
-                "type": "email",
-                "required": true,
-                "pattern": "string",
-                "error": "This field is required.",
-                "expose": true
-              },
-              {
-                "label": "Phone Number",
-                "placeholder": "(214) 555-1423",
-                "parameter": "phoneNumber",
-                "type": "tel",
-                "required": false,
-                "pattern": "string",
-                "expose": false
-              },
-				{
-		    	"checkboxes": [{
-					"parameter": "Banana",
-					"checkboxLabel": "Banana",
-					"checked": true
-				      },
-			      	{
-					"parameter": "Apple",
-					"checkboxLabel": "Apple"
-				  }
-				 ],
-					"groupLabel": "Select your fruits below:",
-					"fieldType": "checkbox",
-					"parameter": "fruits",
+	"botcopy": [{
+		"form": {
+			"fields": [{
+					"label": "Email Address",
+					"placeholder": "matt@botcopy.com",
+					"parameter": "email",
+					"type": "email",
+					"required": true,
+					"error": "This field is required.",
 					"expose": true
+				},
+				{
+					"fieldType": "select",
+					"parameter": "fruits",
+					"groupLabel": "Select a fruit below:",
+					"expose": true,
+					"select": [{
+							"selectLabel": "Apple",
+							"parameter": "Apple"
+						},
+						{
+							"parameter": "Banana",
+							"selectLabel": "Banana"
+						},
+						{
+							"selectLabel": "Orange",
+							"parameter": "Orange"
+						}
+					]
+				},
+				{
+					"groupLabel": "Select the amount below:",
+					"fieldType": "checkbox",
+					"parameter": "amount",
+					"expose": true,
+					"checkboxes": [{
+							"parameter": "1",
+							"checkboxLabel": "1",
+							"checked": true
+						},
+						{
+							"parameter": "2",
+							"checkboxLabel": "2"
+						}
+					]
 				}
-             ],
-          "style": "message" OR "wall",
-          "title": "Contact Information",
-          "subtitle": "Thank you for your business!",
-          "force": true,
-          "action": {
-              "message": {
-                "command": "Pricing",
-                "type": "training"
-                }
-            }
-       }
-    }
-  ]
+			],
+			"style": "message",
+			"title": "Contact Information",
+			"subtitle": "Thank you for your business!",
+			"force": true,
+			"action": {
+				"message": {
+					"command": "Pricing",
+					"type": "training"
+				}
+			}
+		}
+	}]
 }
 ```
 
@@ -452,7 +458,7 @@ Supported Field Types: checkbox, date, datetime-local, email, month, week, numbe
 
 Unsupported Field Types: file, image, built-in calendar, radio, button, hidden, range, reset, search, submit.
 
-**Checkboxes**
+### Checkboxes
 
 Checkboxes contain an array of checkbox fields. You can define each checkbox field and expose values in the bc-form-submitted window event.
 
@@ -466,6 +472,62 @@ Checkbox field attributes
 - parameter: name of dialogflow parameter value to assign input to
 - checkboxLabel: Label of the checkbox
 - checked (optional): Sets checkbox to 'Checked' on load
+
+
+```
+	{
+		"fieldType": "checkbox",
+		"parameter": "amount",
+		"groupLabel": "Select the amount below:",
+		"expose": true,
+		"checkboxes": [{
+				"parameter": "1",
+				"checkboxLabel": "1",
+				"checked": true
+			},
+			{
+				"parameter": "2",
+				"checkboxLabel": "2"
+			}
+		]
+	}
+  ```
+
+ ### Select
+
+Select contains menu items within a dropdown menu. You can define each option and expose values in the bc-form-submitted window event.
+
+Select object attributes
+- fieldType: select
+- groupLabel: name of dialogflow parameter to assign input to
+- parameter: name of dialogflow parameter select parameter is assigned to
+- expose: exposes the user's input in the bc-form-submitted window event
+
+Select field attributes
+- parameter: name of dialogflow parameter value to assign input to
+- selectLabel: Label of the menu item
+
+```
+ {
+ 	"fieldType": "select",
+ 	"parameter": "fruits",
+ 	"groupLabel": "Select a fruit below:",
+ 	"expose": true,
+ 	"select": [{
+ 			"selectLabel": "Apple",
+ 			"parameter": "Apple"
+ 		},
+ 		{
+ 			"parameter": "Banana",
+ 			"selectLabel": "Banana"
+ 		},
+ 		{
+ 			"selectLabel": "Orange",
+ 			"parameter": "Orange"
+ 		}
+ 	]
+ }
+```
 
 **Autocomplete**
 
