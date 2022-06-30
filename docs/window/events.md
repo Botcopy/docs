@@ -1,21 +1,23 @@
 # Window Events
+
 The chat window detects and broadcasts user activity with **window events**. You may create an [event listener](https://developer.mozilla.org/en-US/docs/Web/API/EventListener) to utilize these broadcasts.
 
 ```js
-window.addEventListener('botcopy-events', function (e) {
-    switch(e.detail.type) {
-      case 'bc-initialized':
-        // do something
-        break
+window.addEventListener("botcopy-events", function (e) {
+  switch (e.detail.type) {
+    case "bc-initialized":
+      // do something
+      break;
 
-      case 'bc-chip-clicked':
-        // do something
-        break
-    }
+    case "bc-chip-clicked":
+      // do something
+      break;
+  }
 });
 ```
 
 ## bc-initialized
+
 Fires when the chat window has initialized.
 
 ```js
@@ -26,6 +28,7 @@ Fires when the chat window has initialized.
 ```
 
 ## bc-agent-entered-chat
+
 Fires when a live agent enters a chat.
 
 ```js
@@ -39,6 +42,7 @@ Fires when a live agent enters a chat.
 ```
 
 ## bc-agent-left-chat
+
 Fires when a live agent leaves the chat.
 
 ```js
@@ -52,6 +56,7 @@ Fires when a live agent leaves the chat.
 ```
 
 ## bc-agent-message-sent
+
 Fires when a live agent sends a message to a user.
 
 ```js
@@ -64,6 +69,7 @@ Fires when a live agent sends a message to a user.
 ```
 
 ## bc-auth-required
+
 Fires to notify you when your next intent requires authorizing your user. See [Authorizing Users](advanced/bc-auth.md?id=authorizing-a-user) for more details.
 
 ```js
@@ -74,9 +80,11 @@ Fires to notify you when your next intent requires authorizing your user. See [A
 ```
 
 ## bc-bot-response
+
 Fires when a response is received from a bot.
 
 **Dialogflow ES**
+
 ```js
 {
   type: "bc-bot-response",
@@ -87,6 +95,7 @@ Fires when a response is received from a bot.
 ```
 
 **Dialogflow CX**
+
 ```js
 {
   type: "bc-bot-response",
@@ -101,6 +110,7 @@ Fires when a response is received from a bot.
 ```
 
 ## bc-button-clicked
+
 Fires when a button on a card is clicked.
 
 ```js
@@ -114,6 +124,7 @@ Fires when a button on a card is clicked.
 ```
 
 ## bc-card-clicked
+
 Fires when a carousel item is clicked.
 
 ```js
@@ -126,6 +137,7 @@ Fires when a carousel item is clicked.
 ```
 
 ## bc-chip-clicked
+
 Fires when a suggestion chip is clicked.
 
 ```js
@@ -138,6 +150,7 @@ Fires when a suggestion chip is clicked.
 ```
 
 ## bc-form-submitted
+
 Fires when a custom Botcopy form is submitted. Optionally, some form fields may be exposed in the payload.
 
 ```js
@@ -148,6 +161,7 @@ Fires when a custom Botcopy form is submitted. Optionally, some form fields may 
 ```
 
 ## bc-link-out-clicked
+
 Fires when a linkout suggestion is clicked.
 
 ```js
@@ -160,6 +174,7 @@ Fires when a linkout suggestion is clicked.
 ```
 
 ## bc-list-element-clicked
+
 Fires when a list item is clicked.
 
 ```js
@@ -172,6 +187,7 @@ Fires when a list item is clicked.
 ```
 
 ## bc-history-cleared
+
 Fires when chat history is cleared.
 
 ```js
@@ -182,6 +198,7 @@ Fires when chat history is cleared.
 ```
 
 ## bc-tts-on
+
 Fires when text-to-speech is enabled.
 
 ```js
@@ -192,6 +209,7 @@ Fires when text-to-speech is enabled.
 ```
 
 ## bc-tts-off
+
 Fires when text-to-speech is disabled.
 
 ```js
@@ -202,6 +220,7 @@ Fires when text-to-speech is disabled.
 ```
 
 ## bc-feedback-open
+
 Fires when the feedback box opens.
 
 ```js
@@ -212,6 +231,7 @@ Fires when the feedback box opens.
 ```
 
 ## bc-feedback-close
+
 Fires when the feedback box closes.
 
 ```js
@@ -221,7 +241,30 @@ Fires when the feedback box closes.
 }
 ```
 
+## bc-focus-trap-on
+
+Fires when the focus trap is enabled.
+
+```js
+{
+  type: "bc-focus-trap-on",
+  payload: {}
+}
+```
+
+## bc-focus-trap-off
+
+Fires when the focus trap is disabled.
+
+```js
+{
+  type: "bc-focus-trap-off",
+  payload: {}
+}
+```
+
 ## bc-webview-open
+
 Fires when a webview iFrame opens in the chat.
 
 ```js
@@ -232,6 +275,7 @@ Fires when a webview iFrame opens in the chat.
 ```
 
 ## bc-webview-close
+
 Fires when a webview iFrame closes within the chat.
 
 ```js
@@ -242,6 +286,7 @@ Fires when a webview iFrame closes within the chat.
 ```
 
 ## bc-window-open
+
 Fires when the chat window opens.
 
 ```js
@@ -252,6 +297,7 @@ Fires when the chat window opens.
 ```
 
 ## bc-window-close
+
 Fires when the chat window closes.
 
 ```js
