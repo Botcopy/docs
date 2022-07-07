@@ -10,10 +10,10 @@ Audited by [Zenyth Group](https://www.zenythgroup.com/index). -->
 
 Focus traps are disabled by default to allow you to [test and implement](https://botcopy.github.io/docs/#/wcag/focus-trap?id=testing) your bot with your existing libraries.
 
-To enable the focus trap:
+To enable the focus trap you can either:
 
-1. Toggle on `Focus Trap` in the Botcopy Portal -> Branding -> Settings -> Chat Window General Settings
-2. Add and set `data-enableFocusTrap` to `true` on your Botcopy [embed snippet](https://botcopy.github.io/docs/#/basics/connect?id=embed-snippet).
+- Toggle on `Focus Trap` in the Botcopy Portal -> Branding -> Settings -> Chat Window General Settings
+- Add and set `data-enableFocusTrap` to `true` on your Botcopy [embed snippet](https://botcopy.github.io/docs/#/basics/connect?id=embed-snippet).
 
 ```js
 <script
