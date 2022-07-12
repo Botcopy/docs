@@ -1,4 +1,5 @@
 # Botcopy Response Payload Format for Dialogflow CX
+
 Botcopy responses are designed to be flexible in their role and this is reflected in the payload structure. Components in the payload have an action field that dictates their behavior in the Botcopy chat when the component is selected by users. It allows multiple response types with different actions to be grouped together.
 
 Examples:
@@ -11,6 +12,7 @@ Examples:
 
 [Actions in Detail](#actions)
 [Response Payload Details](#response-payload-structure-details)
+
 - [Text Responses](#text-responses)
 - [Suggestions](#suggestions)
 - [Basic Cards](#basic-cards)
@@ -367,7 +369,11 @@ Lists are another way to visualize an assortment of data. Lists do not use a but
 
 ## Forms
 
-Forms have a title and fields waiting for user input. Field inputs are assigned as a parameter on `botcopy-form-context` for Dialogflow ES or as a session parameter for Dialogflow CX.
+Forms contain fields for user input. These fields come in a variety of fieldTypes and associated attributes. You can also add a title and subtitle to your forms.
+
+Dialogflow ES: User inputs are set as a parameter on `botcopy-form-context`
+
+Dialogflow CX: User inputs are set as session parameters
 
 Forms exclusively use a [message](#message) action, which is the training phrase or event used to continue the conversation when the form is filled.
 
@@ -439,40 +445,43 @@ Fields have a max length of 256 characters. At least one field is required for t
 
 **Form Attributes**
 
-- title: title for the form
-- subtitle: subtitle for the form
-- force (optional): defaults to false. If true, the wall component does not have a cancel button. This does not apply to message style forms.
-- style: style of the form component (message or wall)
+- title: title of the form
+- subtitle: subtitle of the form
+- force (optional): defaults to false.
+  - If true, the wall style does not have a cancel button
+  - Does not apply to forms with style: "message"
+- style: style of the form component
+  - message, wall
+- fieldType: Type of the field (< input type=""> element)
+  - text, checkbox, select
 - fields: array of objects
   - label: text input label
   - placeholder: input placeholder
   - parameter: name of dialogflow parameter to assign input to
   - error: text shown if a required field is not filled
-  - type (optional): type of the input field
   - required (optional): field required to submit form
   - pattern (optional): regex patterns
   - expose (optional): add the parameter name and field value to the `botcopy-form-submitted` window event
-
-
-Supported Field Types: checkbox, date, datetime-local, email, month, week, number, password, tel, text, time, color, url
-
-Unsupported Field Types: file, image, built-in calendar, radio, button, hidden, range, reset, search, submit.
+  - type (optional): type of input to be collected
+    - Supported types: checkbox, date, datetime-local, email, month, week, number, password, tel, text, time, color, url
+    - Unsupported types: file, image, built-in calendar, radio, button, hidden, range, reset, search, submit
 
 ### Checkboxes
 
 Checkboxes contain an array of checkbox fields. You can define each checkbox field and expose values in the bc-form-submitted window event.
 
 Checkboxes object attributes
+
 - groupLabel: name of dialogflow parameter to assign input to
 - fieldType: checkbox
 - parameter: name of dialogflow parameter checkbox parameters are assigned to
 - expose: exposes the user's input in the bc-form-submitted window event
 
 Checkbox field attributes
+
 - parameter: name of dialogflow parameter value to assign input to
 - checkboxLabel: Label of the checkbox
 - checked (optional): Sets checkbox to 'Checked' on load
-
 
 ```
 	{
@@ -491,19 +500,21 @@ Checkbox field attributes
 			}
 		]
 	}
-  ```
+```
 
- ### Select
+### Select
 
 Select contains menu items within a dropdown menu. You can define each option and expose values in the bc-form-submitted window event.
 
 Select object attributes
+
 - fieldType: select
 - groupLabel: name of dialogflow parameter to assign input to
 - parameter: name of dialogflow parameter select parameter is assigned to
 - expose: exposes the user's input in the bc-form-submitted window event
 
 Select field attributes
+
 - parameter: name of dialogflow parameter value to assign input to
 - selectLabel: Label of the menu item
 
