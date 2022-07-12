@@ -369,11 +369,11 @@ Lists are another way to visualize an assortment of data. Lists do not use a but
 
 ## Forms
 
-Forms have a title and fields waiting for user input.
+Forms contain fields for user input. These fields come in a variety of fieldTypes and associated attributes. You can also add a title and subtitle to your forms.
 
-Dialogflow ES: Field inputs are assigned as a parameter on `botcopy-form-context`
+Dialogflow ES: User inputs are set as a parameter on `botcopy-form-context`
 
-Dialogflow CX: Field input are assigned as a session parameter for Dialogflow CX.
+Dialogflow CX: User inputs are set as session parameters
 
 Forms exclusively use a [message](#message) action, which is the training phrase or event used to continue the conversation when the form is filled.
 
@@ -447,7 +447,8 @@ Fields have a max length of 256 characters. At least one field is required for t
 
 - title: title of the form
 - subtitle: subtitle of the form
-- force (optional): defaults to false. If true, the wall component does not have a cancel button
+- force (optional): defaults to false.
+  - If true, the wall style does not have a cancel button
   - Does not apply to forms with style: "message"
 - style: style of the form component
   - message, wall
@@ -458,14 +459,12 @@ Fields have a max length of 256 characters. At least one field is required for t
   - placeholder: input placeholder
   - parameter: name of dialogflow parameter to assign input to
   - error: text shown if a required field is not filled
-  - type (\*optional): type of input to be collected
   - required (optional): field required to submit form
   - pattern (optional): regex patterns
   - expose (optional): add the parameter name and field value to the `botcopy-form-submitted` window event
-
-\*Supported types: checkbox, date, datetime-local, email, month, week, number, password, tel, text, time, color, url
-
-\*Unsupported types: file, image, built-in calendar, radio, button, hidden, range, reset, search, submit
+  - type (optional): type of input to be collected
+    - Supported types: checkbox, date, datetime-local, email, month, week, number, password, tel, text, time, color, url
+    - Unsupported types: file, image, built-in calendar, radio, button, hidden, range, reset, search, submit
 
 ### Checkboxes
 
