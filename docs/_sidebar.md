@@ -13,7 +13,7 @@
 - Messaging and Response Types
   - [Botcopy Custom Payloads](responses/botcopy-custom-payloads.md "Botcopy Docs | Custom Payloads")
   - [Google Assistant](responses/google-assistant.md "Botcopy Docs | Google Assistant")
-  - [Videos & Youtube](responses/videos.md "Botcopy Docs | Videos & Youtube")
+  - [Videos](responses/videos.md "Botcopy Docs | Videos")
   - [Fulfillment Examples](responses/fulfillmentexamples.md "Botcopy Docs | Fulfillment Examples")
 - Window Events and Methods
   - [Window Events](window/events.md "Botcopy Docs | Window Events")
