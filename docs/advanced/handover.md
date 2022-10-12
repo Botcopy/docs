@@ -10,15 +10,15 @@ Botcopy provides an open endpoint for you to connect an ITSM Tool like Genesys, 
 
 Here are the steps that proxy should follow:
 
-1. You receive a webhook call when Botcopy detects a specific context in dialogflow response, and when Botcopy bot is paused and user writes a message.
-2. You can interact with the chat user with a `message`, `channel_update`, and `agent_typing`.
+1. You receive a webhook call when Botcopy detects the context/session parameter of `bcHumanHandover`, your bot is paused and the end-user sends a message.
+2. You can interact with the end-user through `message`, `channel_update`, and `agent_typing`.
 3. You will handle the socket towards the chosen ITSM tool.
 
 ## Setup in the Botcopy Portal
 
-The handover integration is set for each individual Botcopy bot on its Connect page in the Portal. You may set the webhook URL, set contexts which will trigger the handover, and enable the storing of message history. This is also where you generate an access token to view your message history, and set an access token so the requests can authenticate with your webhook.
+The handover integration is set for each individual Botcopy bot on its Connect page in the Portal. You may set the webhook URL, set a context/session parameter of `bcHumanHandover` which will trigger the handover, and enable the storing of message history. This is also where you generate your `organization access token` to view your message history, and set a `bot access token` so the requests can authenticate with your webhook.
 
-**Please note:** Access tokens created to view message history may only be saved once. If you lose this token, you must generate a new one.
+**Please note:** The `organization access token` created to view message history will only display once. If you lose this token, you must generate a new one.
 
 Per request, Botcopy can ensure the message history complies with GDPR by storing conversations in our database and send the chat history on the initial webhook call.
 
@@ -30,11 +30,11 @@ Per request, Botcopy can ensure the message history complies with GDPR by storin
 
 **Direction:** Botcopy -> Client
 
-**Purpose:** You receive a webhook call when Botcopy detects a specific context in a Dialogflow response. You define a webhook URL pointing to your middleware, an access token to authenticate with your middleware, and a Dialogflow context name to trigger the webhook. When the context is detected, we send a `POST` request to your webhook with the following JSON body:
+**Purpose:** Client receives a webhook call when Botcopy detects a specific context in a Dialogflow response. Client defines a webhook URL pointing to your middleware, a bot access token to authenticate with your middleware, and a Dialogflow context name to trigger the webhook. When the context is detected, we send a `POST` request to your webhook with the following JSON body:
 
 ```json5
 {
-  accessToken: "***", // User defined access token created on the Connect page in the Botcopy Portal
+  accessToken: "***", // bot access token
   userId: "***",
   botId: "***",
   session: "projects/test***/agent/sessions/***-***-***-***-***",
@@ -118,11 +118,11 @@ Per request, Botcopy can ensure the message history complies with GDPR by storin
 }
 ```
 
-You must respond with a JSON body `{ paused: true, minutesPaused: number}` within five seconds, otherwise the bot will not pause the conversation and ignore the response after the timeout. if `{paused: false}` is provided, the bot will not pause the conversation.
+Client must respond with a JSON body `{ paused: true, minutesPaused: number}` within five seconds, otherwise the bot will not pause the conversation and ignore the response after the timeout. if `{paused: false}` is provided, the bot will not pause the conversation.
 
 If the JSON body is received, the conversation is paused and messages from the chat user are sent to your middleware instead of Dialogflow.
 
-If `minutesPaused` is not given, we default to ten minutes.
+If `minutesPaused` is not provided, the default is set to ten minutes.
 
 You can reference the specific Dialogflow session with the `session` key of the initial request.
 
@@ -138,7 +138,7 @@ Botcopy sends a request with the following JSON:
 
 ```json5
 {
-  accessToken: "***",
+  accessToken: "***", // bot access token
   userId: "***",
   botId: "***",
   session: "projects/test***/agent/sessions/***-***-***-***-***",
@@ -162,9 +162,9 @@ Botcopy sends a request with the following JSON:
 }
 ```
 
-You must respond with a JSON body of `{paused: true, minutesPaused: number}` within five seconds to continue pausing the bot. `minutesPaused` defaults to ten minutes.
+Client must [update the channel](https://docs.botcopy.com/#/advanced/handover?id=updating-the-channel) and respond with a JSON body that includes `{paused: true, minutesPaused: number}` within 5 seconds to continue pausing the bot. `minutesPaused` defaults to 10 minutes.
 
-If we receive `{paused: false}` or a response after five seconds, we forward the user message in the request to Dialogflow.
+If Botcopy receives `{paused: false}` or a response after five seconds, we forward the user message in the request to Dialogflow.
 
 ## API Integration
 
@@ -186,13 +186,13 @@ Send a JSON body like this:
 
 ```json5
 {
-  accessToken: "***",
+  accessToken: "***", // organization access token
   eventType: "message",
   userId: "***", // Botcopy`s user id
   botId: "***", // Botcopy`s bot id
   text: "Hi, how may I assist?", // text you want to send to user
   paused: true, // paused?
-  minutesPaused: 5, // how long should we pause the bot for, default 10
+  minutesPaused: 5, // minutes to pause the bot, default 10
   agentProfile: {
     // info about the current live agent
     name: "Jane Doe", // name of the agent
@@ -203,13 +203,13 @@ Send a JSON body like this:
 
 ### Updating the channel
 
-**Resume Bot requests to Dialogflow** with this JSON body. If a name is provided, Botcopy displays `NAME has left the conversation. You are now chatting with the bot.`
+**Resume Bot requests** to Dialogflow with this JSON body. If a name is provided, Botcopy displays `NAME has left the conversation. You are now chatting with the bot.`
 
 Otherwise, Botcopy displays `The human has left the conversation. You are now chatting with the bot.`
 
 ```json5
 {
-  accessToken: "***",
+  accessToken: "***", // organization access token
   eventType: "channel_update",
   userId: "***", // Botcopy`s user id
   botId: "***", // Botcopy`s bot id
@@ -222,16 +222,16 @@ Otherwise, Botcopy displays `The human has left the conversation. You are now ch
 }
 ```
 
-**Pause Bot requests to Dialogflow** with this JSON body:
+**Pause Bot requests** to Dialogflow with this JSON body:
 
 ```json5
 {
-  accessToken: "***",
+  accessToken: "***", // organization access token
   eventType: "channel_update",
   userId: "***", // Botcopy`s user id
   botId: "***", // Botcopy`s bot id
   paused: true, // paused?
-  minutesPaused: 5, // how long should we pause the bot for, default 10
+  minutesPaused: 5, // minutes to pause the bot, default 10
   agentProfile: {
     // info about the current live agent
     name: "Jane Doe", // name of the agent
@@ -242,11 +242,11 @@ Otherwise, Botcopy displays `The human has left the conversation. You are now ch
 
 ### Show typing indicator
 
-The typing indicator disappears after ten seconds automatically, so you'll need to trigger the endpoint again if your agent is still typing after nine seconds.
+The typing indicator disappears after 10 seconds automatically, so you'll need to trigger the endpoint again if your agent is still typing after 9 seconds.
 
 ```json5
 {
-  accessToken: "***",
+  accessToken: "***", // organization access token
   eventType: "user_typing",
   userId: "***", // Botcopy`s user id
   botId: "***", // Botcopy`s bot id
@@ -260,23 +260,6 @@ The typing indicator disappears after ten seconds automatically, so you'll need 
 
 ## Remarks
 
-As an example, we have interfaced with Genesys and in Genesys Live Agent Chat we have these API’s available that we translate towards Botcopy:
+When communicating from Client -> Botcopy, the organization access token is used
 
-**/ICWS/Web-Chat**
-
-- Start
-  - ParticipantID
-  - ParticipantName
-  - Language
-  - Notes
-  - ChatHistory
-- Exit
-  - Participant ID
-- Reconnect
-  - Participant ID
-  - (Chat ID)
-- Typing-State
-  - Participant ID
-- Send-Message
-  - Participant ID
-  - (ContentType = text/plain or text/html)
+When communicating from Botcopy -> Client, the bot access token is used
