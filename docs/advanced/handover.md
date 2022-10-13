@@ -10,21 +10,24 @@ Botcopy provides an open endpoint for you to connect an ITSM Tool like Genesys, 
 
 Here are the steps that proxy should follow:
 
-1. Botcopy detects a trigger contexts (DialogFlow ES) or a session parameter (DialogFlow CX) configured on the Portal Connect page for each bot
+1. Botcopy detects a trigger contexts (Dialogflow ES) or a session parameter (Dialogflow CX) configured on the Portal Connect page for each bot
 2. Botcopy calls your Live Chat Endpoint Webhook and use its response to either pause the bot or keep the bot running.
    a. If your webhook returns `{ paused: true, minutesPaused: 10 }`, the bot is paused and any subsequent messages from the end-user will not be forwarded to Dialogflow and will trigger a call to your Live Chat Endpoint Webhook
    b. If your webhook returns `{ paused: false }`, the bot is not paused and any subsequent message from the end-user will be forwarded to Dialogflow
-3. To send events ("message", "channel_update" or "user_typing") to your end-user make a POST request to  `https://api.botcopy.com/webhooks/handover/push` (more details below)
+3. To send events ("message", "channel_update" or "user_typing") to your end-user make a POST request to `https://api.botcopy.com/webhooks/handover/push` (more details below)
 
 ## Setup in the Botcopy Portal
 
-The handover integration is set for each Botcopy bot on its Connect page in the Portal.
-You may set your Live Chat Endpoint Webhook URL
-If you're using Dialogflow ES set any lowercased trigger context you want like `bc-human-handover`
-If you're using Dialoflow CX set `bcHumanHandover` as your trigger session parameter
-Enable the storing of message history.
-Generate your `organization access token`, that's used by Botcopy to authenticate you when you make a POST request to `https://api.botcopy.com/webhooks/handover/push`
-Set a `bot access token` that you will use to authenticate Botcopy when Botcopy is making POST requests to your Live Chat Endpoint Webhook.
+The handover integration for each bot is found on the Connect page in the Portal.
+
+1.  Set a Live Chat Endpoint Webhook URL.
+
+2.  - Dialogflow ES: set any lowercased trigger context you want like `bc-human-handover`.
+    - Dialogflow CX: set `bcHumanHandover` as your trigger session parameter.
+
+3.  Generate your `organization access token`, that's used by Botcopy to authenticate you when you make a POST request to `https://api.botcopy.com/webhooks/handover/push`.
+4.  Set a `bot access token` that you will use to authenticate Botcopy when Botcopy is making POST requests to your Live Chat Endpoint Webhook URL.
+5.  Enable the storing of message history.
 
 **Please note:** The `organization access token` created to view message history will only display once. If you lose this token, you must generate a new one.
 
@@ -128,11 +131,9 @@ Per request, Botcopy can ensure the message history complies with GDPR by storin
 
 Client must respond with a JSON body `{ paused: true, minutesPaused: number}` within 5 seconds, otherwise the bot will not pause the conversation and ignore the response after the timeout. if `{paused: false}` is provided, the bot will not pause the conversation.
 
-
 If `minutesPaused` is not provided, the default is set to 10 minutes.
 
 When sending each message to the user, `paused` and `minutesPaused` should be a part of the payload that you send to Botcopy's endpoint: `https://api.botcopy.com/webhooks/handover/push`. To keep the conversation going make sure that `paused` is true and `minutesPaused` greater than 0. This way the session time expiry is pushed back each time a message is received from and sent to the end-user and you have a way to resume AI responses on your bot when you receive or send a message to the user.
-
 
 ### Step Two
 
@@ -168,7 +169,6 @@ Botcopy sends a request with the following JSON:
   },
 }
 ```
-
 
 If Botcopy receives `{ paused: false }` or a response after five seconds, we forward the user message in the request to Dialogflow.
 
@@ -274,4 +274,3 @@ When communicating from Client -> Botcopy, the `organization access token` is us
 When communicating from Botcopy -> Client, the `bot access token` is used.
 
 `"Content-Type": "application/json"` is required in the header of the POST request to `https://api.botcopy.com/webhooks/handover/push`
-
