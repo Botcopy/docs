@@ -151,7 +151,6 @@ Botcopy sends a request with the following JSON:
   accessToken: "***", // bot access token
   userId: "***",
   botId: "***",
-  session: "projects/test***/agent/sessions/***-***-***-***-***",
   queryInput: {
     text: {
       text: "help me please",
