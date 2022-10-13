@@ -170,7 +170,6 @@ Botcopy sends a request with the following JSON:
 }
 ```
 
-Client must respond JSON body that includes `{ paused: true, minutesPaused: number }` within 5 seconds to continue pausing the bot. `minutesPaused` defaults to 10 minutes.
 
 If Botcopy receives `{ paused: false }` or a response after five seconds, we forward the user message in the request to Dialogflow.
 
