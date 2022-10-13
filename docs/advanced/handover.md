@@ -260,11 +260,11 @@ The typing indicator disappears after 10 seconds automatically, so you'll need t
 
 ## Remarks
 
-When communicating from Client -> Botcopy, the organization access token is used.
+When communicating from Client -> Botcopy, the `organization access token` is used.
 
-When communicating from Botcopy -> Client, the bot access token is used.
+When communicating from Botcopy -> Client, the `bot access token` is used.
 
-"Content-Type": "application/json" is required in the header when making a request to Botcopy.
+`"Content-Type": "application/json"` is required in the header when making a request to Botcopy.
 
 The below sets the application/json header automatically by using a `dict` and not `{}`.
 
