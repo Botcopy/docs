@@ -269,5 +269,5 @@ When communicating from Client -> Botcopy, the `organization access token` is us
 
 When communicating from Botcopy -> Client, the `bot access token` is used.
 
-`"Content-Type": "application/json"` is required in the header when making a request to Botcopy.
+`"Content-Type": "application/json"` is required in the header of the POST request to `https://api.botcopy.com/webhooks/handover/push`
 
