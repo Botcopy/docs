@@ -16,7 +16,7 @@ Here are the steps that proxy should follow:
 
 ## Setup in the Botcopy Portal
 
-The handover integration is set for each individual Botcopy bot on its Connect page in the Portal. You may set the webhook URL, set a context/session parameter of `bcHumanHandover` which will trigger the handover, and enable the storing of message history. This is also where you generate your `organization access token` to view your message history, and set a `bot access token` so the requests can authenticate with your webhook.
+The handover integration is set for each individual Botcopy bot on its Connect page in the Portal. You may set the webhook URL, a context/session parameter of `bcHumanHandover` which will trigger the handover, and enable the storing of message history. This is also where you generate your `organization access token` to view your message history, and set a `bot access token` so the requests can authenticate with your webhook.
 
 **Please note:** The `organization access token` created to view message history will only display once. If you lose this token, you must generate a new one.
 
