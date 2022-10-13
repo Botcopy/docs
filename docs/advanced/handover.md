@@ -162,7 +162,7 @@ Botcopy sends a request with the following JSON:
 }
 ```
 
-Client must [update the channel](https://docs.botcopy.com/#/advanced/handover?id=updating-the-channel) and respond with a JSON body that includes `{paused: true, minutesPaused: number}` within 5 seconds to continue pausing the bot. `minutesPaused` defaults to 10 minutes.
+Client must respond JSON body that includes `{paused: true, minutesPaused: number}` within 5 seconds to continue pausing the bot. `minutesPaused` defaults to 10 minutes.
 
 If Botcopy receives `{paused: false}` or a response after five seconds, we forward the user message in the request to Dialogflow.
 
@@ -260,6 +260,30 @@ The typing indicator disappears after 10 seconds automatically, so you'll need t
 
 ## Remarks
 
-When communicating from Client -> Botcopy, the organization access token is used
+When communicating from Client -> Botcopy, the organization access token is used.
 
-When communicating from Botcopy -> Client, the bot access token is used
+When communicating from Botcopy -> Client, the bot access token is used.
+
+"Content-Type": "application/json" is required in the header when making a request to Botcopy.
+
+The below sets the application/json header automatically by using a `dict` and not `{}`.
+
+```
+payload = dict(
+    accessToken="***", // organization access token
+    eventType="user_typing",
+    userId="***", // Botcopy`s user id
+    botId="***", // Botcopy`s bot id
+    paused=True,
+    minutesPaused=10,
+    agentProfile=dict(
+        name="John Smith",
+        avatarUrl=""
+    ),
+)
+
+r = self.session.post(
+    https://api.botcopy.com/webhooks/handover/push,
+    json=payload,
+)
+```
