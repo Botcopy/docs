@@ -130,7 +130,7 @@ Client must respond with a JSON body `{ paused: true, minutesPaused: number}` wi
 
 If the JSON body is received, the conversation is paused and messages from the chat user are sent to your middleware instead of Dialogflow.
 
-If `minutesPaused` is not provided, the default is set to ten minutes.
+If `minutesPaused` is not provided, the default is set to 10 minutes.
 
 When sending each message to the user, `paused` and `minutesPaused` should be a part of the payload that you send to Botcopy's endpoint: `https://api.botcopy.com/webhooks/handover/push`. To keep the conversation going make sure that `paused` is true and `minutesPaused` greater than 0. This way the session time expiry is pushed back each time a message is received from and sent to the end-user and you have a way to resume AI responses on your bot when you receive or send a message to the user.
 
