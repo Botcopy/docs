@@ -18,7 +18,13 @@ Here are the steps that proxy should follow:
 
 ## Setup in the Botcopy Portal
 
-The handover integration is set for each individual Botcopy bot on its Connect page in the Portal. You may set the webhook URL, a context/session parameter of `bcHumanHandover` which will trigger the handover, and enable the storing of message history. This is also where you generate your `organization access token` to view your message history, and set a `bot access token` so the requests can authenticate with your webhook.
+The handover integration is set for each Botcopy bot on its Connect page in the Portal.
+You may set your Live Chat Endpoint Webhook URL
+If you're using Dialogflow ES set any lowercased trigger context you want like `bc-human-handover`
+If you're using Dialoflow CX set `bcHumanHandover` as your trigger session parameter
+Enable the storing of message history.
+Generate your `organization access token`, that's used by Botcopy to authenticate you when you make a POST request to `https://api.botcopy.com/webhooks/handover/push`
+Set a `bot access token` that you will use to authenticate Botcopy when Botcopy is making POST requests to your Live Chat Endpoint Webhook.
 
 **Please note:** The `organization access token` created to view message history will only display once. If you lose this token, you must generate a new one.
 
