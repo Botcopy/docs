@@ -271,24 +271,3 @@ When communicating from Botcopy -> Client, the `bot access token` is used.
 
 `"Content-Type": "application/json"` is required in the header when making a request to Botcopy.
 
-The below sets the application/json header automatically by using a `dict` and not `{}`.
-
-```
-payload = dict(
-    accessToken="***", // organization access token
-    eventType="user_typing",
-    userId="***", // Botcopy`s user id
-    botId="***", // Botcopy`s bot id
-    paused=True,
-    minutesPaused=10,
-    agentProfile=dict(
-        name="John Smith",
-        avatarUrl=""
-    ),
-)
-
-r = self.session.post(
-    https://api.botcopy.com/webhooks/handover/push,
-    json=payload,
-)
-```
