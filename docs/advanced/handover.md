@@ -38,7 +38,7 @@ Per request, Botcopy can ensure the message history complies with GDPR by storin
 
 **Direction:** Botcopy -> Client
 
-**Purpose:** Client receives a webhook call when Botcopy detects a specific context in a Dialogflow response. Client defines a webhook URL pointing to your middleware, a bot access token to authenticate with your middleware, and a Dialogflow context name to trigger the webhook. When the context is detected, we send a `POST` request to your webhook with the following JSON body:
+**Purpose:** Client receives a POST request to their Live Chat Endpoint Webhook when Botcopy detects a trigger output context(ES)/session parameter(CX) in a Dialogflow response.
 
 ```json5
 {
