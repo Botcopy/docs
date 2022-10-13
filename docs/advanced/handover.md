@@ -134,7 +134,6 @@ If `minutesPaused` is not provided, the default is set to ten minutes.
 
 When sending each message to the user, `paused` and `minutesPaused` should be a part of the payload that you send to Botcopy's endpoint: `https://api.botcopy.com/webhooks/handover/push`. To keep the conversation going make sure that `paused` is true and `minutesPaused` greater than 0. This way the session time expiry is pushed back each time a message is received from and sent to the end-user and you have a way to resume AI responses on your bot when you receive or send a message to the user.
 
-You can reference the specific Dialogflow session with the `session` key of the initial request.
 
 ### Step Two
 
