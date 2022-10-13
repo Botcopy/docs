@@ -128,7 +128,6 @@ Per request, Botcopy can ensure the message history complies with GDPR by storin
 
 Client must respond with a JSON body `{ paused: true, minutesPaused: number}` within 5 seconds, otherwise the bot will not pause the conversation and ignore the response after the timeout. if `{paused: false}` is provided, the bot will not pause the conversation.
 
-If the JSON body is received, the conversation is paused and messages from the chat user are sent to your middleware instead of Dialogflow.
 
 If `minutesPaused` is not provided, the default is set to 10 minutes.
 
