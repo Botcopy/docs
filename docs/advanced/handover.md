@@ -118,11 +118,13 @@ Per request, Botcopy can ensure the message history complies with GDPR by storin
 }
 ```
 
-Client must respond with a JSON body `{ paused: true, minutesPaused: number}` within five seconds, otherwise the bot will not pause the conversation and ignore the response after the timeout. if `{paused: false}` is provided, the bot will not pause the conversation.
+Client must respond with a JSON body `{ paused: true, minutesPaused: number}` within 5 seconds, otherwise the bot will not pause the conversation and ignore the response after the timeout. if `{paused: false}` is provided, the bot will not pause the conversation.
 
 If the JSON body is received, the conversation is paused and messages from the chat user are sent to your middleware instead of Dialogflow.
 
 If `minutesPaused` is not provided, the default is set to ten minutes.
+
+When sending each message to the user, paused and minutesPaused should be a part of the payload that you send to Botcopy's endpoint: `https://api.botcopy.com/webhooks/handover/push`. To keep the conversation going make sure that `paused` is true and `minutesPaused` greater than 0. This way the session time expiry is pushed back each time a message is received from and sent to the end-user and you have a way to resume AI responses on your bot when you receive or send a message to the user.
 
 You can reference the specific Dialogflow session with the `session` key of the initial request.
 
@@ -162,9 +164,12 @@ Botcopy sends a request with the following JSON:
 }
 ```
 
-Client must respond JSON body that includes `{paused: true, minutesPaused: number}` within 5 seconds to continue pausing the bot. `minutesPaused` defaults to 10 minutes.
+Client must respond JSON body that includes `{ paused: true, minutesPaused: number }` within 5 seconds to continue pausing the bot. `minutesPaused` defaults to 10 minutes.
 
-If Botcopy receives `{paused: false}` or a response after five seconds, we forward the user message in the request to Dialogflow.
+If Botcopy receives `{ paused: false }` or a response after five seconds, we forward the user message in the request to Dialogflow.
+
+If you wish to end the conversation with the user in any of these 2 cases return the following instead:
+`{ paused: false, minutesPaused: 0 }`
 
 ## API Integration
 
