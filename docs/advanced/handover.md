@@ -10,10 +10,13 @@ Botcopy provides an open endpoint for you to connect an ITSM Tool like Genesys, 
 
 Here are the steps that proxy should follow:
 
-1. Botcopy detects a trigger contexts (Dialogflow ES) or a session parameter (Dialogflow CX) configured on the Portal Connect page for each bot
+1. Botcopy detects a trigger context (Dialogflow ES) or a session parameter (Dialogflow CX) configured on the Portal Connect page for each bot
 2. Botcopy calls your Live Chat Endpoint Webhook and use its response to either pause the bot or keep the bot running.
+
    a. If your webhook returns `{ paused: true, minutesPaused: 10 }`, the bot is paused and any subsequent messages from the end-user will not be forwarded to Dialogflow and will trigger a call to your Live Chat Endpoint Webhook
+
    b. If your webhook returns `{ paused: false }`, the bot is not paused and any subsequent message from the end-user will be forwarded to Dialogflow
+
 3. To send events ("message", "channel_update" or "user_typing") to your end-user make a POST request to `https://api.botcopy.com/webhooks/handover/push` (more details below)
 
 ## Setup in the Botcopy Portal
