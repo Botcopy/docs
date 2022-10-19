@@ -165,7 +165,7 @@ Botcopy.hideFeedback();
 
 Button example:
 
-`<button onclick="hideFeedback()">Show Feedback</button>`
+`<button onclick="hideFeedback()">Hide Feedback</button>`
 
 ## Clear History
 
@@ -177,7 +177,7 @@ Botcopy.clearHistory();
 
 Button example:
 
-`<button onclick="Botcopy.clearHistory()">Show Feedback</button>`
+`<button onclick="Botcopy.clearHistory()">Clear History</button>`
 
 ## Close Webview
 
@@ -189,7 +189,7 @@ Botcopy.closeWebview();
 
 Button example:
 
-`<button onclick="Botcopy.closeWebview()">Show Feedback</button>`
+`<button onclick="Botcopy.closeWebview()">Close Webview</button>`
 
 ## Enable Focus Trap
 
