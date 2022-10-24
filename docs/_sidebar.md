@@ -12,7 +12,7 @@
   - [URL Ref Parameter](advanced/url-ref-parameter.md "Botcopy Docs | URL Ref Parameter")
 - Messaging and Response Types
   - [Botcopy Custom Payloads](responses/botcopy-custom-payloads.md "Botcopy Docs | Custom Payloads")
-  - [Google Assistant](responses/google-assistant.md "Botcopy Docs | Google Assistant")
+  - [Google Assistant (Legacy)](responses/google-assistant.md "Botcopy Docs | Google Assistant")
   - [Videos](responses/videos.md "Botcopy Docs | Videos")
   - [Fulfillment Examples](responses/fulfillmentexamples.md "Botcopy Docs | Fulfillment Examples")
 - Window Events and Methods
