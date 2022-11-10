@@ -143,6 +143,18 @@ Botcopy.sendText("training-phrase", {
 });
 ```
 
+## Select Language
+
+Changes the bot's language. Provided language must be supported by your agent.
+
+```js
+Botcopy.selectLanguage("code", "name");
+```
+
+Button example:
+
+`<button onclick="Botcopy.selectLanguage('es', 'Español')">Select Español</button>`
+
 ## Show Feedback
 
 Shows the feedback box.
