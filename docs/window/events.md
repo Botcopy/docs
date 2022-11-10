@@ -149,6 +149,50 @@ Fires when a suggestion chip is clicked.
 }
 ```
 
+## bc-feedback-open
+
+Fires when the feedback box opens.
+
+```js
+{
+  type: "bc-feedback-open",
+  payload: {}
+}
+```
+
+## bc-feedback-close
+
+Fires when the feedback box closes.
+
+```js
+{
+  type: "bc-feedback-close",
+  payload: {}
+}
+```
+
+## bc-focus-trap-on
+
+Fires when the focus trap is enabled.
+
+```js
+{
+  type: "bc-focus-trap-on",
+  payload: {}
+}
+```
+
+## bc-focus-trap-off
+
+Fires when the focus trap is disabled.
+
+```js
+{
+  type: "bc-focus-trap-off",
+  payload: {}
+}
+```
+
 ## bc-form-submitted
 
 Fires when a custom Botcopy form is submitted. Optionally, some form fields may be exposed in the payload.
@@ -157,6 +201,17 @@ Fires when a custom Botcopy form is submitted. Optionally, some form fields may 
 {
   type: "bc-form-submitted",
   payload: {} // set the "expose" attribute on a form field to have it appear here
+}
+```
+
+## bc-history-cleared
+
+Fires when chat history is cleared.
+
+```js
+{
+  type: "bc-history-cleared",
+  payload: {}
 }
 ```
 
@@ -202,17 +257,6 @@ Fires when a list item is clicked.
 }
 ```
 
-## bc-history-cleared
-
-Fires when chat history is cleared.
-
-```js
-{
-  type: "bc-history-cleared",
-  payload: {}
-}
-```
-
 ## bc-tts-on
 
 Fires when text-to-speech is enabled.
@@ -231,50 +275,6 @@ Fires when text-to-speech is disabled.
 ```js
 {
   type: "bc-tts-off",
-  payload: {}
-}
-```
-
-## bc-feedback-open
-
-Fires when the feedback box opens.
-
-```js
-{
-  type: "bc-feedback-open",
-  payload: {}
-}
-```
-
-## bc-feedback-close
-
-Fires when the feedback box closes.
-
-```js
-{
-  type: "bc-feedback-close",
-  payload: {}
-}
-```
-
-## bc-focus-trap-on
-
-Fires when the focus trap is enabled.
-
-```js
-{
-  type: "bc-focus-trap-on",
-  payload: {}
-}
-```
-
-## bc-focus-trap-off
-
-Fires when the focus trap is disabled.
-
-```js
-{
-  type: "bc-focus-trap-off",
   payload: {}
 }
 ```
