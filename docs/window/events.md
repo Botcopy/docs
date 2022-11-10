@@ -160,6 +160,22 @@ Fires when a custom Botcopy form is submitted. Optionally, some form fields may 
 }
 ```
 
+## bc-language-selected
+
+Fires when a language is selected.
+
+```js
+{
+  type: "bc-language-selected",
+  payload: {
+    currentCode: "string", // selected language code
+    currentName: "string", // selected language name
+    previousCode: "string", // previous language code
+    previousName: "string", // previous language name
+  }
+}
+```
+
 ## bc-link-out-clicked
 
 Fires when a linkout suggestion is clicked.
