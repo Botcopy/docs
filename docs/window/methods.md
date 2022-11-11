@@ -2,54 +2,6 @@
 
 The global Botcopy object has a number of **methods** which can be used to control the bot's behavior through an app or website. The Botcopy object is available once the chat window loads.
 
-## Open Window
-
-Opens the chat window.
-
-```js
-Botcopy.openWindow();
-```
-
-Button example:
-
-`<button onClick="Botcopy.openWindow()">Opens Chat Window</button>`
-
-## Close Window
-
-Closes the chat window.
-
-```js
-Botcopy.closeWindow();
-```
-
-Button example:
-
-`<button onClick="Botcopy.closeWindow()">Closes Chat Window</button>`
-
-## Open Prompt
-
-Shows the prompt bubble when minimized.
-
-```js
-Botcopy.openPrompt();
-```
-
-Button example:
-
-`<button onclick="Botcopy.openPrompt()">Opens Prompt</button>`
-
-## Close Prompt
-
-Hides the prompt bubble when minimized.
-
-```js
-Botcopy.closePrompt();
-```
-
-Button example:
-
-`<button onclick="Botcopy.closePrompt()">Closes Prompt</button>`
-
 ## Send Event
 
 Sends an event name to trigger a specific intent.
@@ -167,30 +119,6 @@ Button example:
 
 `<button onclick="hideFeedback()">Hide Feedback</button>`
 
-## Clear History
-
-Clears the chat message history.
-
-```js
-Botcopy.clearHistory();
-```
-
-Button example:
-
-`<button onclick="Botcopy.clearHistory()">Clear History</button>`
-
-## Close Webview
-
-Closes the webview iFrame.
-
-```js
-Botcopy.closeWebview();
-```
-
-Button example:
-
-`<button onclick="Botcopy.closeWebview()">Close Webview</button>`
-
 ## Enable Focus Trap
 
 Enables Focus Traps
@@ -214,3 +142,87 @@ Botcopy.disableFocusTrap();
 Button example:
 
 `<button onclick="Botcopy.disableFocusTrap()">Disable Focus Traps</button>`
+
+## Clear History
+
+Clears the chat message history.
+
+```js
+Botcopy.clearHistory();
+```
+
+Button example:
+
+`<button onclick="Botcopy.clearHistory()">Clear History</button>`
+
+## Select Language
+
+Changes the bot's language. Provided language must be supported by your agent.
+
+```js
+Botcopy.selectLanguage("code");
+```
+
+Button example:
+
+`<button onclick="Botcopy.selectLanguage('es')">Select Español</button>`
+
+## Open Prompt
+
+Shows the prompt bubble when minimized.
+
+```js
+Botcopy.openPrompt();
+```
+
+Button example:
+
+`<button onclick="Botcopy.openPrompt()">Opens Prompt</button>`
+
+## Close Prompt
+
+Hides the prompt bubble when minimized.
+
+```js
+Botcopy.closePrompt();
+```
+
+Button example:
+
+`<button onclick="Botcopy.closePrompt()">Closes Prompt</button>`
+
+## Close Webview
+
+Closes the webview iFrame.
+
+```js
+Botcopy.closeWebview();
+```
+
+Button example:
+
+`<button onclick="Botcopy.closeWebview()">Close Webview</button>`
+
+## Open Window
+
+Opens the chat window.
+
+```js
+Botcopy.openWindow();
+```
+
+Button example:
+
+`<button onClick="Botcopy.openWindow()">Opens Chat Window</button>`
+
+## Close Window
+
+Closes the chat window.
+
+```js
+Botcopy.closeWindow();
+```
+
+Button example:
+
+`<button onClick="Botcopy.closeWindow()">Closes Chat Window</button>`

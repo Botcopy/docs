@@ -149,76 +149,6 @@ Fires when a suggestion chip is clicked.
 }
 ```
 
-## bc-form-submitted
-
-Fires when a custom Botcopy form is submitted. Optionally, some form fields may be exposed in the payload.
-
-```js
-{
-  type: "bc-form-submitted",
-  payload: {} // set the "expose" attribute on a form field to have it appear here
-}
-```
-
-## bc-link-out-clicked
-
-Fires when a linkout suggestion is clicked.
-
-```js
-{
-  type: "bc-link-out-clicked",
-  payload: {
-    url: "string" // the url of the linkout suggestion
-  }
-}
-```
-
-## bc-list-element-clicked
-
-Fires when a list item is clicked.
-
-```js
-{
-  type: "bc-list-element-clicked",
-  payload: {
-    input: "string" // selection key of the item
-  }
-}
-```
-
-## bc-history-cleared
-
-Fires when chat history is cleared.
-
-```js
-{
-  type: "bc-history-cleared",
-  payload: {}
-}
-```
-
-## bc-tts-on
-
-Fires when text-to-speech is enabled.
-
-```js
-{
-  type: "bc-tts-on",
-  payload: {}
-}
-```
-
-## bc-tts-off
-
-Fires when text-to-speech is disabled.
-
-```js
-{
-  type: "bc-tts-off",
-  payload: {}
-}
-```
-
 ## bc-feedback-open
 
 Fires when the feedback box opens.
@@ -259,6 +189,92 @@ Fires when the focus trap is disabled.
 ```js
 {
   type: "bc-focus-trap-off",
+  payload: {}
+}
+```
+
+## bc-form-submitted
+
+Fires when a custom Botcopy form is submitted. Optionally, some form fields may be exposed in the payload.
+
+```js
+{
+  type: "bc-form-submitted",
+  payload: {} // set the "expose" attribute on a form field to have it appear here
+}
+```
+
+## bc-history-cleared
+
+Fires when chat history is cleared.
+
+```js
+{
+  type: "bc-history-cleared",
+  payload: {}
+}
+```
+
+## bc-language-selected
+
+Fires when a language is selected.
+
+```js
+{
+  type: "bc-language-selected",
+  payload: {
+    currentCode: "string", // selected language code
+    currentName: "string", // selected language name
+    previousCode: "string", // previous language code
+    previousName: "string", // previous language name
+  }
+}
+```
+
+## bc-link-out-clicked
+
+Fires when a linkout suggestion is clicked.
+
+```js
+{
+  type: "bc-link-out-clicked",
+  payload: {
+    url: "string" // the url of the linkout suggestion
+  }
+}
+```
+
+## bc-list-element-clicked
+
+Fires when a list item is clicked.
+
+```js
+{
+  type: "bc-list-element-clicked",
+  payload: {
+    input: "string" // selection key of the item
+  }
+}
+```
+
+## bc-tts-on
+
+Fires when text-to-speech is enabled.
+
+```js
+{
+  type: "bc-tts-on",
+  payload: {}
+}
+```
+
+## bc-tts-off
+
+Fires when text-to-speech is disabled.
+
+```js
+{
+  type: "bc-tts-off",
   payload: {}
 }
 ```
