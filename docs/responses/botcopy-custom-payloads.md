@@ -445,24 +445,26 @@ Fields have a max length of 256 characters. At least one field is required for t
 
 **Form Attributes**
 
-- title: title of the form
-- subtitle: subtitle of the form
-- force (optional): defaults to false.
+- title | string: title of the form
+- subtitle | string: subtitle of the form
+- style | string: style of the form component
+  - message, wall
+- fieldType | string: Type of the field (< input type=""> element)
+  - text, checkbox, select
+- force (optional) | boolean: defaults to false.
   - If true, the wall style does not have a cancel button
   - Does not apply to forms with style: "message"
-- style: style of the form component
-  - message, wall
-- fieldType: Type of the field (< input type=""> element)
-  - text, checkbox, select
 - fields: array of objects
-  - label: text input label
-  - placeholder: input placeholder
-  - parameter: name of dialogflow parameter to assign input to
-  - error: text shown if a required field is not filled
-  - required (optional): field required to submit form
-  - pattern (optional): regex patterns
-  - expose (optional): add the parameter name and field value to the `botcopy-form-submitted` window event
-  - type (optional): type of input to be collected
+  - label | string: text input label
+  - placeholder | string: input placeholder
+  - parameter | string: name of dialogflow parameter to assign input to
+  - error | string: text shown if a required field is not filled
+  - multiline (optional) | boolean: transforms text field into a textarea element. Unless rows is set, the height of the text field dynamically matches its content
+  - rows (optional) | number: Minimum number of rows to display when multiline option is set to true
+  - required (optional) | boolean: field required to submit form
+  - pattern (optional) | string: regex patterns
+  - expose (optional) | boolean: add the parameter name and field value to the `botcopy-form-submitted` window event
+  - type (optional) | string: type of input to be collected
     - Supported types: checkbox, date, datetime-local, email, month, week, number, password, tel, text, time, color, url
     - Unsupported types: file, image, built-in calendar, radio, button, hidden, range, reset, search, submit
 
