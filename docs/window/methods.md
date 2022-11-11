@@ -160,12 +160,12 @@ Button example:
 Changes the bot's language. Provided language must be supported by your agent.
 
 ```js
-Botcopy.selectLanguage("code", "name");
+Botcopy.selectLanguage("code");
 ```
 
 Button example:
 
-`<button onclick="Botcopy.selectLanguage('es', 'Español')">Select Español</button>`
+`<button onclick="Botcopy.selectLanguage('es')">Select Español</button>`
 
 ## Open Prompt
 
