@@ -167,6 +167,18 @@ Button example:
 
 `<button onclick="Botcopy.selectLanguage('es')">Select Español</button>`
 
+## Show Languages
+
+Show supported languages.
+
+```js
+Botcopy.showLanguages(boolean);
+```
+
+Button example:
+
+`<button onclick="Botcopy.showLanguages(true)">Show Languages</button>`
+
 ## Open Prompt
 
 Shows the prompt bubble when minimized.
