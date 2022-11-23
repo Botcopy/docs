@@ -455,10 +455,11 @@ Fields have a max length of 256 characters. At least one field is required for t
   - If true, the wall style does not have a cancel button
   - Does not apply to forms with style: "message"
 - fields: array of objects
+  - error | string: text shown if a required field is not filled
+  - helperText | string: used to give context about a field's input, such as how the input will be used or its current error state.
   - label | string: text input label
   - placeholder | string: input placeholder
   - parameter | string: name of dialogflow parameter to assign input to
-  - error | string: text shown if a required field is not filled
   - multiline (optional) | boolean: transforms text field into a textarea element. Unless rows is set, the height of the text field dynamically matches its content
   - rows (optional) | number: Minimum number of rows to display when multiline option is set to true
   - required (optional) | boolean: field required to submit form
