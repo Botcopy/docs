@@ -461,14 +461,24 @@ Fields have a max length of 256 characters. At least one field is required for t
   - label | string: text input label
   - placeholder | string: input placeholder
   - parameter | string: name of dialogflow parameter to assign input to
+  - expose (optional) | boolean: add the parameter name and field value to the `botcopy-form-submitted` window event
   - multiline (optional) | boolean: transforms text field into a textarea element. Unless rows is set, the height of the text field dynamically matches its content
   - rows (optional) | number: Minimum number of rows to display when multiline option is set to true
   - required (optional) | boolean: field required to submit form
-  - pattern (optional) | string: regex patterns
-  - expose (optional) | boolean: add the parameter name and field value to the `botcopy-form-submitted` window event
+  - pattern (optional)\* | string: regex patterns
   - type (optional) | string: type of input to be collected
     - Supported types: checkbox, date, datetime-local, email, month, week, number, password, tel, text, time, color, url
     - Unsupported types: file, image, built-in calendar, radio, button, hidden, range, reset, search, submit
+
+\*Note on regex patterns: The following characters are reserved characters and can not be used in JSON and must be properly escaped to be used in strings.
+
+- Backspace to be replaced with \b
+- Form feed to be replaced with \f
+- Newline to be replaced with \n
+- Carriage return to be replaced with \r
+- Tab to be replaced with \t
+- Double quote to be replaced with \"
+- Backslash to be replaced with \\
 
 ### Checkboxes
 
