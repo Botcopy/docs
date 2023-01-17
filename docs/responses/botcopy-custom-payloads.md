@@ -104,7 +104,7 @@ An array of buttons, each with an action of their own. Exclusively used for Card
 
 ## Response Payload Structure Details
 
-Each custom payload should contian a `botcopy` array with your desired rich responses.
+Each custom payload should contain a `botcopy` array with your desired rich responses.
 
 Default CX text responses will render alongside your payload if they are provided.
 
