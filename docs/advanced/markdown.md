@@ -23,7 +23,6 @@ Alt-H2
 ------
 ```
 
-
 ## Emphasis
 
 Add emphasis to your text.
@@ -146,24 +145,26 @@ Some text to show that the reference links can follow later.
 ```
 Here's our logo (hover to see the title text):
 
-Inline-style: 
-![alt text](https://www.botcopy.com/wp-content/uploads/2019/06/150x150purple.png "Logo Title Text 1")
+Inline-style:
+![alt text](https://docs.botcopy.com/_assets/whitehorizontal.svg "Logo Title Text 1")
 
-Reference-style: 
+Reference-style:
 ![alt text][logo]
 
-[logo]: https://www.botcopy.com/wp-content/uploads/2019/06/150x150purple.png "Logo Title Text 2"
+[logo]: https://docs.botcopy.com/_assets/whitehorizontal.svg "Logo Title Text 2"
 ```
 
 Here's our logo (hover to see the title text):
 
-Inline-style: 
-![alt text](https://www.botcopy.com/wp-content/uploads/2019/06/150x150purple.png "Logo Title Text 1")
+Inline-style:
 
-Reference-style: 
+![alt text](https://docs.botcopy.com/_assets/whitehorizontal.svg "Logo Title Text 1")
+
+Reference-style:
+
 ![alt text][logo]
 
-[logo]: https://www.botcopy.com/wp-content/uploads/2019/06/150x150purple.png "Logo Title Text 2"
+[logo]: https://docs.botcopy.com/_assets/whitehorizontal.svg "Logo Title Text 2"
 
 ## Blockquotes
 
