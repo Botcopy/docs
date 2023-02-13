@@ -46,9 +46,43 @@ Adjust the font type of your bot, show the Bot's avatar image, and hide the "UI 
 
 Choose from Input Bar types and whether the microphone should be displayed. A menu can also be displayed on the input bar.
 
-## Fullscreen Mode
+## Chat Window Styles
+
+### Classic
+
+The classic chat window style. Comes with multiple size options.
+
+### Contained
+
+Contain your chat experience to a container size of your choice. Set an id on your container and your bot will load within it. 
+
+```
+<div id="botcopy-chat-container">
+```
+
+```
+// Botcopy Snippet
+// data-rootcontainerid(optional) - specify the id of the container when style is contained
+<script type="text/javascript"
+    id="botcopy-embedder-d7lcfheammjct"
+    class="botcopy-embedder-d7lcfheammjct" 
+    data-botId="BOT_ID_HERE"
+    data-rootcontainerid="botcopy-chat-container" 
+>
+    var s = document.createElement('script'); 
+    s.type = 'text/javascript'; s.async = true; 
+    s.src = 'https://widget.botcopy.com/js/injection.js'; 
+    document.getElementById('botcopy-embedder-d7lcfheammjct').appendChild(s);
+</script>
+```
+
+### Fullscreen
 
 A full-screen chat experience that replaces a website or specific web page(s) within a site. The chat window remains the same, with the exception of removing the _minimize_ and _close_ buttons normally seen on the header. This behavior can be set for an entire bot, or for individual pages of your website by giving the page a Bot Prompt configured to Fullscreen mode.
+
+### Sidebar
+
+A flexible style for paneled chat experiences. 
 
 ## Custom Chat Window Styling
 
@@ -59,7 +93,7 @@ For further customization of the chat window, custom styles can be added to the 
 Note: In order to use this feature the Botcopy Snippet must be at the end of your `<body>`, not in `<head>`.
 
 ```
-//Botcopy Snippet
+// Botcopy Snippet
 <script type="text/javascript"
     id="botcopy-embedder-d7lcfheammjct"
     class="botcopy-embedder-d7lcfheammjct"
