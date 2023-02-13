@@ -238,3 +238,17 @@ Botcopy.closeWindow();
 Button example:
 
 `<button onClick="Botcopy.closeWindow()">Closes Chat Window</button>`
+
+## Set Window Style
+
+Sets the chat window style.
+
+```js
+Botcopy.setWindowStyle(string);
+```
+
+Button example:
+
+`<button onClick="Botcopy.setWindowStyle('fullscreen')">Set window style to fullscreen</button>`
+
+Supported styles: classic, fullscreen

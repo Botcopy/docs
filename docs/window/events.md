@@ -322,3 +322,16 @@ Fires when the chat window closes.
   payload: {}
 }
 ```
+
+## bc-window-style
+
+Fires when the chat window style changes through the setWindowStyle method.
+
+```js
+{
+  type: "bc-window-style",
+   payload: {
+    style: "string"
+  }
+}
+```
