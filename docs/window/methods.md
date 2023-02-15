@@ -1,6 +1,6 @@
 # Window Methods
 
-The global Botcopy object has a number of **methods** which can be used to control the bot's behavior through an app or website. The Botcopy object is available once the chat window loads.
+The global Botcopy object has a number of **methods** which can be used to control the bot's behavior through an app or website. The Botcopy object is available once the chat window [initalizes](window/events?id=bc-initialized).
 
 ## Send Event
 
