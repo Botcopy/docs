@@ -1,6 +1,6 @@
 # Window Methods
 
-The global Botcopy object has a number of **methods** which can be used to control the bot's behavior through an app or website. The Botcopy object is available once the chat window loads.
+The global Botcopy object has a number of **methods** which can be used to control the bot's behavior through an app or website. The Botcopy object is available once the chat window [initalizes](window/events?id=bc-initialized).
 
 ## Send Event
 
@@ -94,6 +94,32 @@ Botcopy.sendText("training-phrase", {
   parameters: { email: "hello@botcopy.com" },
 });
 ```
+
+## Set Parameters
+
+### Dialogflow ES
+
+Set parameters to be included on the next request when [authorizing a user](advanced/bc-auth?id=authorizing-an-end-user). 
+
+```js
+Botcopy.setESParameters({
+  webhookHeaders: {jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."}
+})
+```
+
+### Dialogflow CX
+
+Set parameters to be included on the next request when [authorizing a user](advanced/bc-auth?id=authorizing-an-end-user). 
+
+```js
+Botcopy.setCXParameters({
+  webhookHeaders: { jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." },
+  parameters: {
+    profile: { name: "Lisa", age: 32 } 
+    }
+});
+```
+
 
 ## Show Feedback
 

@@ -18,7 +18,7 @@ window.addEventListener("botcopy-events", function (e) {
 
 ## bc-initialized
 
-Fires when the chat window has initialized.
+Fires when the chat window has initialized. All other events and [methods](window/methods?id=window-methods) occur after initialization. 
 
 ```js
 {
