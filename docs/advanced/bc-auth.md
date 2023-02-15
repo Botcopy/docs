@@ -37,8 +37,8 @@ Parameters sent with the method are set as CX session parameters, which may be r
 Botcopy.setCXParameters({
   webhookHeaders: { jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." },
   parameters: {
-    fields: { name: { stringValue: "Lisa" }, age: { numberValue: 32 } }
-  }
+    profile: { name: "Lisa", age: 32 } 
+    }
 });
 ```
 

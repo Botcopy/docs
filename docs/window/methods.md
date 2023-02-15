@@ -115,8 +115,8 @@ Set parameters to be included on the next request when [authorizing a user](adva
 Botcopy.setCXParameters({
   webhookHeaders: { jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." },
   parameters: {
-    fields: { name: { stringValue: "Lisa" }, age: { numberValue: 32 } }
-  }
+    profile: { name: "Lisa", age: 32 } 
+    }
 });
 ```
 
