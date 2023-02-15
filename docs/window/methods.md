@@ -95,6 +95,32 @@ Botcopy.sendText("training-phrase", {
 });
 ```
 
+## Set Parameters
+
+### Dialogflow ES
+
+Set parameters to be included on the next request when [authorizing a user](advanced/bc-auth?id=authorizing-an-end-user). 
+
+```js
+Botcopy.setESParameters({
+  webhookHeaders: {jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."}
+})
+```
+
+### Dialogflow CX
+
+Set parameters to be included on the next request when [authorizing a user](advanced/bc-auth?id=authorizing-an-end-user). 
+
+```js
+Botcopy.setCXParameters({
+  webhookHeaders: { jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." },
+  parameters: {
+    fields: { name: { stringValue: "Lisa" }, age: { numberValue: 32 } }
+  }
+});
+```
+
+
 ## Show Feedback
 
 Shows the feedback box.
