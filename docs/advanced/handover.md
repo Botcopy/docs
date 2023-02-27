@@ -226,6 +226,7 @@ Otherwise, Botcopy displays `The human has left the conversation. You are now ch
   userId: "***", // Botcopy`s user id
   botId: "***", // Botcopy`s bot id
   paused: false, // paused?
+  unpauseChatEvent: "default" | "none" | "***eventName***" // the event to dispatch to dialogflow when bot requests are resumed
   agentProfile: {
     // info about the current live agent
     name: "Jane Doe", // name of the agent
@@ -233,6 +234,13 @@ Otherwise, Botcopy displays `The human has left the conversation. You are now ch
   },
 }
 ```
+
+`unpauseChatEvent` is optional, when not provided or set to `default`, the message `NAME has left the conversation. You are now chatting with the bot.` is pushed to the conversation when bot requests are resumed.  
+If you prefer to not have this message displayed in the conversation when resuming requests, set `unpauseChatEvent` to `none`.  
+If you want to dispatch a DialogFlow Event immediately after bot requests are resumed, set `unpauseChatEvent` to the name of your dialogflow event.
+
+
+
 
 **Pause Bot requests** to Dialogflow with this JSON body:
 
