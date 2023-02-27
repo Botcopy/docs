@@ -48,13 +48,15 @@ Choose from Input Bar types and whether the microphone should be displayed. A me
 
 ## Chat Window Styles
 
+You can customize the window style of your Botcopy chatbot by selecting one of the four options: Classic, Contained, Fullscreen, and Sidebar.
+
 ### Classic
 
 The classic chat window style. Comes with multiple size options.
 
 ### Contained
 
-Contain your chat experience to a container size of your choice. Set an id on your container and your bot will load within it. 
+Contain your chat experience to a container size of your choice. Set an id on your container and your bot will load within it. Use CSS to adjust your container's height, width, and positioning.
 
 ```
 <div id="botcopy-chat-container">
@@ -62,7 +64,7 @@ Contain your chat experience to a container size of your choice. Set an id on yo
 
 ```
 // Botcopy Snippet
-// data-rootcontainerid(optional) - specify the id of the container when style is contained
+// data-rootcontainerid(optional) - specify the id of the container where chat window is contained
 <script type="text/javascript"
     id="botcopy-embedder-d7lcfheammjct"
     class="botcopy-embedder-d7lcfheammjct" 
