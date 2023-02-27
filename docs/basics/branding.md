@@ -56,10 +56,10 @@ The classic chat window style. Comes with multiple size options.
 
 ### Contained
 
-Contain your chat experience to a container size of your choice. Set an id on your container and your bot will load within it. Use CSS to adjust your container's height, width, and positioning.
+Contain your chat experience to a container size of your choice. Set an `id` on your container and your bot will load within it. Use CSS to adjust your container's height, width, and positioning.
 
 ```
-<div id="botcopy-chat-container">
+<div id="botcopy-chat-container" />
 ```
 
 ```
