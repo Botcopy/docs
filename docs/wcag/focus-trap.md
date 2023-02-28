@@ -1,10 +1,13 @@
 ## General
 
-Botcopy's chat window is fully compliant with WCAG 2.1 [standards](https://www.w3.org/TR/WCAG21/).
 
-<!-- Conformance Report available [here]().
+Botcopy conforms with and supports WCAG 2.1 AA [criteria](https://www.w3.org/TR/WCAG21/ ':target=_blank'), thus helping you meet ADA compliance. 
 
-Audited by [Zenyth Group](https://www.zenythgroup.com/index). -->
+Download our [Botcopy Accessibility Conformance Report](https://uploads-ssl.webflow.com/62de16403533f6963c00f375/63a4b4bed004d085757b6558_Zenyth_ACR_BotCopy_10-27-2022%20(1).pdf ':target=_blank') for a comprehensive list of the accessibility criteria we support and summary descriptions. 
+
+Note: WCAG 2.1 AA is legally mandated in several US states, including California, New York, Illinois, and Massachusetts. Additionally, many organizations choose to comply with the guidelines in order to demonstrate their commitment to making their content accessible to all users, regardless of ability. Failure to comply with these guidelines may result in legal action.
+
+Audited by [Zenyth Group](https://www.zenythgroup.com/index ':target=_blank').
 
 ## Focus Trap
 
