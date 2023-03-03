@@ -1,6 +1,8 @@
 # Window Events
 
-The chat window detects and broadcasts user activity with **window events**. You may create an [event listener](https://developer.mozilla.org/en-US/docs/Web/API/EventListener) to utilize these broadcasts.
+Botcopy Window Events enhance your website functionality by allowing your website to detect and respond to broadcasts from the Botcopy chat window. Our event types offer various triggers your website can detect and respond to, e.g., user actions such as opening the chat window, sending a message, selecting a language option, or authentication.
+
+When you are ready to add window events to your website, you must add an [event listener](https://developer.mozilla.org/en-US/docs/Web/API/EventListener ":target=_blank") (example below) to your website code. This code will detect the desired window event type and trigger the desired response from your website. Depending on the type of event you are listening for, the website could provide relevant content, authenticated information, a personalized message, or other website behaviors to boost engagement significantly.
 
 ```js
 window.addEventListener("botcopy-events", function (e) {
