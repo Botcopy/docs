@@ -14,7 +14,7 @@ The chat window will look for an output context named `bc-auth-required` on an i
 
 Once this event has been recognized with your implementation, you can use the global Botcopy object method `Botcopy.setESParameters` to add data to the next request sent to the Dialogflow API. As an example this request can be [Botcopy.sendEventSilent()](window/methods?id=send-silent-event) or any next input from the user. In terms of authorizing the user with an application, you may want to set a property on `webhookHeaders` with an authorization code like a JWT.
 
-The global object method takes an object which follows the QueryParameters structure [documented here](https://cloud.google.com/dialogflow/es/docs/reference/rest/v2/QueryParameters).
+The global object method takes an object which follows the QueryParameters structure [documented here](https://cloud.google.com/dialogflow/es/docs/reference/rest/v2/QueryParameters ":target=_blank").
 
 ```js
 Botcopy.setESParameters({
@@ -29,7 +29,7 @@ The chat window looks for a parameter named `bcAuthRequired` set equal to `true`
 
 Once the event has been recognized with your implementation, you can use the global Botcopy object method `Botcopy.setCXParameters` to add data to the next request sent to the Dialogflow API. As an example this request can be [Botcopy.sendEventSilent()](window/methods?id=send-silent-event) or any next input from the user. In this example, we will also use `webhookHeaders`.
 
-The global object method takes an object which follows the QueryParameters structure [documented here](https://googleapis.dev/nodejs/dialogflow-cx/latest/google.cloud.dialogflow.cx.v3beta1.IQueryParameters.html).
+The global object method takes an object which follows the QueryParameters structure [documented here](https://googleapis.dev/nodejs/dialogflow-cx/latest/google.cloud.dialogflow.cx.v3beta1.IQueryParameters.html ":target=_blank").
 
 Parameters sent with the method are set as CX session parameters, which may be referenced like this: `$session.params.**parameter-name**`. 
 

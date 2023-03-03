@@ -6,7 +6,7 @@ Dialogflow ES comes with rich response types out-of-the-box with **Google Assist
 
 We've also included an example of using each response type in the **Fulfillment** inline editor or a webhook. Each example will be using the `actions-on-google` package by declaring `agent.conv()` before the response. Each response type must be imported.
 
-Google Assistant has certain design constraints when using their response types in Dialogflow ES. If you would like to design a conversation outside of these constraints, please view our [Custom Payloads](https://botcopy.github.io/docs/#/responses/botcopy-custom-payloads).
+Google Assistant has certain design constraints when using their response types in Dialogflow ES. If you would like to design a conversation outside of these constraints, please view our [Custom Payloads](/responses/botcopy-custom-payloads).
 
 Please note that Google Assistant response types are **only** supported for Dialogflow ES.
 
@@ -84,7 +84,7 @@ Basic cards may contain a URL to an external website. The default behavior for t
 
 Images are rendered in a `16:9` ratio.
 
-[Videos](https://botcopy.github.io/docs/#/responses/videos) are supported by adding a video URL as an image.
+[Videos](/responses/videos) are supported by adding a video URL as an image.
 
 **Fulfillment example**
 
@@ -303,7 +303,7 @@ function browseCarousel(agent) {
 
 ## Lists
 
-**Lists** display a header and a number of list items to display to the user. Each list item may have an image and drives the conversation forward when selected. Botcopy's [Custom Payloads](https://botcopy.github.io/docs/#/responses/botcopy-custom-payloads) allow for linkout functionality with lists.
+**Lists** display a header and a number of list items to display to the user. Each list item may have an image and drives the conversation forward when selected. Botcopy's [Custom Payloads](/responses/botcopy-custom-payloads) allow for linkout functionality with lists.
 
 Below is an example of how to add a List in fulfillment using the actions-on-google package.
 

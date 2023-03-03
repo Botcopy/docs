@@ -186,7 +186,7 @@ Suggestions prompt users with a clickable button after a series of responses. A 
 
 ## Basic Cards
 
-Basic cards have a title, subtitle, and body containing information. Image media includes, but is not limited to images, gifs and [videos](https://botcopy.github.io/docs/#/responses/videos).
+Basic cards have a title, subtitle, and body containing information. Image media includes, but is not limited to images, gifs and [videos](/responses/videos).
 
 Cards can also use a [button](#button) action, which is displayed in this example.
 

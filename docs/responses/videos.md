@@ -28,4 +28,4 @@ Accepted format: https://www.youtube.com/embed/i5kZ8JuC10g
 
 Descriptive transcripts are needed by people who are Deaf-blind and others. Make it is easy for users to know that a transcript is available and to get to the transcript. For example, put a button or a link to the transcript right under the video.
 
-[Web Accessibility - Transcripts ](https://www.w3.org/WAI/media/av/transcripts/)
+[Web Accessibility - Transcripts ](https://www.w3.org/WAI/media/av/transcripts/ ":target=_blank")

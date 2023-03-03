@@ -11,12 +11,12 @@ Audited by [Zenyth Group](https://www.zenythgroup.com/index ':target=_blank').
 
 ## Focus Trap
 
-Focus traps are disabled by default to allow you to [test and implement](https://botcopy.github.io/docs/#/wcag/focus-trap?id=testing) your bot with your existing libraries.
+Focus traps are disabled by default to allow you to [test and implement](/wcag/focus-trap?id=testing) your bot with your existing libraries.
 
 To enable the focus trap you can either:
 
 - Toggle on `Focus Trap` in the Botcopy Portal -> Branding -> Settings -> Chat Window General Settings
-- Add and set `data-enableFocusTrap` to `true` on your Botcopy [embed snippet](https://botcopy.github.io/docs/#/basics/connect?id=embed-snippet).
+- Add and set `data-enableFocusTrap` to `true` on your Botcopy [embed snippet](/basics/connect?id=embed-snippet).
 
 ```js
 <script
@@ -36,6 +36,6 @@ To enable the focus trap you can either:
 
 Test as you integrate your bot's focus trap with your existing libraries. Some libraries have built-in focus functionality, so it will require some tinkering to ensure there are no endless loops.
 
-To help support this testing, we recommend you use the window methods of [`enableFocusTrap`](https://botcopy.github.io/docs/#/window/methods?id=enable-focus-trap) and [`disableFocusTrap`](https://botcopy.github.io/docs/#/window/methods?id=disable-focus-trap).
+To help support this testing, we recommend you use the window methods of [`enableFocusTrap`](/window/methods?id=enable-focus-trap) and [`disableFocusTrap`](/window/methods?id=disable-focus-trap).
 
-In tandem, the window events of [`bc-focus-trap-on`](https://botcopy.github.io/docs/#/window/events?id=bc-focus-trap-on) and [`bc-focus-trap-off`](https://botcopy.github.io/docs/#/window/events?id=bc-focus-trap-off) will fire when these methods are invoked.
+In tandem, the window events of [`bc-focus-trap-on`](/window/events?id=bc-focus-trap-on) and [`bc-focus-trap-off`](/window/events?id=bc-focus-trap-off) will fire when these methods are invoked.

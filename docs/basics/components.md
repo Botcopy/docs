@@ -42,7 +42,7 @@ Use a session parameter (**bcWebviewUrl**) for Dialogflow CX or a context (**ope
 
 **DialogflowCX**
 
-Set as a parameter preset in the CX GUI or in [fulfillment](https://cloud.google.com/dialogflow/cx/docs/concept/parameter).
+Set as a parameter preset in the CX GUI or in [fulfillment](https://cloud.google.com/dialogflow/cx/docs/concept/parameter ":target=_blank").
 
 ```
 Parameter: bcWebviewUrl

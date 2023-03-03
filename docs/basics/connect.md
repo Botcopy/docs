@@ -42,7 +42,7 @@ Botcopy has native integration with Dashbot for analytics. When setting up your 
 We'll send rich response types to the live transcript and report intents that are not handled.
 
 ### Janis Livechat Integration
-Botcopy integrates with [Janis](https://janis.ai/) for live chat handling. To connect to this service, follow these steps:
+Botcopy integrates with [Janis](https://janis.ai/ ":target=_blank") for live chat handling. To connect to this service, follow these steps:
 
 1) Create or sign in to your Janis account
 2) Select **Add Bot** on your **Account** page

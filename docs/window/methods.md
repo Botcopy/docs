@@ -1,6 +1,6 @@
 # Window Methods
 
-The global Botcopy object has a number of **methods** which can be used to control the bot's behavior through an app or website. The Botcopy object is available once the chat window [initalizes](window/events?id=bc-initialized).
+The global Botcopy object has a number of **methods** which can be used to control the bot's behavior through an app or website. The Botcopy object is available once the chat window is [initialized](window/events?id=bc-initialized).
 
 ## Send Event
 
@@ -28,7 +28,7 @@ Button example:
 
 ### Dialogflow CX
 
-The event name is required, and you may provide an object matching IQueryParameters as outlined in the [Dialogflow CX SDK Client Reference here](https://googleapis.dev/nodejs/dialogflow-cx/latest/google.cloud.dialogflow.cx.v3beta1.IQueryParameters.html).
+The event name is required, and you may provide an object matching IQueryParameters as outlined in the [Dialogflow CX SDK Client Reference here](https://googleapis.dev/nodejs/dialogflow-cx/latest/google.cloud.dialogflow.cx.v3beta1.IQueryParameters.html ":target=_blank").
 
 ```js
 /**
