@@ -16,7 +16,7 @@ The first panel, **Greeter and Prompts**, deals with the colors of the minimized
 
 The second panel, **Chat Window**, deals with the maximized chat experience and controls colors of the header, body, and input bar of the chat window.
 
-The final panel, **Components**, controls the colors of [Botcopy's components](https://botcopy.github.io/docs/#/basics/components).
+The final panel, **Components**, controls the colors of [Botcopy's components](/basics/components?id=chat-components).
 
 ## Settings
 

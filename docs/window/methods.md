@@ -28,7 +28,7 @@ Button example:
 
 ### Dialogflow CX
 
-The event name is required, and you may provide an object matching IQueryParameters as outlined in the [Dialogflow CX SDK Client Reference here](https://googleapis.dev/nodejs/dialogflow-cx/latest/google.cloud.dialogflow.cx.v3beta1.IQueryParameters.html).
+The event name is required, and you may provide an object matching IQueryParameters as outlined in the [Dialogflow CX SDK Client Reference here](https://googleapis.dev/nodejs/dialogflow-cx/latest/google.cloud.dialogflow.cx.v3beta1.IQueryParameters.html ":target=_blank").
 
 ```js
 /**
