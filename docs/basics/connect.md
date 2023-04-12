@@ -60,4 +60,9 @@ By default, your bot detects a user’s preferred browser language and sends it 
 However, if you enable **Language Selection**, your end-users will see that your bot has other languages available. A dropdown menu in the chat window makes it easy for end-users to select their preferred language, and they are prompted when initiating the chat that other languages are available.
 
 ## Google Text-to-Speech (TTS)
-To enable TTS, you must first enable the TTS API in your Google Cloud Platform console for the desired project. Once the API is enabled, create a **Cloud Text-to-Speech API Key**, and paste this into the Connect page on the Botcopy Portal.
+To enable Google's Text-to-Speech, you must first enable the **Cloud Text-to-Speech API** in Google Cloud Platform's Marketplace for the desired project. 
+
+Marketplace > Cloud Text-To-Speech API > Enable > Credentials > Create Credentials > API Key  
+
+Once an **API Key** is created, paste this into the Connect page on the Botcopy Portal.
+
