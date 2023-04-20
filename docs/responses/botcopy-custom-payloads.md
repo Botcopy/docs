@@ -330,12 +330,10 @@ Lists are another way to visualize an assortment of data. Lists do not use a but
           },
           {
             "action": {
-              "link": {
                 "message": {
                   "command": "Pricing",
                   "type": "training"
                 }
-              }
             },
             "body": "Description Two",
             "image": {
