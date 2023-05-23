@@ -6,7 +6,6 @@
   - [Connect](basics/connect.md "Botcopy Docs | Connect")
 - Advanced Features
   - [Authorizing Users](advanced/bc-auth.md "Botcopy Docs | Authorizing Users")
-  - [Human Handover](advanced/handover.md "Botcopy Docs | Human Handover")
   - [Markdown](advanced/markdown.md "Botcopy Docs | Markdown")
   - [Snippet Parameter](advanced/snippet-parameter.md "Botcopy Docs | Snippet Parameter")
   - [URL Ref Parameter](advanced/url-ref-parameter.md "Botcopy Docs | URL Ref Parameter")
@@ -15,6 +14,9 @@
   - [Google Assistant (Legacy)](responses/google-assistant.md "Botcopy Docs | Google Assistant")
   - [Videos](responses/videos.md "Botcopy Docs | Videos")
   - [Fulfillment Examples](responses/fulfillmentexamples.md "Botcopy Docs | Fulfillment Examples")
+- Live Chat
+  - [Botcopy](livechat/botcopylc.md "Botcopy Docs | Live Chat")
+  - [API](livechat/handover.md "Botcopy Docs | Human Handover")
 - Window Events and Methods
   - [Window Events](window/events.md "Botcopy Docs | Window Events")
   - [Window Methods](window/methods.md "Botcopy Docs | Window Methods")
