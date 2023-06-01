@@ -533,7 +533,7 @@ Radio button attributes
 ```
 	{
 		"fieldType": "radio",
-		"parameter": "amount",
+		"parameter": "letter",
 		"groupLabel": "Select a letter below:",
 		"expose": true,
 		"radio": [{
