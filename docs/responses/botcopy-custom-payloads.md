@@ -529,6 +529,7 @@ Radio button attributes
 
 - parameter: name of dialogflow parameter value to assign input to
 - radioLabel: Label of the radio
+- selected (optional): select a default. Radio buttons should have the most commonly used option selected by default.
 
 ```
 	{
@@ -538,7 +539,8 @@ Radio button attributes
 		"expose": true,
 		"radio": [{
 				"parameter": "A",
-				"radioLabel": "A"
+				"radioLabel": "A",
+        "selected": true
 			},
 			{
 				"parameter": "B",
