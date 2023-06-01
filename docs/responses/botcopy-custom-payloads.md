@@ -449,7 +449,7 @@ Fields have a max length of 256 characters. At least one field is required for t
 - style | string: style of the form component
   - message, wall
 - fieldType | string: Type of the field (< input type=""> element)
-  - text, checkbox, select
+  - text, checkbox, radio, select
 - force (optional) | boolean: defaults to false.
   - If true, the wall style does not have a cancel button
   - Does not apply to forms with style: "message"
@@ -513,6 +513,41 @@ Checkbox field attributes
 		]
 	}
 ```
+
+### Radio
+
+Radio contains an array of radio buttons. You can define each radio button and expose values in the bc-form-submitted window event.
+
+Radio object attributes
+
+- groupLabel: name of dialogflow parameter to assign input to
+- fieldType: radio
+- parameter: name of dialogflow parameter radio parameters are assigned to
+- expose: exposes the user's input in the bc-form-submitted window event
+
+Radio button attributes
+
+- parameter: name of dialogflow parameter value to assign input to
+- radioLabel: Label of the radio
+
+```
+	{
+		"fieldType": "radio",
+		"parameter": "amount",
+		"groupLabel": "Select a letter below:",
+		"expose": true,
+		"radio": [{
+				"parameter": "A",
+				"radioLabel": "A"
+			},
+			{
+				"parameter": "B",
+				"radioLabel": "B"
+			}
+		]
+	}
+```
+
 
 ### Select
 
