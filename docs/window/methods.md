@@ -229,6 +229,21 @@ Button example:
 
 `<button onclick="Botcopy.closePrompt()">Closes Prompt</button>`
 
+
+## Play Sound
+
+Plays a sound for the user. 
+
+```js
+Botcopy.playSound(string);
+```
+
+Button example:
+
+`<button onClick="Botcopy.playSound('1')">Play Sound</button>`
+
+Supported sounds: 1, 2
+
 ## Close Webview
 
 Closes the webview iFrame.
