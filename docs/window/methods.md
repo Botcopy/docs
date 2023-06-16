@@ -240,7 +240,7 @@ Botcopy.playSound(string);
 
 Button example:
 
-`<button onClick="Botcopy.playSound('1')">Play Sound</button>`
+`<button onClick="Botcopy.playSound(1)">Play Sound</button>`
 
 Supported sounds: 1, 2
 
