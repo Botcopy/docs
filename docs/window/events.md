@@ -259,6 +259,20 @@ Fires when a list item is clicked.
 }
 ```
 
+
+## bc-sound-played
+
+Fires when a sound is played.
+
+```js
+{
+  type: "bc-sound-played",
+  payload: {
+    sound: number
+  }
+}
+```
+
 ## bc-tts-on
 
 Fires when text-to-speech is enabled.
