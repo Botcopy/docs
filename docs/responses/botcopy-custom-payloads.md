@@ -388,7 +388,7 @@ Fields have a max length of 256 characters. At least one field is required for t
 					"type": "email",
 					"required": true,
 					"error": "This field is required.",
-          "helperText": "Format: email@domain.com",
+                    "helperText": "Format: email@domain.com",
 					"expose": true
 				},
 				{
@@ -540,7 +540,7 @@ Radio button attributes
 		"radio": [{
 				"parameter": "A",
 				"radioLabel": "A",
-        "selected": true
+                "selected": true,
 			},
 			{
 				"parameter": "B",
