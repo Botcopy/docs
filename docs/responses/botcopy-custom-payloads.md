@@ -520,16 +520,17 @@ Radio contains an array of radio buttons. You can define each radio button and e
 
 Radio object attributes
 
-- groupLabel: name of dialogflow parameter to assign input to
-- fieldType: radio
-- parameter: name of dialogflow parameter radio parameters are assigned to
 - expose: exposes the user's input in the bc-form-submitted window event
+- fieldType: radio
+- groupLabel: name of dialogflow parameter to assign input to
+- parameter: name of dialogflow parameter radio parameters are assigned to
+- required (optional): radio button is required to submit the form
 
 Radio button attributes
 
 - parameter: name of dialogflow parameter value to assign input to
 - radioLabel: Label of the radio
-- selected (optional): select a default. Radio buttons should have the most commonly used option selected by default.
+- selected (optional): select a default. Radio buttons should have the most commonly used option selected by default. If no default is selected, `required` should be set to true.
 
 ```
 	{
@@ -537,6 +538,7 @@ Radio button attributes
 		"parameter": "letter",
 		"groupLabel": "Select a letter below:",
 		"expose": true,
+        "required": true,
 		"radio": [{
 				"parameter": "A",
 				"radioLabel": "A",
