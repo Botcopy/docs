@@ -339,6 +339,31 @@ Fires when the chat window closes.
 }
 ```
 
+## bc-window-maximized
+
+Fires when the chat window is maximized. Not available in Fullscreen style.
+
+```js
+{
+  type: "bc-window-maximized",
+   payload: {}
+}
+```
+
+
+## bc-window-minimized
+
+Fires when the chat window is minimized. Not available in Fullscreen style.
+
+```js
+{
+  type: "bc-window-minimized",
+   payload: {}
+}
+```
+
+
+
 ## bc-window-style
 
 Fires when the chat window style changes through the setWindowStyle method.
