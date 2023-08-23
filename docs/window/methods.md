@@ -280,6 +280,34 @@ Button example:
 
 `<button onClick="Botcopy.closeWindow()">Closes Chat Window</button>`
 
+## Maximize Window
+
+Maximizes the chat window to its full size.
+
+```js
+Botcopy.maximizeWindow();
+```
+
+Button example:
+
+`<button onClick="Botcopy.maximizeWindow()">Maximizes the Chat Window</button>`
+
+Supported styles: classic
+
+## Minimize Window
+
+Minimizes the chat window to its default size.
+
+```js
+Botcopy.minimizeWindow();
+```
+
+Button example:
+
+`<button onClick="Botcopy.minimizeWindow()">Minimizes the Chat Window</button>`
+
+Supported styles: classic
+
 ## Set Window Style
 
 Sets the chat window style.

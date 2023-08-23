@@ -197,7 +197,7 @@ Fires when the focus trap is disabled.
 
 ## bc-form-submitted
 
-Fires when a custom Botcopy form is submitted. Optionally, some form fields may be exposed in the payload.
+Fires when a Botcopy form is submitted. Optionally, some form fields may be exposed in the payload.
 
 ```js
 {
@@ -205,6 +205,20 @@ Fires when a custom Botcopy form is submitted. Optionally, some form fields may 
   payload: {} // set the "expose" attribute on a form field to have it appear here
 }
 ```
+
+## bc-form-cancelled
+
+Fires when a Botcopy form is cancelled. 
+
+
+```js
+{
+  type: "bc-form-cancelled",
+  payload: {} 
+}
+```
+
+Supported styles: wall
 
 ## bc-history-cleared
 
@@ -335,6 +349,28 @@ Fires when the chat window closes.
 ```js
 {
   type: "bc-window-close",
+  payload: {}
+}
+```
+
+## bc-window-maximized
+
+Fires when the chat window maximizes.
+
+```js
+{
+  type: "bc-window-maximized",
+  payload: {}
+}
+```
+
+## bc-window-minimized
+
+Fires when the chat window minimizes.
+
+```js
+{
+  type: "bc-window-minimized",
   payload: {}
 }
 ```
