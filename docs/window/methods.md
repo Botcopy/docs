@@ -282,7 +282,7 @@ Button example:
 
 ## Maximize Window
 
-Maximizes the chat window.
+Maximizes the chat window to its full size.
 
 ```js
 Botcopy.maximizeWindow();
@@ -292,9 +292,11 @@ Button example:
 
 `<button onClick="Botcopy.maximizeWindow()">Maximizes Chat Window</button>`
 
+Supported styles: classic
+
 ## Minimize Window
 
-Minimizes the chat window.
+Minimizes the chat window to its default size.
 
 ```js
 Botcopy.minimizeWindow();
@@ -303,6 +305,8 @@ Botcopy.minimizeWindow();
 Button example:
 
 `<button onClick="Botcopy.minimizeWindow()">Minimizes Chat Window</button>`
+
+Supported styles: classic
 
 ## Set Window Style
 
