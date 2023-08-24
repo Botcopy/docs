@@ -49,7 +49,7 @@ Per request, Botcopy can ensure the message history complies with GDPR by storin
 If an additional custom header name & value are set, Botcopy will additionally send this header in the POST request.
 
 ```json5
-"Authorization: Bearer BOT_ACCESS_TOKEN"
+"Authorization:  BOT_ACCESS_TOKEN"
 "CustomHeaderName: CUSTOM_HEADER_VALUE"
 ```
 
@@ -155,7 +155,7 @@ When sending each message to the user, `paused` and `minutesPaused` should be a 
 Botcopy sends a request with the following JSON:
 
 ```json5
-"Authorization: Bearer BOT_ACCESS_TOKEN"
+"Authorization: BOT_ACCESS_TOKEN"
 "CustomHeaderName: CUSTOM_HEADER_VALUE"
 ```
 
@@ -208,7 +208,7 @@ Send an Authorization header & JSON body to `https://api.botcopy.com/webhooks/ha
 
 ```json5
 "Content-Type: application/json"
-"Authorization: Bearer YOUR_API_KEY"
+"Authorization: YOUR_API_KEY"
 ```
 
 ```json5
@@ -235,7 +235,7 @@ Otherwise, Botcopy displays `The human has left the conversation. You are now ch
 
 ```json5
 "Content-Type: application/json"
-"Authorization: Bearer YOUR_API_KEY"
+"Authorization: YOUR_API_KEY"
 ```
 
 ```json5
@@ -262,7 +262,7 @@ If you want to dispatch a DialogFlow Event immediately after bot requests are re
 
 ```json5
 "Content-Type: application/json"
-"Authorization: Bearer YOUR_API_KEY"
+"Authorization: YOUR_API_KEY"
 ```
 
 ```json5
@@ -286,7 +286,7 @@ The typing indicator disappears after 10 seconds automatically, so you'll need t
 
 ```json5
 "Content-Type: application/json"
-"Authorization: Bearer YOUR_API_KEY"
+"Authorization: YOUR_API_KEY"
 ```
 
 ```json5
