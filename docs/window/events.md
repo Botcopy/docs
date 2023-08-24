@@ -206,6 +206,20 @@ Fires when a custom Botcopy form is submitted. Optionally, some form fields may 
 }
 ```
 
+## bc-form-cancelled
+
+Fires when a Botcopy form is cancelled. 
+
+
+```js
+{
+  type: "bc-form-cancelled",
+  payload: {} 
+}
+```
+
+Supported styles: wall
+
 ## bc-history-cleared
 
 Fires when chat history is cleared.
@@ -338,6 +352,31 @@ Fires when the chat window closes.
   payload: {}
 }
 ```
+
+## bc-window-maximized
+
+Fires when the chat window is maximized. 
+
+```js
+{
+  type: "bc-window-maximized",
+   payload: {}
+}
+```
+
+
+## bc-window-minimized
+
+Fires when the chat window is minimized. 
+
+```js
+{
+  type: "bc-window-minimized",
+   payload: {}
+}
+```
+
+
 
 ## bc-window-style
 
