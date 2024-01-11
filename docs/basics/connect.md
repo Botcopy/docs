@@ -6,6 +6,18 @@ The **Agent Details** card allows you to connect your bot to a specific Dialogfl
 
 You may also deactivate the bot, unlink the bot, and delete the bot.
 
+## Domain Allowlist
+
+The **Domain Allowlist** allows you to restrict your bot to trusted domains. This is useful if you want to limit your bot to a specific website or set of websites.
+
+Accepted format: https://domain.com, https://subdomain.domain.com, http://localhost:3000
+
+### Exceptions
+The **Exceptions List** allows you to list specific urls where your bot will not load. Use this feature to prevent your bot from loading on specific pages of your website.
+
+Accepted format: https://domain.com/, https://subdomain.domain.com/, https://domain.com/path
+
+
 ## Embed Snippet
 The **Embed Snippet** section gives you two options for embedding the bot to your website. You may choose between a general script and a Google Tag Manager script. 
 
