@@ -20,7 +20,9 @@ window.addEventListener("botcopy-events", function (e) {
 
 ## bc-initialized
 
-Fires when the chat window has initialized. Use this event to identify when the chat window has fully loaded. All other events and [methods](window/methods?id=window-methods) occur/can occur after initialization. 
+Fires when the chat window has initialized. Use this event to identify when the chat window has fully loaded (first load, page change, refresh). This event is useful for triggering other events or methods after page load.
+
+Note: All other events and [methods](window/methods?id=window-methods) occur/can occur after initialization. 
 
 ```js
 {
