@@ -35,7 +35,11 @@ Only one action should be assigned to each payload element. In case of conflicti
   "action": {
     "message": {
       "command": "Pricing",
-      "type": "training"
+      "type": "training",
+      "parameters": {
+        "param1": "value1",
+        "param2": "value2"
+      }
     }
   }
 }
@@ -45,6 +49,7 @@ Sends a message to the bot on selection.
 
 - command (optional): the event name or training phrase sent to the bot. Defaults to title if not provided
 - type: either 'event' or 'training'. This corresponds to an event name or training phrase for an intent.
+- parameters (optional): an object containing parameters to be sent to the bot. The object key is the parameter name and the value is the parameter value.
 
 ### link
 
