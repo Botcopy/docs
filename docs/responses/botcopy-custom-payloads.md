@@ -20,93 +20,6 @@ Examples:
 - [Lists](#lists)
 - [Forms](#forms)
 
-## Actions
-
-[message](#message) and [link](#link) are used for Suggestions, Cards, Carousel Items, and List Items.
-
-Card can also use a [button](#button) action. Each button has its own action.
-
-Only one action should be assigned to each payload element. In case of conflicting actions, Botcopy priorities message > link > button.
-
-### message
-
-```
-{
-  "action": {
-    "message": {
-      "command": "Pricing",
-      "type": "training",
-      "parameters": {
-        "param1": "value1",
-        "param2": "value2"
-      }
-    }
-  }
-}
-```
-
-Sends a message to the bot on selection.
-
-- command (optional): the event name or training phrase sent to the bot. Defaults to title if not provided
-- type: either 'event' or 'training'. This corresponds to an event name or training phrase for an intent.
-- parameters (optional): an object containing parameters to be sent to the bot. The object key is the parameter name and the value is the parameter value.
-
-### link
-
-```
-{
-  "action": {
-    "link": {
-      "target": "_blank",
-      "url": "https://botcopy.com"
-    }
-  }
-}
-```
-
-Sends the user to a destination url within a new tab, or a Botcopy webview.
-
-- url: the destination url
-- target (optional): new tab or webview. Defaults to a Botcopy webview in the chat if not defined.
-
-### button
-
-```
-{
-  "action": {
-    "buttons": [
-      {
-        "action": {
-          "link": {
-            "target": "_blank",
-            "url": "https://botcopy.com"
-          }
-        },
-        "title": "Linkout Button"
-      },
-      {
-        "action": {
-          "message": {
-            "command": "Pricing",
-            "type": "training"
-          }
-        },
-        "title": "Message Button"
-      }
-    ]
-  }
-}
-```
-
-An array of buttons, each with an action of their own. Exclusively used for Cards.
-
-- title: the title of the button
-- action: defines the behavior of the button. Must be exclusively a single action
-  - [message](#message)
-  - [link](#link)
-
----
-
 ## Response Payload Structure Details
 
 Each custom payload should contain a `botcopy` array with your desired rich responses.
@@ -604,3 +517,91 @@ The [autocomplete](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/
 - type (optional): type of the input field
 - name (optional): name of the field
 - id (optional): id of the field
+
+
+## Actions
+
+[message](#message) and [link](#link) are used for Suggestions, Cards, Carousel Items, and List Items.
+
+Card can also use a [button](#button) action. Each button has its own action.
+
+Only one action should be assigned to each payload element. In case of conflicting actions, Botcopy priorities message > link > button.
+
+### message
+
+```
+{
+  "action": {
+    "message": {
+      "command": "Pricing",
+      "type": "training",
+      "parameters": {
+        "param1": "value1",
+        "param2": "value2"
+      }
+    }
+  }
+}
+```
+
+Sends a message to the bot on selection.
+
+- command (optional): the event name or training phrase sent to the bot. Defaults to title if not provided
+- type: either 'event' or 'training'. This corresponds to an event name or training phrase for an intent.
+- parameters (optional): an object containing parameters to be sent to the bot. The object key is the parameter name and the value is the parameter value.
+
+### link
+
+```
+{
+  "action": {
+    "link": {
+      "target": "_blank",
+      "url": "https://botcopy.com"
+    }
+  }
+}
+```
+
+Sends the user to a destination url within a new tab, or a Botcopy webview.
+
+- url: the destination url
+- target (optional): new tab or webview. Defaults to a Botcopy webview in the chat if not defined.
+
+### button
+
+```
+{
+  "action": {
+    "buttons": [
+      {
+        "action": {
+          "link": {
+            "target": "_blank",
+            "url": "https://botcopy.com"
+          }
+        },
+        "title": "Linkout Button"
+      },
+      {
+        "action": {
+          "message": {
+            "command": "Pricing",
+            "type": "training"
+          }
+        },
+        "title": "Message Button"
+      }
+    ]
+  }
+}
+```
+
+An array of buttons, each with an action of their own. Exclusively used for Cards.
+
+- title: the title of the button
+- action: defines the behavior of the button. Must be exclusively a single action
+  - [message](#message)
+  - [link](#link)
+
+---
