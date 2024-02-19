@@ -171,7 +171,7 @@ Button example:
 
 ## Clear History
 
-Clears the chat message history.
+Clears the chat message history. Typically used once the chat window is [initialized](window/events?id=bc-initialized).
 
 ```js
 Botcopy.clearHistory();
