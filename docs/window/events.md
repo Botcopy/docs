@@ -153,6 +153,25 @@ Fires when a suggestion chip is clicked.
 }
 ```
 
+## bc-engaged
+
+Fires when the user has engaged with your bot. Use this event to identify the engagement status of your chat (start, engaged, cleared). This event is useful for tracking a user as they navigate your website.
+
+```js
+{
+  type: 'bc-engaged',
+  payload: {
+    status: "string" // status of engagement
+  }
+}
+```
+
+Status values:
+- "start" // user has started a conversation
+- "engaged" // user is currently engaged with the bot
+- "cleared" // the chat history has been cleared
+
+
 ## bc-feedback-open
 
 Fires when the feedback box opens.
