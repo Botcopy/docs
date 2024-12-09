@@ -1,4 +1,4 @@
-# Botcopy Response Payload Format for Dialogflow CX
+# Botcopy Response Payload Guide
 
 ## Overview
 
@@ -21,7 +21,7 @@ Examples:
 - [Lists](#lists)
 - [Forms](#forms)
 
-## Botcopy Response Payload Format
+## Botcopy Payload Implementation
 
 ### How to Use the Payload
 
