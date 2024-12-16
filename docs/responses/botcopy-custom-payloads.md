@@ -1,18 +1,19 @@
-# Botcopy Response Payload Format for Dialogflow CX
+# Botcopy Response Payload Guide
 
-Botcopy responses are designed to be flexible in their role and this is reflected in the payload structure. Components in the payload have an action field that dictates their behavior in the Botcopy chat when the component is selected by users. It allows multiple response types with different actions to be grouped together.
+## Overview
+
+The following outlines the structure and best practices for Botcopy responses, detailing how to use each response type effectively and the optimal formats for different bot interactions. Botcopy’s flexible payload structure supports combining multiple actions within a single response, enhancing the overall user experience.
 
 Examples:
+- Suggestions: Provide quick options to send messages or external links.
+- Card Buttons: Enable users to trigger messages or open links.
+- Carousels: Support mixed actions for versatile interactions:
+  - Link Cards: Act as browse carousel cards for external navigation.
+  - Message Cards: Serve as selection key carousel cards for in-chat navigation.
 
-- Suggestions can be used to send messages or links
-- Card Buttons can send messages or links
-- Carousels can contain more than one type of action
-  - Link cards act as browse carousel cards
-  - Message cards act as regular selection key carousel cards
+[Explore Actions in Detail](#actions)
 
-[Actions in Detail](#actions)
-[Response Payload Details](#response-payload-structure-details)
-
+**Response Types:**
 - [Text Responses](#text-responses)
 - [Suggestions](#suggestions)
 - [Basic Cards](#basic-cards)
@@ -20,22 +21,39 @@ Examples:
 - [Lists](#lists)
 - [Forms](#forms)
 
-## Response Payload Structure Details
+## Botcopy Payload Implementation
 
-Each custom payload should contain a `botcopy` array with your desired rich responses.
+### How to Use the Payload
 
-Default CX text responses will render alongside your payload if they are provided.
+Botcopy responses use an array-based format with an `action` field to determine the chat’s behavior when users interact with each component. This structure enables you to include multiple response types within a single payload, making interactions versatile and dynamic.
 
-Custom Rich Responses will be rendered in the chat in their arrayed order.
+**Key Points:**
+- Each custom payload should include a `botcopy` array with the desired rich responses.
+- Default Dialogflow CX text responses will display alongside the custom payload if  provided.
+- Rich responses are displayed in the order they appear in the array, ensuring a consistent user experience.
 
-To add a custom payload to a CX response, select the 'Custom Payload' fulfillment option.
+**Why This Matters:**  
+This flexible approach allows you to design more precise and engaging interactions. For instance:
+- Carousels can offer a mix of internal navigation (message actions) and external redirection (link actions).
+- Cards and Suggestions can direct users to the next step efficiently with buttons or links.
+By combining different response types, you can create a seamless and intuitive chatbot experience.
 
 ## Text Responses
 
-An array of text responses.
+An array of text responses used to convey static information.
 
-textToSpeech, displayText, and ssml fields handle different aspects of the message.
+The displayText, textToSpeech, and ssml fields handle different output formats for the message.
 
+**Usage:**
+- Ideal for straightforward messages or confirmations.
+
+**Best For:**
+- Simple instructions, greetings, or responses that don’t require interactivity.
+
+**Why Use This:**
+- The simplest way to deliver static information without the need for buttons, links, or user input.
+
+#### Example Payload
 ```
 {
   "botcopy": [
@@ -52,18 +70,32 @@ textToSpeech, displayText, and ssml fields handle different aspects of the messa
 }
 ```
 
-**text**
+#### Properties
 
-- displayText - the message displayed in the chat.
-- ssml (optional) - SSML format text for the phrase spoken by a bot.
-- textToSpeech (optional) - the phrase spoken by the bot. Takes priority over SSML. If both are provided in the payload, textToSpeech is used for the audio file.
+| **Name**         | **Type**   | **Description**                                                                                          |
+|-------------------|------------|----------------------------------------------------------------------------------------------------------|
+| `displayText`     | `string`   | The message displayed in the chat.                                                                       |
+| `ssml`            | `string`   | *(Optional)* SSML-formatted text for the phrase spoken by a bot.                                         |
+| `textToSpeech`    | `string`   | *(Optional)* The phrase spoken by the bot. Takes priority over `ssml`. If both are provided, `textToSpeech` is used for the audio file.  |
 
----
+
 
 ## Suggestions
 
-Suggestions prompt users with a clickable button after a series of responses. A suggestion can either continue the conversation with a **message** action, or send the user to an external link with a **link** action.
+Suggestions provide users with clickable buttons to guide them through the conversation or direct them to external resources. Each suggestion performs a specific action, either continuing the dialogue with a [message](#message) action or opening an external link with a [link](#link) action.
 
+**Usage:**
+- Offer quick, clickable options after a response to streamline user interaction.
+
+**Best For:**
+- Guiding users toward common follow-ups or linking to external resources.
+
+**Why Use This:**
+- Simplifies Navigation: Reduces the need for typing by offering pre-set choices.
+- Enhances Efficiency: Helps users quickly access relevant information or actions.
+- Improves Satisfaction: Streamlined interactions lead to a smoother user experience.
+
+#### Example Payload
 ```
 {
   "botcopy": [
@@ -93,139 +125,169 @@ Suggestions prompt users with a clickable button after a series of responses. A 
 }
 ```
 
-**suggestion**
+#### Properties
 
-- title: the label displayed in the suggestion chip to the end user
-- action: defines the behavior of the suggestion. Must be exclusively a single action
-  - [message](#message)
-  - [link](#link)
+| **Name**    | **Type**           | **Description**                                                                                  |
+|--------------|--------------------|--------------------------------------------------------------------------------------------------|
+| `title`      | `string`           | The text displayed on the suggestion button.                                                     |
+| `action`     | `object`           | Defines what happens when the suggestion is clicked. Options include:                           |
+|              |                    | - **[message](#message)**: Continues the conversation with a predefined command.                |
+|              |                    | - **[link](#link)**: Opens an external URL in a new window or tab.                              |
 
----
 
 ## Basic Cards
 
-Basic cards have a title, subtitle, and body containing information. Image media includes, but is not limited to images, gifs and [videos](/responses/videos).
+Basic cards present structured information using a title, subtitle, body, and optional media like images, GIFs, and [videos](/responses/videos). They can also include [button](#button) actions for user interaction.
 
-Cards can also use a [button](#button) action, which is displayed in this example.
+**Usage:**
+- Display detailed information with a visual layout, and provide interactive buttons for next steps.
 
+**Best For:**
+- Highlighting key information and offering follow-up actions with buttons.
+
+**Why Use This:**
+- Visual Structure: Organizes content in a clear, visually appealing format.
+- User Engagement: Buttons guide users to take specific actions.
+- Versatility: Ideal for displaying information, media, and actionable next steps.
+
+#### Example Payload
 ```
 {
   "botcopy": [
     {
       "card": {
+        "title": "Card Title",
+        "subtitle": "Card Subtitle",
+        "body": "Card Body",
+        "image": {
+          "url": "https://example.com/image.png",
+          "alt": "Image Description"
+        },
         "action": {
           "buttons": [
             {
               "action": {
                 "link": {
-                  "target": "_blank",
                   "url": "https://botcopy.com"
                 }
               },
-              "title": "Linkout Button"
-            },
-            {
-              "action": {
-                "message": {
-                  "command": "Pricing",
-                  "type": "training"
-                }
-              },
-              "title": "Message Button"
+              "title": "Visit Website"
             }
           ]
-        },
-        "body": "Card body",
-        "image": {
-          "alt": "Image of a cat",
-          "url": "https://homepages.cae.wisc.edu/~ece533/images/cat.png"
-        },
-        "subtitle": "Card subtitle",
-        "title": "Card title"
+        }
       }
     }
   ]
 }
+
 ```
 
-**card**
+#### Properties
 
-- title: title for the card
-- image (optional): object containing media info
-  - url: link to media
-  - alt (optional): alt text for accessibility
-- body (optional): body text for the card
-- subtitle (optional): subtitle for the card
-- action
-  - [message](#message)
-  - [link](#link)
-  - [button](#button)
+| **Name**       | **Type**   | **Description**                                                                                  |
+|-----------------|------------|--------------------------------------------------------------------------------------------------|
+| `title`         | `string`   | Main heading for the card.                                                                       |
+| `subtitle`      | `string`   | Subheading to provide additional context. *(Optional)*                                           |
+| `body`          | `string`   | Detailed text or description. *(Optional)*                                                       |
+| `image`         | `object`   | Contains media information. *(Optional)*                                                         |
+| ├─ `url`        | `string`   | Link to the media.                                                                               |
+| └─ `alt`        | `string`   | Alternative text for accessibility. *(Optional)*                                                 |
+| `action`        | `object`   | Defines the behavior of the card. Options include:                                               |
+|                 |            | - **[message](#message)**                                                                        |
+|                 |            | - **[link](#link)**                                                                              |
+|                 |            | - **[button](#button)**                                                                          |
 
----
 
 ## Carousels
 
-Carousels are a collection of cards. Each carousel item can have an action of either [message](#message), [link](#link), or [button](#button).
+Carousels present multiple cards in a scrollable format, each with a title, subtitle, body, and optional media. Each card can include an action such as [message](#message), [link](#link), or [button](#button).
 
+**Usage:**
+- Display a series of cards that users can swipe or scroll through to explore multiple options.
+
+**Best For:**
+- Showcasing products, services, or options with interactive actions on each card.
+
+**Why Use This:**
+- Interactive Display: Allows users to explore multiple options without overwhelming them.
+- Flexibility: Each card can lead to different actions (e.g., links, messages, or buttons).
+- Engagement: Visually appealing and easy to navigate, enhancing user experience.
+
+#### Example Payload
 ```
 {
   "botcopy": [
     {
       "carousel": [
         {
-          "action": {
-            "link": {
-              "target": "_blank",
-              "url": "https://botcopy.com"
-            }
-          },
+          "title": "Item One",
+          "subtitle": "Subtitle One",
           "body": "Description One",
           "image": {
             "alt": "Image of a cat",
             "url": "https://homepages.cae.wisc.edu/~ece533/images/cat.png"
           },
-          "subtitle": "Subtitle One",
-          "title": "Item One"
+          "action": {
+            "link": {
+              "target": "_blank",
+              "url": "https://botcopy.com"
+            }
+          }
         },
         {
-          "action": {
-            "message": {
-              "command": "Pricing",
-              "type": "training"
-            }
-          },
+          "title": "Item Two",
+          "subtitle": "Subtitle Two",
           "body": "Description Two",
           "image": {
             "alt": "Image of a cat",
             "url": "https://homepages.cae.wisc.edu/~ece533/images/cat.png"
           },
-          "title": "Item Two"
+          "action": {
+            "message": {
+              "command": "Pricing",
+              "type": "training"
+            }
+          }
         }
       ]
     }
   ]
 }
+
 ```
 
-**carousel**
+#### Properties
 
-- title: title for the card
-- image (optional): object containing media info
-  - url: link to media
-  - alt: alt text for accessibility
-- body (optional): body text for the card
-- subtitle (optional): subtitle for the card
-- action
-  - [message](#message)
-  - [link](#link)
-  - [button](#button)
+| **Name**        | **Type**   | **Description**                                                                               |
+|-----------------|------------|-----------------------------------------------------------------------------------------------|
+| `title`         | `string`   | Main heading for each card.                                                                   |
+| `subtitle`      | `string`   | Subheading for additional context. *(Optional)*                                               |
+| `body`          | `string`   | Description or detailed text for the card. *(Optional)*                                       |
+| `image`         | `object`   | Contains image or media information. *(Optional)*                                             |
+| ├─ `url`        | `string`   | Link to the image or media.                                                                   |
+| └─ `alt`        | `string`   | Alternative text for accessibility. *(Optional)*                                              |
+| `action`        | `object`   | Defines the behavior of the card. Options include:                                            |
+|                 |            | - **[message](#message)**                                                                     |
+|                 |            | - **[link](#link)**                                                                           |
+|                 |            | - **[button](#button)**                                                                       |
 
----
 
 ## Lists
 
-Lists are another way to visualize an assortment of data. Lists do not use a button action.
+Lists display multiple items in a structured format. Each list item can include a title, optional description, optional image, and an action such as a message or link. Unlike other components, lists do not support button actions.
 
+**Usage:**
+- Present multiple options or categories in a clear, organized list.
+
+**Best For:**
+- Offering concise lists of items or choices that users can interact with.
+
+**Why Use This:**
+- Compact Display: Efficiently presents multiple options in a clear, structured format.
+- Easy Navigation: Helps users quickly find and select relevant items.
+- Versatile Actions: Supports linking to external pages or continuing the conversation.
+
+#### Example Payload
 ```
 {
   "botcopy": [
@@ -268,150 +330,183 @@ Lists are another way to visualize an assortment of data. Lists do not use a but
 }
 ```
 
-**list**
+#### Properties
 
-- title: list title shown in header
-- items: array of list items
-  - image (optional)
-    - url: link to media
-    - alt: alt text for accessibility
-  - title: item title
-  - description (optional): description of list item
-  - action
-    - [message](#message)
-    - [link](#link)
+| **Name**       | **Type**      | **Description**                                                                                      |
+|----------------|---------------|------------------------------------------------------------------------------------------------------|
+| `title`        | `string`      | The title displayed at the top of the list.                                                         |
+| `items`        | `array`       | An array containing individual list items, each with the following properties:                      |
+| ├─ `title`     | `string`      | The main title of the list item.                                                                    |
+| ├─ `body`      | `string`      | Additional description or details about the item. *(Optional)*                                      |
+| ├─ `image`     | `object`      | Contains image or media details for the item. *(Optional)*                                          |
+| │ ├─ `url`     | `string`      | The URL link to the image or media file.                                                            |
+| │ └─ `alt`     | `string`      | Alternative text for the image, improving accessibility. *(Optional)*                               |
+| └─ `action`    | `object`      | Specifies the action triggered when the user interacts with the item. Options include:              |
+|                |               | - **[message](#message)**                 |
+|                |               | - **[link](#link)**                                |
 
----
+
 
 ## Forms
 
-Forms contain fields for user input. These fields come in a variety of fieldTypes and associated attributes. You can also add a title and subtitle to your forms.
 
-Dialogflow ES: User inputs are set as a parameter on `botcopy-form-context`
+Forms are used to collect structured input from users through various properties. They can include a **title** and **subtitle** for context and are configured differently depending on whether you are using Dialogflow CX or ES.
 
-Dialogflow CX: User inputs are set as session parameters
+- **Dialogflow CX**: User inputs are set as session parameters.
+- **Dialogflow ES**: User inputs are set as parameters on `botcopy-form-context`.
 
-Forms exclusively use a [message](#message) action, which is the training phrase or event used to continue the conversation when the form is filled.
+Forms exclusively use a [message](#message) action to continue the conversation once the form is submitted.
 
-Fields have a max length of 256 characters. At least one field is required for the component to render.
+**Field Limitations**:  
+- Each field has a maximum length of **256 characters**.  
+- At least **one field** is required for the form to render.
 
-```
+
+**Usage**
+
+- **Collect structured input** such as emails, preferences, or feedback.
+
+**Best For**
+
+- Capturing user information in an organized manner.
+
+**Why Use This:**
+Forms streamline data collection, ensure input accuracy, and improve the user experience by guiding users through structured inputs.
+
+#### Example Payload
+```json
 {
-	"botcopy": [{
-		"form": {
-			"fields": [{
-					"label": "Email Address",
-					"placeholder": "matt@botcopy.com",
-					"parameter": "email",
-					"type": "email",
-					"required": true,
-					"error": "This field is required.",
-                    "helperText": "Format: email@domain.com",
-					"expose": true
-				},
-				{
-					"fieldType": "select",
-					"parameter": "fruits",
-					"groupLabel": "Select a fruit below:",
-					"expose": true,
-					"select": [{
-							"selectLabel": "Apple",
-							"parameter": "Apple"
-						},
-						{
-							"parameter": "Banana",
-							"selectLabel": "Banana"
-						},
-						{
-							"selectLabel": "Orange",
-							"parameter": "Orange"
-						}
-					]
-				},
-				{
-					"groupLabel": "Select the amount below:",
-					"fieldType": "checkbox",
-					"parameter": "amount",
-					"expose": true,
-					"checkboxes": [{
-							"parameter": "1",
-							"checkboxLabel": "1",
-							"checked": true
-						},
-						{
-							"parameter": "2",
-							"checkboxLabel": "2"
-						}
-					]
-				}
-			],
-			"style": "message",
-			"title": "Contact Information",
-			"subtitle": "Thank you for your business!",
-			"force": true,
-			"action": {
-				"message": {
-					"command": "Pricing",
-					"type": "training"
-				}
-			}
-		}
-	}]
+  "botcopy": [
+    {
+      "form": {
+        "title": "Contact Information",
+        "subtitle": "Thank you for your business!",
+        "style": "message",
+        "force": true,
+        "fields": [
+          {
+            "label": "Email Address",
+            "placeholder": "hello@botcopy.com",
+            "parameter": "email",
+            "type": "email",
+            "required": true,
+            "error": "This field is required.",
+            "helperText": "Format: email@domain.com",
+            "expose": true
+          },
+          {
+            "fieldType": "select",
+            "parameter": "fruits",
+            "groupLabel": "Select a fruit below:",
+            "expose": true,
+            "select": [
+              { "selectLabel": "Apple", "parameter": "Apple" },
+              { "selectLabel": "Banana", "parameter": "Banana" },
+              { "selectLabel": "Orange", "parameter": "Orange" }
+            ]
+          },
+          {
+            "fieldType": "checkbox",
+            "parameter": "amount",
+            "groupLabel": "Select the amount below:",
+            "expose": true,
+            "checkboxes": [
+              { "parameter": "1", "checkboxLabel": "1", "checked": true },
+              { "parameter": "2", "checkboxLabel": "2" }
+            ]
+          }
+        ],
+        "action": {
+          "message": {
+            "command": "Pricing",
+            "type": "training"
+          }
+        }
+      }
+    }
+  ]
 }
+
 ```
 
-**Form Attributes**
+#### Properties
 
-- title | string: title of the form
-- subtitle | string: subtitle of the form
-- style | string: style of the form component
-  - message, wall
-- fieldType | string: Type of the field (< input type=""> element)
-  - text, checkbox, radio, select
-- force (optional) | boolean: defaults to false.
-  - If true, the wall style does not have a cancel button
-  - Does not apply to forms with style: "message"
-- fields: array of objects
-  - error | string: text shown if a required field is not filled
-  - helperText | string: used to give context about a field's input, such as how the input will be used or its current error state.
-  - label | string: text input label
-  - placeholder | string: input placeholder
-  - parameter | string: name of dialogflow parameter to assign input to
-  - expose (optional) | boolean: add the parameter name and field value to the `botcopy-form-submitted` window event
-  - multiline (optional) | boolean: transforms text field into a textarea element. Unless rows is set, the height of the text field dynamically matches its content
-  - rows (optional) | number: Minimum number of rows to display when multiline option is set to true
-  - required (optional) | boolean: field required to submit form
-  - pattern (optional)\* | string: regex patterns
-  - type (optional) | string: type of input to be collected
-    - Supported types: checkbox, date, datetime-local, email, month, week, number, password, tel, text, time, color, url
-    - Unsupported types: file, image, built-in calendar, radio, button, hidden, range, reset, search, submit
+| **Name**  | **Type**    | **Description**                                                                                   |
+|----------------|-------------|---------------------------------------------------------------------------------------------------|
+| `title`       | *string*    | The title of the form.                                                                            |
+| `subtitle`    | *string*    | A subtitle providing context for the form.                                                        |
+| `style`       | *string*    | Display style of the form component. Properties: `message`, `wall`.                                  |
+| `force`       | *boolean*   | *(Optional)* Defaults to `false`. If `true`, the wall style removes the cancel button.            |
 
-\*Note on regex patterns: The following characters are reserved characters and can not be used in JSON and must be properly escaped to be used in strings.
 
-- Backspace to be replaced with \b
-- Form feed to be replaced with \f
-- Newline to be replaced with \n
-- Carriage return to be replaced with \r
-- Tab to be replaced with \t
-- Double quote to be replaced with \"
-- Backslash to be replaced with \\
+#### Field-Level Properties
+
+| **Name**   | **Type**     | **Description**                                                                                       |
+|-----------------|--------------|-------------------------------------------------------------------------------------------------------|
+| `label`         | *string*     | The label shown for the input field.                                                                 |
+| `placeholder`   | *string*     | Placeholder text displayed in the field.                                                             |
+| `parameter`     | *string*     | The Dialogflow parameter to store the input value.                                                   |
+| `type`          | *string*     | *(Optional)* Type of input to collect. Supported types: `email`, `text`, `checkbox`, etc.            |
+| `fieldType`     | *string*     | *(Optional)* The type of field element. Properties: `text`, `checkbox`, `radio`, `select`.              |
+| `required`      | *boolean*    | *(Optional)* Indicates if the field must be filled to submit the form.                               |
+| `error`         | *string*     | *(Optional)* Error message shown if a required field is left empty.                                  |
+| `helperText`    | *string*     | *(Optional)* Additional instructions or context for the field.                                       |
+| `expose`        | *boolean*    | *(Optional)* If `true`, exposes the field value in the `botcopy-form-submitted` event.               |
+| `multiline`     | *boolean*    | *(Optional)* Transforms a text field into a textarea.                                                |
+| `rows`          | *number*     | *(Optional)* Minimum number of rows to display for multiline fields.                                 |
+| `pattern`       | *string*     | *(Optional)* Regex pattern for input validation.                                                     |
+
+
+### Supported Input Types for `type`
+
+- `checkbox`
+- `date`
+- `datetime-local`
+- `email`
+- `month`
+- `week`
+- `number`
+- `password`
+- `tel`
+- `text`
+- `time`
+- `color`
+- `url`
+
+### Notes on Regex Patterns
+
+Some characters are reserved in JSON and need to be properly escaped:
+
+- **Backspace**: `\b`  
+- **Form feed**: `\f`  
+- **Newline**: `\n`  
+- **Carriage return**: `\r`  
+- **Tab**: `\t`  
+- **Double quote**: `\"`  
+- **Backslash**: `\\`  
 
 ### Checkboxes
 
 Checkboxes contain an array of checkbox fields. You can define each checkbox field and expose values in the bc-form-submitted window event.
 
-Checkboxes object attributes
+#### Properties
 
-- groupLabel: name of dialogflow parameter to assign input to
-- fieldType: checkbox
-- parameter: name of dialogflow parameter checkbox parameters are assigned to
-- expose: exposes the user's input in the bc-form-submitted window event
+| **Name**       | **Type**      | **Description**                                                                       |
+|----------------|---------------|---------------------------------------------------------------------------------------|
+| `groupLabel`   | `string`      | The name of the Dialogflow parameter to assign input to.                             |
+| `fieldType`    | `string`      | Specifies the field type; in this case, it is a `checkbox`.                          |
+| `parameter`    | `string`      | The name of the Dialogflow parameter the checkbox input is assigned to.              |
+| `expose`       | `boolean`     | Exposes the user's input in the `bc-form-submitted` window event.                    |
 
-Checkbox field attributes
 
-- parameter: name of dialogflow parameter value to assign input to
-- checkboxLabel: Label of the checkbox
-- checked (optional): Sets checkbox to 'Checked' on load
+#### Field Properties
+
+| **Name**        | **Type**     | **Description**                                                               |
+|-----------------|--------------|-------------------------------------------------------------------------------|
+| `parameter`     | `string`     | The name of the Dialogflow parameter to assign the input value to.           |
+| `checkboxLabel` | `string`     | The label displayed next to the checkbox.                                    |
+| `checked`       | `boolean`    | Sets the checkbox to 'Checked' by default when the form loads. *(Optional)* |
+
 
 ```
 	{
@@ -436,19 +531,24 @@ Checkbox field attributes
 
 Radio contains an array of radio buttons. You can define each radio button and expose values in the bc-form-submitted window event.
 
-Radio object attributes
+#### Properties
 
-- expose: exposes the user's input in the bc-form-submitted window event
-- fieldType: radio
-- groupLabel: name of dialogflow parameter to assign input to
-- parameter: name of dialogflow parameter radio parameters are assigned to
-- required (optional): radio button is required to submit the form
+| **Name**       | **Type**     | **Description**                                                                                     |
+|----------------|--------------|-----------------------------------------------------------------------------------------------------|
+| `expose`      | `boolean`    | Exposes the user's input in the `bc-form-submitted` window event.                                   |
+| `fieldType`   | `string`     | Specifies the field type; in this case, it is a `radio` button.                                     |
+| `groupLabel`  | `string`     | The name of the Dialogflow parameter to assign the input to.                                         |
+| `parameter`   | `string`     | The name of the Dialogflow parameter the radio button input is assigned to.                         |
+| `required`    | `boolean`    | Specifies if selecting a radio button is mandatory to submit the form. *(Optional)*                 |
 
-Radio button attributes
 
-- parameter: name of dialogflow parameter value to assign input to
-- radioLabel: Label of the radio
-- selected (optional): select a default. Radio buttons should have the most commonly used option selected by default. If no default is selected, `required` should be set to true.
+#### Field Properties
+
+| **Name**        | **Type**     | **Description**                                                                                                 |
+|-----------------|--------------|-----------------------------------------------------------------------------------------------------------------|
+| `parameter`     | `string`     | The name of the Dialogflow parameter to assign the input value to.                                             |
+| `radioLabel`    | `string`     | The label displayed next to the radio button.                                                                  |
+| `selected`      | `boolean`    | Sets the radio button to be selected by default. If no default is selected, `required` should be set to `true`. *(Optional)* |
 
 ```
 	{
@@ -473,19 +573,25 @@ Radio button attributes
 
 ### Select
 
-Select contains menu items within a dropdown menu. You can define each option and expose values in the bc-form-submitted window event.
+Select contains menu items within a dropdown menu. You can define each option and expose values in the [bc-form-submitted](#/window/events/bc-form-submitted) window event.
 
-Select object attributes
+#### Properties
 
-- fieldType: select
-- groupLabel: name of dialogflow parameter to assign input to
-- parameter: name of dialogflow parameter select parameter is assigned to
-- expose: exposes the user's input in the bc-form-submitted window event
+| **Name**       | **Type**     | **Description**                                                                                      |
+|----------------|--------------|------------------------------------------------------------------------------------------------------|
+| `fieldType`   | `string`     | Specifies the field type; in this case, it is a `select` dropdown.                                  |
+| `groupLabel`  | `string`     | The name of the Dialogflow parameter to assign the selected input to.                                |
+| `parameter`   | `string`     | The name of the Dialogflow parameter the selected value is assigned to.                              |
+| `expose`      | `boolean`    | Exposes the user's input in the `bc-form-submitted` window event.                                     |
 
-Select field attributes
 
-- parameter: name of dialogflow parameter value to assign input to
-- selectLabel: Label of the menu item
+#### Field Properties
+
+| **Name**        | **Type**   | **Description**                                                      |
+|-----------------|------------|----------------------------------------------------------------------|
+| `parameter`     | `string`   | The name of the Dialogflow parameter to assign the selected value to.|
+| `selectLabel`   | `string`   | The label displayed for the menu item in the dropdown.               |
+
 
 ```
  {
@@ -513,21 +619,40 @@ Select field attributes
 
 The [autocomplete](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) attribute lets web developers specify what if any permission the user agent has to provide automated assistance in filling out form field values, as well as guidance to the browser as to the type of information expected in the field.
 
-- autocomplete (optional): defines what should populate for autocomplete. Defaults to 'on'
-- type (optional): type of the input field
-- name (optional): name of the field
-- id (optional): id of the field
+#### Properties
+| **Name**         | **Type**    | **Description**                                                                                  |
+|------------------|-------------|--------------------------------------------------------------------------------------------------|
+| `autocomplete`   | `string`    | Defines the autocomplete behavior. Defaults to `'on'`. *(Optional)*                             |
+| `type`           | `string`    | Specifies the type of the input field (e.g., `text`, `email`, `number`). *(Optional)*           |
+| `name`           | `string`    | The name attribute for the input field. *(Optional)*                                            |
+| `id`             | `string`    | The unique identifier for the input field. *(Optional)*                                         |
 
 
 ## Actions
 
 [message](#message) and [link](#link) are used for Suggestions, Cards, Carousel Items, and List Items.
 
-Card can also use a [button](#button) action. Each button has its own action.
+Cards and Carousels can also use a [button](#button) action. Each button has its own action.
 
 Only one action should be assigned to each payload element. In case of conflicting actions, Botcopy priorities message > link > button.
 
+#### Types of Actions
+- [Message](#message): Continues the conversation within the chat.
+- [Link](#link): Opens a URL in a new tab or webview.
+- [Button](#button): Used within cards, combining multiple actions.
+
+#### Choosing the Right Action
+- Message Actions are ideal for in-chat responses.
+- Link Actions direct users outside the chat.
+- Button Actions provide flexibility within cards & carousels.
+--- 
+
 ### message
+
+Triggers a predefined command or training phrase when the user selects the option, sending a message to the bot along with optional parameters.
+
+**Usage**: 
+- This action helps guide the conversation by invoking specific bot responses or intents.
 
 ```
 {
@@ -544,13 +669,23 @@ Only one action should be assigned to each payload element. In case of conflicti
 }
 ```
 
-Sends a message to the bot on selection.
 
-- command (optional): the event name or training phrase sent to the bot. Defaults to title if not provided
-- type: either 'event' or 'training'. This corresponds to an event name or training phrase for an intent.
-- parameters (optional): an object containing parameters to be sent to the bot. The object key is the parameter name and the value is the parameter value.
+#### Properties
+| **Name**         | **Type**           | **Description**                                                                                                     |
+|------------------|--------------------|---------------------------------------------------------------------------------------------------------------------|
+| `type`           | `string`           | Specifies the type of action: either `'event'` for an event name or `'training'` for a training phrase.            |
+| `command`        | `string`           | *(Optional)* The event name or training phrase sent to the bot. Defaults to the `title` if not provided.           |
+| `parameters`     | `object`           | An object containing parameters sent to the bot. Each key represents a parameter name, and the value is its value. *(Optional)*  |
+
+
+--- 
 
 ### link
+
+Opens a destination URL in a new tab or a Botcopy webview when the user selects the option.
+
+**Usage**: 
+- This action is useful for directing users to external resources or detailed information outside the chat interface.
 
 ```
 {
@@ -563,12 +698,19 @@ Sends a message to the bot on selection.
 }
 ```
 
-Sends the user to a destination url within a new tab, or a Botcopy webview.
 
-- url: the destination url
-- target (optional): new tab or webview. Defaults to a Botcopy webview in the chat if not defined.
+#### Properties
+| **Name**     | **Type**   | **Description**                                                                                           |
+|--------------|------------|-----------------------------------------------------------------------------------------------------------|
+| `url`        | `string`   | The destination URL that the link points to.                                                             |
+| `target`     | `string`   | Specifies where to open the link: a new tab or a webview. Defaults to a Botcopy webview if not provided. *(Optional)* |
 
+--- 
 ### button
+An array of buttons, each with its own action. Buttons are exclusively used within Cards & Carousels to offer interactive options.
+
+**Usage**:
+- Use buttons to guide users toward next steps, such as opening external links or continuing the conversation with specific commands.
 
 ```
 {
@@ -597,11 +739,12 @@ Sends the user to a destination url within a new tab, or a Botcopy webview.
 }
 ```
 
-An array of buttons, each with an action of their own. Exclusively used for Cards.
+#### Properties
+| **Name**     | **Type**    | **Description**                                                                                  |
+|--------------|-------------|--------------------------------------------------------------------------------------------------|
+| `title`      | `string`    | The text displayed on the button.                                                               |
+| `action`     | `object`    | Defines the behavior of the button. Must be a single action, such as:                           |
+|              |             | - **[message](#message)**:                              |
+|              |             | - **[link](#link)**:                                        |
 
-- title: the title of the button
-- action: defines the behavior of the button. Must be exclusively a single action
-  - [message](#message)
-  - [link](#link)
 
----
