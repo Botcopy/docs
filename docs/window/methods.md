@@ -89,8 +89,9 @@ If you want the text to be visibly displayed (e.g., appear as a user message in 
 ```js
 /**
  * @param phrase - required string. The training phrase to send
- * @param context - optional object. A context to send
  * @param display - optional boolean. Set to true if you want the phrase to appear in the chat
+ * @param context - optional object. A context or session parameters to send
+
  */
 Botcopy.sendText(
   "training-phrase",
