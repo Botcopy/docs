@@ -83,16 +83,28 @@ Botcopy.sendCXEventSilent("event-name", {
 
 Sends a training phrase to trigger a specific intent.
 
+By default, no text is displayed when using sendText.
+If you want the text to be visibly displayed (e.g., appear as a user message in the conversation), include a display: true boolean option.
+
 ```js
 /**
  * @param phrase - required string. The training phrase to send
- * @param context - optional object. A context to send
+ * @param display - optional boolean. Set to true if you want the phrase to appear in the chat
+ * @param context - optional object. A context or session parameters to send
+
  */
-Botcopy.sendText("training-phrase", {
-  name: "context-name",
-  lifespanCount: 2,
-  parameters: { email: "hello@botcopy.com" },
-});
+Botcopy.sendText(
+  "training-phrase",
+  true, // Optional: set to true to show the phrase in the chat
+  {
+    name: "context-name",
+    lifespanCount: 2,
+    parameters: {
+      email: "hello@botcopy.com",
+    },
+  }
+);
+
 ```
 
 ## Set Parameters
