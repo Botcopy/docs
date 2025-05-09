@@ -108,7 +108,8 @@ Suggestions provide users with clickable buttons to guide them through the conve
               "type": "training"
             }
           },
-          "title": "Message Suggestion"
+          "title": "Message Suggestion",
+          "ariaLabel": "Learn about pricing options"
         },
         {
           "action": {
@@ -117,7 +118,8 @@ Suggestions provide users with clickable buttons to guide them through the conve
               "url": "https://botcopy.com"
             }
           },
-          "title": "Link Suggestion"
+          "title": "Link Suggestion",
+          "ariaLabel": "Visit Botcopy website"
         }
       ]
     }
@@ -130,6 +132,7 @@ Suggestions provide users with clickable buttons to guide them through the conve
 | **Name**    | **Type**           | **Description**                                                                                  |
 |--------------|--------------------|--------------------------------------------------------------------------------------------------|
 | `title`      | `string`           | The text displayed on the suggestion button.                                                     |
+| `ariaLabel`  | `string`           | *(Optional)* Custom accessibility label for screen readers. Overrides the default aria-label (which uses the title text). |
 | `action`     | `object`           | Defines what happens when the suggestion is clicked. Options include:                           |
 |              |                    | - **[message](#message)**: Continues the conversation with a predefined command.                |
 |              |                    | - **[link](#link)**: Opens an external URL in a new window or tab.                              |
@@ -741,7 +744,6 @@ An array of buttons, each with its own action. Buttons are exclusively used with
 
 #### Properties
 | **Name**     | **Type**    | **Description**                                                                                  |
-|--------------|-------------|--------------------------------------------------------------------------------------------------|
 | `title`      | `string`    | The text displayed on the button.                                                               |
 | `action`     | `object`    | Defines the behavior of the button. Must be a single action, such as:                           |
 |              |             | - **[message](#message)**:                              |
