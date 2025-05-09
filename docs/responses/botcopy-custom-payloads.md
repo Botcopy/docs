@@ -132,10 +132,10 @@ Suggestions provide users with clickable buttons to guide them through the conve
 | **Name**    | **Type**           | **Description**                                                                                  |
 |--------------|--------------------|--------------------------------------------------------------------------------------------------|
 | `title`      | `string`           | The text displayed on the suggestion button.                                                     |
-| `ariaLabel`  | `string`           | *(Optional)* Custom accessibility label for screen readers. Overrides the default aria-label (which uses the title text). |
 | `action`     | `object`           | Defines what happens when the suggestion is clicked. Options include:                           |
 |              |                    | - **[message](#message)**: Continues the conversation with a predefined command.                |
 |              |                    | - **[link](#link)**: Opens an external URL in a new window or tab.                              |
+| `ariaLabel`  | `string`           | *(Optional)* Custom accessibility label for screen readers. Overrides the default aria-label (which uses the title text). |
 
 
 ## Basic Cards
