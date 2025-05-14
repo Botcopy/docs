@@ -9,6 +9,7 @@
   - [Markdown](advanced/markdown.md "Botcopy Docs | Markdown")
   - [Snippet Parameter](advanced/snippet-parameter.md "Botcopy Docs | Snippet Parameter")
   - [URL Ref Parameter](advanced/url-ref-parameter.md "Botcopy Docs | URL Ref Parameter")
+  - [Voice to Text](advanced/voice-to-text.md "Botcopy Docs | Voice to Text")
 - Messaging and Response Types
   - [Botcopy Custom Payloads](responses/botcopy-custom-payloads.md "Botcopy Docs | Custom Payloads")
   - [Google Assistant (Legacy)](responses/google-assistant.md "Botcopy Docs | Google Assistant")
