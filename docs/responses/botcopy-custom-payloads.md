@@ -743,10 +743,10 @@ An array of buttons, each with its own action. Buttons are exclusively used with
 ```
 
 #### Properties
-| **Name**     | **Type**    | **Description**                                                                                  |
-| `title`      | `string`    | The text displayed on the button.                                                               |
-| `action`     | `object`    | Defines the behavior of the button. Must be a single action, such as:                           |
-|              |             | - **[message](#message)**:                              |
-|              |             | - **[link](#link)**:                                        |
 
-
+| **Name** | **Type** | **Description**                                                       |
+|----------|----------|-----------------------------------------------------------------------|
+| `title`  | `string` | The text displayed on the button.                                     |
+| `action` | `object` | Defines the behavior of the button. Must be a single action, such as: |
+|          |          | - **[message](#message)**                                             |
+|          |          | - **[link](#link)**                                                   |
