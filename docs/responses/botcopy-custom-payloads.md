@@ -607,7 +607,16 @@ For example, if a user has this set to their payload;
 }
 ```
 
-Once this form is submitted, I can find this data in the response;
+Once this form is submitted, I can find this data in the response. 
+
+**Example User Selections:**
+- Email: `matt@botcopy.com`
+- Phone Number: `604-123-4567` 
+- Services: Selected "Consulting Services" (maps to `consulting`)
+- Communication Preferences: Selected all checkboxes (Email Updates, SMS Notifications, Phone Calls, Newsletter)
+- Terms: Accepted the terms and conditions
+
+**Resulting Response Parameters:**
 
 ```json
 {
@@ -617,7 +626,7 @@ Once this form is submitted, I can find this data in the response;
             ...
             "parameters": {
                 "bcBotId": "6791867a4d92eba9b1d99574",
-                "email": "adam@botcopy-testing.com",
+                "email": "matt@botcopy.com",
                 "bcTime": "7:13:32 PM",
                 "bcLivechatAgent": false,
                 "communication_preferences": {
@@ -626,7 +635,7 @@ Once this form is submitted, I can find this data in the response;
                     "comm_newsletter": true,
                     "comm_email": true
                 },
-                "phoneNumber": "dskadfsj",
+                "phoneNumber": "604-123-4567`",
                 "formVariant": "basicForm",
                 "bcTimeZone": "America/Vancouver",
                 "services": "consulting",
