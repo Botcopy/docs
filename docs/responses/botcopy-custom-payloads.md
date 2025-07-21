@@ -432,6 +432,9 @@ Forms streamline data collection, ensure input accuracy, and improve the user ex
 
 ```
 
+#### Parameters
+
+
 #### Properties
 
 | **Name**  | **Type**    | **Description**                                                                                   |
@@ -488,6 +491,168 @@ Some characters are reserved in JSON and need to be properly escaped:
 - **Double quote**: `\"`  
 - **Backslash**: `\\`  
 
+### How to Read Data from Form Submissions
+
+Once a form is submitted, the data will be returned in the parameters of your intent response. 
+
+For example, if a user has this set to their payload;
+
+```json
+{
+  "botcopy": [
+    {
+      "form": {
+        "force": true,
+        "action": {
+          "message": {
+            "type": "training",
+            "command": "Pricing"
+          }
+        },
+        "fields": [
+          {
+            "parameter": "email",
+            "expose": true,
+            "error": "This field is required.",
+            "pattern": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
+            "required": true,
+            "label": "Email Address",
+            "fieldType": "text",
+            "placeholder": "matt@botcopy.com",
+            "type": "email"
+          },
+          {
+            "error": "This field is required.",
+            "fieldType": "text",
+            "label": "Phone Number",
+            "type": "tel",
+            "required": false,
+            "placeholder": "(214) 555-1423",
+            "parameter": "phoneNumber",
+            "expose": false
+          },
+          {
+            "select": [
+              {
+                "selectLabel": "Web Development",
+                "parameter": "web_development"
+              },
+              {
+                "selectLabel": "Mobile App Development",
+                "parameter": "mobile_development"
+              },
+              {
+                "parameter": "ai_integration",
+                "selectLabel": "AI Integration"
+              },
+              {
+                "parameter": "consulting",
+                "selectLabel": "Consulting Services"
+              },
+              {
+                "selectLabel": "E-commerce Solutions",
+                "parameter": "ecommerce"
+              }
+            ],
+            "parameter": "services",
+            "required": false,
+            "groupLabel": "Services Interested In",
+            "expose": true,
+            "fieldType": "select"
+          },
+          {
+            "parameter": "communication_preferences",
+            "required": false,
+            "fieldType": "checkbox",
+            "checkboxes": [
+              {
+                "parameter": "comm_email",
+                "checkboxLabel": "Email Updates",
+                "checked": false
+              },
+              {
+                "checkboxLabel": "SMS Notifications",
+                "checked": false,
+                "parameter": "comm_sms"
+              },
+              {
+                "checkboxLabel": "Phone Calls",
+                "parameter": "comm_phone",
+                "checked": false
+              },
+              {
+                "checkboxLabel": "Newsletter",
+                "parameter": "comm_newsletter",
+                "checked": false
+              }
+            ],
+            "expose": true,
+            "label": "Preferred Communication Methods"
+          },
+          {
+            "required": true,
+            "expose": false,
+            "error": "You must accept the terms and conditions.",
+            "fieldType": "checkbox",
+            "label": "I agree to the Terms and Conditions",
+            "parameter": "terms"
+          }
+        ],
+        "style": "message",
+        "subtitle": "Thank you for your business!",
+        "title": "Contact Information"
+      }
+    }
+  ]
+}
+```
+
+Once this form is submitted, I can find this data in the response. 
+
+**Example User Selections:**
+- Email: `matt@botcopy.com`
+- Phone Number: `604-123-4567` 
+- Services: Selected "Consulting Services" (maps to `consulting`)
+- Communication Preferences: Selected all checkboxes (Email Updates, SMS Notifications, Phone Calls, Newsletter)
+- Terms: Accepted the terms and conditions
+
+**Resulting Response Parameters:**
+
+```json
+{
+    "intentResponse": {
+        "responseId": "36273a13-f860-4fcf-917f-731fd139ae1a",
+        "queryResult": {
+            ...
+            "parameters": {
+                "bcBotId": "6791867a4d92eba9b1d99574",
+                "email": "matt@botcopy.com",
+                "bcTime": "7:13:32 PM",
+                "bcLivechatAgent": false,
+                "communication_preferences": {
+                    "comm_phone": true,
+                    "comm_sms": true,
+                    "comm_newsletter": true,
+                    "comm_email": true
+                },
+                "phoneNumber": "604-123-4567`",
+                "formVariant": "basicForm",
+                "bcTimeZone": "America/Vancouver",
+                "services": "consulting",
+                "terms": {},
+                "bcCurrentUrl": {
+                    "origin": "https://widget.botcopy.org:3020",
+                    "path": "/embed.html",
+                    "url": "https://widget.botcopy.org:3020/embed.html?botid=67d219de2dbf1377c8e2b0fe&envurl=widget.botcopy.org:3020"
+                }
+            },
+            ...
+        },
+        ...
+    }
+}
+```
+
 ### Checkboxes
 
 Checkboxes contain an array of checkbox fields. You can define each checkbox field and expose values in the bc-form-submitted window event.
@@ -528,6 +693,16 @@ Checkboxes contain an array of checkbox fields. You can define each checkbox fie
 			}
 		]
 	}
+```
+
+When submitted, the values in the response will look like this;
+```json
+{
+    "amount": {
+        "1": true,
+        "2": false
+    }
+}
 ```
 
 ### Radio
@@ -573,6 +748,13 @@ Radio contains an array of radio buttons. You can define each radio button and e
 	}
 ```
 
+When submitted, the values in the response will look like this;
+```json
+{
+    "letter": "A"
+}
+```
+
 
 ### Select
 
@@ -616,6 +798,13 @@ Select contains menu items within a dropdown menu. You can define each option an
  		}
  	]
  }
+```
+
+When submitted, the values in the response will look like this (assuming "Apple" was selected);
+```json
+{
+    "fruits": "Apple"
+}
 ```
 
 **Autocomplete**
