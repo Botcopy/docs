@@ -20,6 +20,7 @@ Examples:
 - [Carousels](#carousels)
 - [Lists](#lists)
 - [Forms](#forms)
+- [Bot Lists](#bot-lists)
 
 ## Botcopy Payload Implementation
 
@@ -806,6 +807,86 @@ When submitted, the values in the response will look like this (assuming "Apple"
     "fruits": "Apple"
 }
 ```
+
+## Agent One: Bot Lists
+
+Bot Lists enable bot/agent forwarding functionality by displaying a list of available bots that users can select from. This feature allows seamless handoff between different specialized bots or departments within an organization.
+
+When implementing Bot Lists in Dialogflow, you can use either a `botListId` (which gets expanded by the API) or provide the complete `bots` array directly. The API will automatically expand `botListId` references into full bot objects with complete theme information.
+
+**Usage:**
+- Enable users to select from multiple available bots or departments.
+- Facilitate bot-to-bot handoffs for specialized services.
+
+**Best For:**
+- Multi-department organizations with specialized bots.
+- Escalation workflows where users need to connect with different services.
+
+**Why Use This:**
+- **Seamless Handoffs**: Users can easily switch between specialized bots without leaving the conversation.
+- **Organization**: Helps organize different services or departments under a unified interface.
+- **Flexibility**: Supports both pre-configured bot lists and dynamic bot arrays.
+
+#### Dialogflow Payload (What you configure)
+```json
+{
+  "botcopy": [
+    {
+      "botList": {
+        "botListId": "6757f45e024901c0b51b4efd",
+        "title": "Select a department"
+      }
+    }
+  ]
+}
+```
+
+#### Alternative: Direct Bot Array
+
+You can also provide the bots array directly in Dialogflow instead of using a `botListId`:
+
+```json
+{
+  "botcopy": [
+    {
+      "botList": {
+        "title": "Select a department",
+        "bots": [
+          {
+            "id": "bot_sales_001",
+            "name": "Sales Bot",
+            "logo": "https://example.com/sales-logo.png",
+            "bcGreeterBackground": "#0066cc",
+            "bcWidgetShape": "rounded"
+          },
+          {
+            "id": "bot_support_002",
+            "name": "Support Bot", 
+            "logo": "https://example.com/support-logo.png",
+            "bcGreeterBackground": "#00cc66",
+            "bcWidgetShape": "rounded"
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+#### Properties
+
+| **Name**       | **Type**      | **Description**                                                                                                      |
+|----------------|---------------|----------------------------------------------------------------------------------------------------------------------|
+| `title`        | `string`      | The title displayed at the top of the bot list.                                                                     |
+| `botListId`    | `string`      | *(Optional)* Reference to a pre-configured bot list. The API will expand this into the full `bots` array.          |
+| `bots`         | `array`       | *(Optional)* Array of bot objects. If both `botListId` and `bots` are provided, `botListId` takes priority.        ||
+
+#### Important Notes
+
+- **Organization Scope**: Bot lists can only include bots from the same organization as the requesting bot.
+- **Current Bot Exclusion**: The `botListId` automatically excludes the current bot that the user is chatting with.
+- **Priority**: If both `botListId` and `bots` are provided, `botListId` takes priority and `bots` will be ignored.
+- **API Transformation**: The expansion from `botListId` to full bot objects happens automatically in the legacy API.
 
 **Autocomplete**
 
