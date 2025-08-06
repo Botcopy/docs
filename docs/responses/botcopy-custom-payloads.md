@@ -808,11 +808,11 @@ When submitted, the values in the response will look like this (assuming "Apple"
 }
 ```
 
-## Agent One: Bot Lists
+## AgentOne: Bot Lists
 
-Bot Lists enable bot/agent forwarding functionality by displaying a list of available bots that users can select from. This feature allows seamless handoff between different specialized bots or departments within an organization.
+Bot Lists enable bot/agent forwarding functionality by displaying a list of available bots that users can select from. This feature allows seamless handoff between different specialized bots or departments within an organization. This requires your organization to have AgentOne access, [which you can find more about here](https://www.botcopy.com/agentone). Once you have access, you will be able to create and manage bot lists in your Portal.
 
-When implementing Bot Lists in Dialogflow, you can use either a `botListId` (which gets expanded by the API) or provide the complete `bots` array directly. The API will automatically expand `botListId` references into full bot objects with complete theme information.
+When implementing Bot Lists with AgentOne in Dialogflow, you can use either a `botListId` (which gets expanded by the API) or provide the complete `bots` array directly. The API will automatically expand `botListId` references into full bot objects with complete theme information.
 
 **Usage:**
 - Enable users to select from multiple available bots or departments.
