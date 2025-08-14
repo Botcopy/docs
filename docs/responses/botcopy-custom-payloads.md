@@ -1002,6 +1002,27 @@ Built-In Validation: Ensures only valid bot IDs render the card, avoiding broken
 }
 ```
 
+#### Dialogflow Payload With Multiple Bot Cards
+
+```json
+{
+  "botcopy": [
+    {
+      "botCard": {
+        "buttonText": "Change to Sales Bot",
+        "botId": "bot_sales_01"
+      },
+    {
+      "botCard": {
+        "buttonText": "Change to Support Bot",
+        "botId": "bot_support_02"
+      }
+    }
+    }
+  ]
+}
+```
+
 #### Properties
 
 | **Name**     | **Type** | **Description**                   |
