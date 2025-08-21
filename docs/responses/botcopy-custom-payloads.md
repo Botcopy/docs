@@ -939,3 +939,76 @@ An array of buttons, each with its own action. Buttons are exclusively used with
 | `action` | `object` | Defines the behavior of the button. Must be a single action, such as: |
 |          |          | - **[message](#message)**                                             |
 |          |          | - **[link](#link)**                                                   |
+
+## AgentOne: Bot Card
+
+The Bot Card lets you add a card to your chat that contains a button for switching the conversation to a different Botcopy bot.
+
+The bot’s name and avatar are filled in automatically, so you don’t have to set them yourself.
+
+**Usage:**
+
+Display a card in the chat with a customizable action button.
+
+Automatically show the target bot’s name and avatar pulled from the widget.
+
+Trigger an instant bot switch when the button is clicked.
+
+**Best For:**
+
+Guiding users to a different Botcopy bot for specific topics or services.
+
+Promoting another bot in your organization without manual setup for name/avatar.
+
+**Why Use This:**
+
+Customizable Call-to-Action: Choose your own button text to match the context (e.g., “Talk to Sales,” “Switch to Support”).
+
+Automatic Branding: No need to upload images or type the bot name — the widget handles it.
+
+Built-In Validation: Ensures only valid bot IDs render the card, avoiding broken experiences.
+
+#### Dialogflow Payload (What you configure)
+
+```json
+{
+  "botcopy": [
+    {
+      "botCard": {
+        "buttonText": "Change to Sales Bot",
+        "botId": "bot_sales_01"
+      }
+    }
+  ]
+}
+```
+
+#### Dialogflow Payload With Multiple Bot Cards
+
+```json
+{
+  "botcopy": [
+    {
+      "botCard": {
+        "buttonText": "Change to Sales Bot",
+        "botId": "bot_sales_01"
+      },
+      "botCard": {
+        "buttonText": "Change to Support Bot",
+        "botId": "bot_support_02"
+      }
+    }
+  ]
+}
+```
+
+#### Properties
+
+| **Name**     | **Type** | **Description**                   |
+| ------------ | -------- | --------------------------------- |
+| `buttonText` | `string` | The text displayed for the button |
+| `botId`      | `string` | Reference to a bot                |
+
+#### Important Notes
+
+- **Organization Scope**: Bot card can only switch to bots from the same organization as the requesting bot.
