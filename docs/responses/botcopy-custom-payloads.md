@@ -1010,7 +1010,7 @@ The bot’s name and avatar are filled in automatically, so you don’t have to 
 
 - **Organization Scope**: Bot card can only switch to bots from the same organization as the requesting bot.
 
-<!-- ## AgentOne: Bot Lists
+## AgentOne: Bot Lists
 
 Bot Lists enable bot/agent forwarding functionality by displaying a list of available bots that users can select from. This feature allows seamless handoff between different specialized bots or departments within an organization. This requires your organization to have AgentOne access, [which you can find more about here](https://www.botcopy.com/agentone). Once you have access, you will be able to create and manage bot lists in your Portal.
 
@@ -1035,7 +1035,7 @@ When implementing Bot Lists with AgentOne in Dialogflow, you can use either a `b
   "botcopy": [
     {
       "botList": {
-        "botListId": "6757f45e024901c0b51b4efd",
+        "botListId": "department_sales_01",
         "title": "Select a department"
       }
     }
@@ -1056,17 +1056,12 @@ You can also provide the bots array directly in Dialogflow instead of using a `b
         "bots": [
           {
             "id": "bot_sales_001",
-            "name": "Sales Bot",
-            "logo": "https://example.com/sales-logo.png",
-            "bcGreeterBackground": "#0066cc",
-            "bcWidgetShape": "rounded"
           },
           {
             "id": "bot_support_002",
-            "name": "Support Bot", 
-            "logo": "https://example.com/support-logo.png",
-            "bcGreeterBackground": "#00cc66",
-            "bcWidgetShape": "rounded"
+          },
+          {
+            "id": "bot_support_003",
           }
         ]
       }
@@ -1088,4 +1083,4 @@ You can also provide the bots array directly in Dialogflow instead of using a `b
 - **Organization Scope**: Bot lists can only include bots from the same organization as the requesting bot.
 - **Current Bot Exclusion**: The `botListId` automatically excludes the current bot that the user is chatting with.
 - **Priority**: If both `botListId` and `bots` are provided, `botListId` takes priority and `bots` will be ignored.
-- **API Transformation**: The expansion from `botListId` to full bot objects happens automatically in the legacy API. -->
+- **API Transformation**: The expansion from `botListId` to full bot objects happens automatically in the legacy API.
