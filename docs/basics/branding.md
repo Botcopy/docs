@@ -67,13 +67,13 @@ Contain your chat experience to a container size of your choice. Set an `id` on 
 // data-rootcontainerid(optional) - specify the id of the container where chat window is contained
 <script type="text/javascript"
     id="botcopy-embedder-d7lcfheammjct"
-    class="botcopy-embedder-d7lcfheammjct" 
+    class="botcopy-embedder-d7lcfheammjct"
     data-botId="BOT_ID_HERE"
-    data-rootcontainerid="botcopy-chat-container" 
+    data-rootcontainerid="botcopy-chat-container"
 >
-    var s = document.createElement('script'); 
-    s.type = 'text/javascript'; s.async = true; 
-    s.src = 'https://widget.botcopy.com/js/injection.js'; 
+    var s = document.createElement('script');
+    s.type = 'text/javascript'; s.async = true;
+    s.src = 'https://widget.botcopy.com/js/injection.js';
     document.getElementById('botcopy-embedder-d7lcfheammjct').appendChild(s);
 </script>
 ```
@@ -84,7 +84,7 @@ A full-screen chat experience that replaces a website or specific web page(s) wi
 
 ### Sidebar
 
-A flexible style for paneled chat experiences. 
+A flexible style for paneled chat experiences.
 
 ## Custom Chat Window Styling
 

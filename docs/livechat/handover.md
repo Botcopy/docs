@@ -1,6 +1,6 @@
 # Live Chat
 
-Botcopy provides an endpoint to pause requests to Dialogflow and send user messages to a third party API of your choice.  This allows you to connect your bot to a live chat tool like Genesys, Service Now, HP SM, etc.
+Botcopy provides an endpoint to pause requests to Dialogflow and send user messages to a third party API of your choice. This allows you to connect your bot to a live chat tool like Genesys, Service Now, HP SM, etc.
 
 The conversation's message history can also be transmitted, enabling your live chat team to resume the conversation with added context.
 
@@ -64,7 +64,7 @@ If an additional custom header name & value are set, Botcopy will additionally s
   "dialogflowResponse": {}, // unchanged response from Dialogflow detectIntent as described by Google Documentation
   // https://cloud.google.com/dialogflow/es/docs/reference/rest/v2/projects.agent.environments.users.sessions/detectIntent
   // https://cloud.google.com/dialogflow/cx/docs/reference/rest/v3/DetectIntentResponse
-  "messageHistory": Array of MessageHistory Items, 
+  "messageHistory": Array of MessageHistory Items,
   "session": string, // dialogflow session id
   "queryInput": {
     "text": {
@@ -174,7 +174,6 @@ Setting `paused` to `true` is used to visually indicate to the Customer that the
 
 Displays `You are now chatting with an Agent.`
 
-
 ```json5
 "Content-Type": "application/json",
 "Authorization": "YOUR_API_KEY"
@@ -194,12 +193,11 @@ Displays `You are now chatting with an Agent.`
 }
 ```
 
-
 #### Resume Bot requests
 
 Set `paused` to `false` to resume bot requests.
 
-If a name is provided, Botcopy displays `NAME has left the conversation. You are now chatting with the bot.` 
+If a name is provided, Botcopy displays `NAME has left the conversation. You are now chatting with the bot.`
 
 Otherwise, Botcopy displays `The human has left the conversation. You are now chatting with the bot.` to the end user.
 
@@ -221,9 +219,6 @@ Otherwise, Botcopy displays `The human has left the conversation. You are now ch
 `unpauseChatEvent` is optional, when not provided or set to `default`, the message `NAME has left the conversation. You are now chatting with the bot.` is pushed to the conversation when bot requests are resumed.  
 If you prefer to not have this message displayed in the conversation when resuming requests, set `unpauseChatEvent` to `none`.  
 If you want to dispatch a Dialogflow Event immediately after bot requests are resumed, set `unpauseChatEvent` to the name of your dialogflow event.
-
-
-
 
 ### Show typing indicator
 

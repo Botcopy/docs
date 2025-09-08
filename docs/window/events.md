@@ -22,7 +22,7 @@ window.addEventListener("botcopy-events", function (e) {
 
 Fires when the chat window has initialized. Use this event to identify when the chat window has fully loaded (first load, page change, refresh). This event is useful for triggering other events or methods after page load.
 
-Note: All other events and [methods](window/methods?id=window-methods) occur/can occur after initialization. 
+Note: All other events and [methods](window/methods?id=window-methods) occur/can occur after initialization.
 
 ```js
 {
@@ -210,13 +210,12 @@ Fires when a custom Botcopy form is submitted. Optionally, some form fields may 
 
 ## bc-form-cancelled
 
-Fires when a Botcopy form is cancelled. 
-
+Fires when a Botcopy form is cancelled.
 
 ```js
 {
   type: "bc-form-cancelled",
-  payload: {} 
+  payload: {}
 }
 ```
 
@@ -274,7 +273,6 @@ Fires when a list item is clicked.
   }
 }
 ```
-
 
 ## bc-sound-played
 
@@ -357,7 +355,7 @@ Fires when the chat window closes.
 
 ## bc-window-maximized
 
-Fires when the chat window is maximized. 
+Fires when the chat window is maximized.
 
 ```js
 {
@@ -366,10 +364,9 @@ Fires when the chat window is maximized.
 }
 ```
 
-
 ## bc-window-minimized
 
-Fires when the chat window is minimized. 
+Fires when the chat window is minimized.
 
 ```js
 {
@@ -377,8 +374,6 @@ Fires when the chat window is minimized.
    payload: {}
 }
 ```
-
-
 
 ## bc-window-style
 
