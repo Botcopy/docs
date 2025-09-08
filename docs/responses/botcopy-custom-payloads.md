@@ -961,55 +961,21 @@ An array of buttons, each with its own action. Buttons are exclusively used with
 
 ## AgentOne: Bot Card
 
-The Bot Card lets you add a card to your chat that contains a button for switching the conversation to a different Botcopy bot.
+The Bot Card is a chat widget component that you can send to users by adding it as a custom payload in a Dialogflow fulfillment response. When triggered, it renders inside the conversation as a card showing the target bot’s name and logo (looked up automatically from the botId) and a customizable action button.
 
-The bot’s name and avatar are filled in automatically, so you don’t have to set them yourself.
+When the user clicks the button, the widget instantly switches the conversation to the specified bot.
 
-**Usage:**
+![Bot Card Preview](../_assets/talk-with-support.png)
 
-- Display a card in the chat with a customizable action button.
-- Automatically show the target bot’s name and avatar pulled from the widget.
-- Trigger an instant bot switch when the button is clicked.
+#### Payload Format
 
-**Best For:**
-
-- Guiding users to a different Botcopy bot for specific topics or services.
-- Promoting another bot in your organization without manual setup for name/avatar.
-
-**Why Use This:**
-
-- Customizable Call-to-Action: Choose your own button text to match the context (e.g., “Talk to Sales,” “Switch to Support”).
-- Automatic Branding: No need to upload images or type the bot name — the widget handles it.
-- Built-In Validation: Ensures only valid bot IDs render the card, avoiding broken experiences.
-
-#### Dialogflow Payload (What you configure)
-
-```json
-{
-  "botcopy": [
-    {
-      "botCard": {
-        "buttonText": "Change to Sales Bot",
-        "botId": "bot_sales_01"
-      }
-    }
-  ]
-}
 ```
-
-#### Dialogflow Payload With Multiple Bot Cards
-
-```json
 {
   "botcopy": [
     {
       "botCard": {
-        "buttonText": "Change to Sales Bot",
-        "botId": "bot_sales_01"
-      },
-      "botCard": {
-        "buttonText": "Change to Support Bot",
-        "botId": "bot_support_02"
+        "buttonText": "Talk with Support",
+        "botId": "64f8c2a1e9b9ab0012345678"
       }
     }
   ]
@@ -1018,14 +984,29 @@ The bot’s name and avatar are filled in automatically, so you don’t have to 
 
 #### Properties
 
-| **Name**     | **Type** | **Description**                   |
-| ------------ | -------- | --------------------------------- |
-| `buttonText` | `string` | The text displayed for the button |
-| `botId`      | `string` | Reference to a bot                |
+| **Name**     | **Type** | **Description**                                                                                       |
+| ------------ | -------- | ----------------------------------------------------------------------------------------------------- |
+| `buttonText` | `string` | The text displayed on the button (e.g., "Change to Sales Bot").                                       |
+| `botId`      | `string` | The id of the target bot. The widget automatically looks up and displays that bot’s name in the card. |
 
-#### Important Notes
+#### Behavior
 
-- **Organization Scope**: Bot card can only switch to bots from the same organization as the requesting bot.
+- Renders as a card in the conversation flow.
+- Displays the target bot’s name (from botId) and the configured buttonText.
+- On click, instantly switches the session to the specified bot.
+
+#### When to Use
+
+- Routing users to a more specialized bot (e.g., Support → Billing).
+- Offering clear handoff options when a bot reaches the limits of its scope.
+- Guiding navigation across multiple bots in an organization (e.g., from a general FAQ bot to a Sales bot).
+
+#### Why Use This
+
+- Smooth User Experience: No need for the user to type or remember bot names.
+- Automatic Branding: Bot names are resolved automatically from the ID, ensuring accuracy.
+- Customizable Call-to-Action: Button text adapts to the conversation context.
+- Error Prevention: Only valid bot IDs are rendered, reducing broken handoffs.
 
 <!-- ## AgentOne: Bot Lists
 
