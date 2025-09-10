@@ -999,72 +999,79 @@ When the user clicks the button, the widget instantly switches the conversation 
 
 - Routing users to a more specialized bot (e.g., Support → Billing).
 - Offering clear handoff options when a bot reaches the limits of its scope.
-- Guiding navigation across multiple bots in an organization (e.g., from a general FAQ bot to a Sales bot).
+- Guiding navigation across multiple bots (e.g., from a general FAQ bot to a Sales bot).
 
 #### Why Use This
 
-- Smooth User Experience: No need for the user to type or remember bot names.
-- Automatic Branding: Bot names are resolved automatically from the ID, ensuring accuracy.
+- Automatic Branding: Bot names and logos are resolved automatically from the ID, ensuring accuracy.
 - Customizable Call-to-Action: Button text adapts to the conversation context.
 - Error Prevention: Only valid bot IDs are rendered, reducing broken handoffs.
 
 ## AgentOne: Bot Lists
 
-Bot Lists enable bot/agent forwarding functionality by displaying a list of available bots that users can select from. This feature allows seamless handoff between different specialized bots or departments within an organization. This requires your organization to have AgentOne access, [which you can find more about here](https://www.botcopy.com/agentone). Once you have access, you will be able to create and manage bot lists in your Portal.
+The **Bot List** is a chat widget component that helps you route users across multiple bots.  
+It can be sent as a **custom payload** in a Dialogflow fulfillment response.
 
-When implementing Bot Lists with AgentOne in Dialogflow, you can use either a `botListId` (which gets expanded by the API) or provide the complete `bots` array directly. The API will automatically expand `botListId` references into full bot objects with complete theme information.
+When rendered, it shows:
 
-**Usage:**
+- A **title** (e.g., “Select a Department”)
+- A **list of bots** with their **names** and **logos** (looked up automatically from their IDs)
+- An optional **action button** for switching sessions
 
-- Enable users to select from multiple available bots or departments.
-- Facilitate bot-to-bot handoffs for specialized services.
+---
 
-**Best For:**
+## Ways to Configure a Bot List
 
-- Multi-department organizations with specialized bots.
-- Escalation workflows where users need to connect with different services.
+There are **two ways** to define a bot list:
 
-**Why Use This:**
+1. **Reference an existing list** with a `botListId`
+2. **Provide bot IDs directly** with a `bots` array
 
-- **Seamless Handoffs**: Users can easily switch between specialized bots without leaving the conversation.
-- **Organization**: Helps organize different services or departments under a unified interface.
-- **Flexibility**: Supports both pre-configured bot lists and dynamic bot arrays.
+In both cases, Botcopy automatically resolves **bot names** and **logos** from the IDs.
 
-#### Dialogflow Payload (What you configure)
+---
+
+### Option 1: Using a `botListId`
+
+Reference a pre-configured bot list stored in AgentOne.
 
 ```json
 {
   "botcopy": [
     {
       "botList": {
-        "botListId": "department_sales_01",
-        "title": "Select a department"
+        "title": "Select a Department",
+        "botListId": "689e531025dd6e35a13da776"
       }
     }
   ]
 }
 ```
 
-#### Alternative: Direct Bot Array
+#### Properties
 
-You can also provide the bots array directly in Dialogflow instead of using a `botListId`:
+| **Name**           | **Type**  | **Description**                                                                                              |
+| ------------------ | --------- | ------------------------------------------------------------------------------------------------------------ |
+| `title`            | `string`  | The list title (e.g., “Select a Department”).                                                                |
+| `botListId`        | `string`  | The ID of a saved bot list. Manage bot lists in the [AgentOne Portal](https://portal.botcopy.com/agent-one). |
+| `enableForwarding` | `boolean` | _(Optional)_ If `true`, forwards the user’s triggering message to all listed bots. Defaults to `false`.      |
+
+---
+
+### Option 2: Using a List of `botIds`
+
+Embed bot IDs directly in the payload.
 
 ```json
 {
   "botcopy": [
     {
       "botList": {
-        "title": "Select a department",
+        "title": "Select a Department",
         "bots": [
-          {
-            "id": "bot_sales_001"
-          },
-          {
-            "id": "bot_support_002"
-          },
-          {
-            "id": "bot_support_003"
-          }
+          { "id": "689e531025dd6e35a13da776" },
+          { "id": "689e531025dd6e35a13da777" },
+          { "id": "689e531025dd6e35a13da778" }
         ]
       }
     }
@@ -1074,15 +1081,46 @@ You can also provide the bots array directly in Dialogflow instead of using a `b
 
 #### Properties
 
-| **Name**    | **Type** | **Description**                                                                                             |
-| ----------- | -------- | ----------------------------------------------------------------------------------------------------------- | --- |
-| `title`     | `string` | The title displayed at the top of the bot list.                                                             |
-| `botListId` | `string` | _(Optional)_ Reference to a pre-configured bot list. The API will expand this into the full `bots` array.   |
-| `bots`      | `array`  | _(Optional)_ Array of bot objects. If both `botListId` and `bots` are provided, `botListId` takes priority. |     |
+| **Name**           | **Type**  | **Description**                                                                                          |
+| ------------------ | --------- | -------------------------------------------------------------------------------------------------------- |
+| `title`            | `string`  | The list title (e.g., “Select a Department”).                                                            |
+| `bots`             | `array`   | An array of bot objects, each containing an `id` field. Bot names and logos are looked up automatically. |
+| `enableForwarding` | `boolean` | _(Optional)_ If `true`, forwards the user’s triggering message to all listed bots. Defaults to `false`.  |
 
-#### Important Notes
+---
 
-- **Organization Scope**: Bot lists can only include bots from the same organization as the requesting bot.
-- **Current Bot Exclusion**: The `botListId` automatically excludes the current bot that the user is chatting with.
-- **Priority**: If both `botListId` and `bots` are provided, `botListId` takes priority and `bots` will be ignored.
-- **API Transformation**: The expansion from `botListId` to full bot objects happens automatically in the legacy API.
+### Behavior
+
+- Renders as a selectable **list of bots** in the conversation flow.
+- Displays the configured `title`, plus **bot names** and **logos**.
+- When a bot is selected, the session **switches instantly** to that bot.
+
+---
+
+### When to Use Bot Lists
+
+Use Bot Lists when you want to:
+
+- Route users to a **specialized bot** (e.g., General Support → Billing Support)
+- Provide **clear escalation paths** when a bot reaches the limit of its scope
+- Create a **navigation hub** for multiple bots (e.g., FAQ bot → Sales bot)
+
+---
+
+### Why Use Bot Lists
+
+- **Automatic branding**: Names and logos are pulled directly from bot IDs.
+- **Error prevention**: Invalid IDs won’t render, avoiding broken handoffs.
+- **Streamlined UX**: Users can easily choose the right bot without guessing.
+
+---
+
+## Bot List Forwarding
+
+When `enableForwarding` is set to `true`:
+
+- The **original user query** (the one that triggered the bot list fulfillment) is forwarded to all bots in the list.
+- Each bot’s **preview response** is shown to the user.
+- The user can then choose the most relevant bot based on these previews.
+
+This creates a **search-like experience**, letting users compare bot responses before committing to one.
