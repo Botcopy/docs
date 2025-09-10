@@ -37,42 +37,48 @@ Combined emphasis with **asterisks and _underscores_**.
 Strikethrough uses two tildes. ~~Scratch this.~~
 ```
 
-Emphasis, aka italics, with *asterisks* or _underscores_.
+Emphasis, aka italics, with _asterisks_ or _underscores_.
 
-Strong emphasis, aka bold, with **asterisks** or __underscores__.
+Strong emphasis, aka bold, with **asterisks** or **underscores**.
 
 Combined emphasis with **asterisks and _underscores_**.
 
 Strikethrough uses two tildes. ~~Scratch this.~~
 
 ## Lists
+
 Inline HTML should be used to display lists.
 
 **Ordered List**
+
 ```
 <ol>
 <li>First ordered list item</li>
 <li>Another item</li>
 </ol>
 ```
+
 <ol>
 <li>First ordered list item</li>
 <li>Another item</li>
 </ol>
 
 **Unordered List**
+
 ```
 <ul>
 <li>Unordered item 1</li>
 <li>item 2</li>
 </ul>
 ```
+
 <ul>
 <li>Unordered item 1</li>
 <li>item 2</li>
 </ul>
 
 **Description List**
+
 ```
 <dl>
 <dt>Coffee</dt>
@@ -81,6 +87,7 @@ Inline HTML should be used to display lists.
 <dd>- white cold drink</dd>
 </dl>
 ```
+
 <dl>
 <dt>Coffee</dt>
 <dd>- black hot drink</dd>
@@ -89,6 +96,7 @@ Inline HTML should be used to display lists.
 </dl>
 
 ## Links
+
 There are two ways to create links.
 
 ```
@@ -106,8 +114,8 @@ There are two ways to create links.
 
 Or leave it empty and use the [link text itself].
 
-URLs and URLs in angle brackets will automatically get turned into links. 
-http://www.example.com or <http://www.example.com> and sometimes 
+URLs and URLs in angle brackets will automatically get turned into links.
+http://www.example.com or <http://www.example.com> and sometimes
 example.com (but not on Github, for example).
 
 Some text to show that the reference links can follow later.
@@ -116,6 +124,7 @@ Some text to show that the reference links can follow later.
 [1]: http://slashdot.org
 [link text itself]: http://www.reddit.com
 ```
+
 [I'm an inline-style link](https://www.google.com)
 
 [I'm an inline-style link to a phone number](tel:1112223333)
@@ -130,8 +139,8 @@ Some text to show that the reference links can follow later.
 
 Or leave it empty and use the [link text itself].
 
-URLs and URLs in angle brackets will automatically get turned into links. 
-http://www.example.com or <http://www.example.com> and sometimes 
+URLs and URLs in angle brackets will automatically get turned into links.
+http://www.example.com or <http://www.example.com> and sometimes
 example.com (but not on Github, for example).
 
 Some text to show that the reference links can follow later.
@@ -174,7 +183,7 @@ Reference-style:
 
 Quote break.
 
-> This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can *put* **Markdown** into a blockquote. 
+> This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can *put* **Markdown** into a blockquote.
 ```
 
 > Blockquotes can be used to emulate reply text.
@@ -182,17 +191,18 @@ Quote break.
 
 Quote break.
 
-> This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can *put* **Markdown** into a blockquote. 
+> This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can _put_ **Markdown** into a blockquote.
 
 ## Code and Syntax Highlighting
 
-```
+````
 Inline `code` has `back-ticks around` it.
 
 Inline code has back-ticks around it.
 
 Blocks of code are fenced by lines with three back-ticks ```.
-```
+````
+
 Inline `code` has `back-ticks around` it.
 
 Inline code has back-ticks around it.
@@ -200,6 +210,7 @@ Inline code has back-ticks around it.
 Blocks of code are fenced by lines with three back-ticks ```.
 
 ## Inline HTML
+
 You can also use raw HTML in your Markdown, and it'll mostly work pretty well.
 
 ```
@@ -210,6 +221,7 @@ You can also use raw HTML in your Markdown, and it'll mostly work pretty well.
   <div>Does *not* work **very** well. Use HTML <em>tags</em>.</div>
 </div>
 ```
+
 <div>
   <div>The div with no name</div>
 
@@ -234,7 +246,7 @@ This line is only separated by a single newline, so it's a separate line in the 
 
 Here's a line for us to start with.
 
-This line is separated from the one above by two newlines, so it will be a *separate paragraph*.
+This line is separated from the one above by two newlines, so it will be a _separate paragraph_.
 
 This line is also a separate paragraph, but...
-This line is only separated by a single newline, so it's a separate line in the *same paragraph*.
+This line is only separated by a single newline, so it's a separate line in the _same paragraph_.

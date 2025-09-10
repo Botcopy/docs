@@ -104,34 +104,32 @@ Botcopy.sendText(
     },
   }
 );
-
 ```
 
 ## Set Parameters
 
 ### Dialogflow ES
 
-Set parameters to be included on the next request when [authorizing a user](advanced/bc-auth?id=authorizing-an-end-user). 
+Set parameters to be included on the next request when [authorizing a user](advanced/bc-auth?id=authorizing-an-end-user).
 
 ```js
 Botcopy.setESParameters({
-  webhookHeaders: {jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."}
-})
+  webhookHeaders: { jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." },
+});
 ```
 
 ### Dialogflow CX
 
-Set parameters to be included on the next request when [authorizing a user](advanced/bc-auth?id=authorizing-an-end-user). 
+Set parameters to be included on the next request when [authorizing a user](advanced/bc-auth?id=authorizing-an-end-user).
 
 ```js
 Botcopy.setCXParameters({
   webhookHeaders: { jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." },
   parameters: {
-    profile: { name: "Lisa", age: 32 } 
-    }
+    profile: { name: "Lisa", age: 32 },
+  },
 });
 ```
-
 
 ## Show Feedback
 
@@ -241,10 +239,9 @@ Button example:
 
 `<button onclick="Botcopy.closePrompt()">Closes Prompt</button>`
 
-
 ## Play Sound
 
-Plays a sound for the user. 
+Plays a sound for the user.
 
 ```js
 Botcopy.playSound(string);
