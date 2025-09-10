@@ -1012,7 +1012,7 @@ When the user clicks the button, the widget instantly switches the conversation 
 The **Bot List** is a chat widget component that helps you route users across multiple bots.  
 It can be sent as a **custom payload** in a Dialogflow fulfillment response.
 
-![Bot Card Preview](../_assets/talk-with-support.png)
+![Bot Card Preview](../_assets/botlist.png)
 
 When rendered, it shows:
 
@@ -1020,7 +1020,7 @@ When rendered, it shows:
 - A **list of bots** with their **names** and **logos** (looked up automatically from their IDs)
 - An optional **action button** for switching sessions
 
-## Ways to Configure a Bot List
+### Ways to Configure a Bot List
 
 There are **two ways** to define a bot list:
 
@@ -1029,7 +1029,7 @@ There are **two ways** to define a bot list:
 
 In both cases, Botcopy automatically resolves **bot names** and **logos** from the IDs.
 
-### Option 1: Using a `botListId`
+#### Option 1: Using a `botListId`
 
 Reference a pre-configured bot list stored in AgentOne.
 
@@ -1054,7 +1054,7 @@ Reference a pre-configured bot list stored in AgentOne.
 | `botListId`        | `string`  | The ID of a saved bot list. Manage bot lists in the [AgentOne Portal](https://portal.botcopy.com/agent-one). |
 | `enableForwarding` | `boolean` | _(Optional)_ If `true`, forwards the user’s triggering message to all listed bots. Defaults to `false`.      |
 
-### Option 2: Using a List of `botIds`
+#### Option 2: Using a List of `botIds`
 
 Embed bot IDs directly in the payload.
 
@@ -1083,13 +1083,13 @@ Embed bot IDs directly in the payload.
 | `bots`             | `array`   | An array of bot objects, each containing an `id` field. Bot names and logos are looked up automatically. |
 | `enableForwarding` | `boolean` | _(Optional)_ If `true`, forwards the user’s triggering message to all listed bots. Defaults to `false`.  |
 
-### Behavior
+#### Behavior
 
 - Renders as a selectable **list of bots** in the conversation flow.
 - Displays the configured `title`, plus **bot names** and **logos**.
 - When a bot is selected, the session **switches instantly** to that bot.
 
-### When to Use Bot Lists
+#### When to Use Bot Lists
 
 Use Bot Lists when you want to:
 
@@ -1097,13 +1097,13 @@ Use Bot Lists when you want to:
 - Provide **clear escalation paths** when a bot reaches the limit of its scope
 - Create a **navigation hub** for multiple bots (e.g., FAQ bot → Sales bot)
 
-### Why Use Bot Lists
+#### Why Use Bot Lists
 
 - **Automatic branding**: Names and logos are pulled directly from bot IDs.
 - **Error prevention**: Invalid IDs won’t render, avoiding broken handoffs.
 - **Streamlined UX**: Users can easily choose the right bot without guessing.
 
-## Bot List Forwarding
+### Bot List Forwarding
 
 When `enableForwarding` is set to `true`:
 
