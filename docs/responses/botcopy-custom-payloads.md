@@ -146,6 +146,7 @@ Suggestions provide users with clickable buttons to guide them through the conve
 | `action`    | `object` | Defines what happens when the suggestion is clicked. Options include:                                                            |
 |             |          | - **[message](#message)**: Continues the conversation with a predefined command.                                                 |
 |             |          | - **[link](#link)**: Opens an external URL in a new window or tab.                                                               |
+|             |          | - **[location](#location)**: Gets the user's location.                                                                           |
 | `ariaLabel` | `string` | _(Optional)_ Custom accessibility label for screen readers. Overrides the default aria-label (which defaults to the title text). |
 
 ## Basic Cards
@@ -289,6 +290,7 @@ Carousels present multiple cards in a scrollable format, each with a title, subt
 | `action`   | `object` | Defines the behavior of the card. Options include:      |
 |            |          | - **[message](#message)**                               |
 |            |          | - **[link](#link)**                                     |
+|            |          | - **[location](#location)**                             |
 |            |          | - **[button](#button)**                                 |
 
 ## Lists
@@ -367,6 +369,7 @@ Lists display multiple items in a structured format. Each list item can include 
 | └─ `action` | `object` | Specifies the action triggered when the user interacts with the item. Options include: |
 |             |          | - **[message](#message)**                                                              |
 |             |          | - **[link](#link)**                                                                    |
+|             |          | - **[location](#location)**                                                            |
 
 ## Forms
 
@@ -834,22 +837,24 @@ The [autocomplete](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/
 
 ## Actions
 
-[message](#message) and [link](#link) are used for Suggestions, Cards, Carousel Items, and List Items.
+[message](#message), [link](#link), and [location](#location) are used for Suggestions, Cards, Carousel Items, and List Items.
 
 Cards and Carousels can also use a [button](#button) action. Each button has its own action.
 
-Only one action should be assigned to each payload element. In case of conflicting actions, Botcopy priorities message > link > button.
+Only one action should be assigned to each payload element. In case of conflicting actions, Botcopy priorities message > link > location > button.
 
 #### Types of Actions
 
 - [Message](#message): Continues the conversation within the chat.
 - [Link](#link): Opens a URL in a new tab or webview.
+- [Location](#location): Gets the user's location.
 - [Button](#button): Used within cards, combining multiple actions.
 
 #### Choosing the Right Action
 
 - Message Actions are ideal for in-chat responses.
 - Link Actions direct users outside the chat.
+- Location Actions provide a way for the user to share their location with the chat.
 - Button Actions provide flexibility within cards & carousels.
 
 ---
@@ -915,6 +920,102 @@ Opens a destination URL in a new tab or a Botcopy webview when the user selects 
 
 ---
 
+### location
+
+- [Geolocation: getCurrentPosition() method](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition)
+
+Gets the user's current location using the `window.navigator.geolocation.getCurrentPosition` method. If the user has not consented to this on the website the bot is on before, the user will be prompted to consent or deny. Most browsers save this perference on a per website basis and this can be reset in browser settings. See the [getCurrentPosition() reference](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition) for more.
+
+If the outcome of the location prompt is successful (user consents), the sub-action defined in the `success` field will be executed. If the outcome of the location prompt is unsuccessful (user denies or error occurs), the sub-action defined in the `error` field will be executed. The result of the location prompt is added to conversation parameters in Dialogflow CX and conversation context in Dialogflow ES.
+
+**Usage**: 
+
+- This action is useful for getting the longitude and latitude of a user and placing it in conversation context.
+
+```json
+"action": {
+  "location": {
+    "error": {
+      "action": {
+        "message": {
+          "type": "training",
+          "command": "error",
+          "parameters": {
+            "actionParam": "training error"
+          }
+        }
+      }
+    },
+    "latitude": {
+      "parameter": "customLatitude"
+    },
+    "longitude": {
+      "parameter": "customLongitude"
+    },
+    "parameter": "geolocation",
+    "success": {
+      "action": {
+        "message": {
+          "command": "success",
+          "type": "training",
+          "parameters": {
+            "actionParam": "training success"
+          }
+        }
+      }
+    },
+    "errorCode": {
+      "parameter": "customErrorCode"
+    }
+  }
+}
+```
+
+For the example action above, if the outcome of location sharing is successful the added parameters will be structured like this:
+
+```json
+{
+  "geolocation": {
+    "customLatitude": 12.34,
+    "customLongitude": 56.78
+  }, 
+  "actionParam": "training success"
+}
+```
+
+For the example action above, if the outcome of the location sharing ends with an error the added parameters will be structured like this:
+
+```json
+{
+  "geolocation": {
+    "customErrorCode": 1
+  },
+  "actionParam": "training error"
+}
+```
+
+#### Properties
+
+| **Name**      | **Type** | **Description**                                                                            |
+| ------------- | -------- | -------------------------------------------------------------------------------------------|
+| `success`     | `object` | **[message](#message)** action executed when the user successfully shares their location.  |
+| `error`       | `object` | **[message](#message)** action executed when an error occurs during location sharing.      |
+| `parameter`   | `string` | Custom parameter name for the map that holds the outcome of location sharing.              |
+| `errorCode`   | `object` |                                                                                            |
+| ├─ `parameter`| `string` | Custom parameter name for the error code. Defaults to `"errorCode"`. _(Optional)_          |
+| `latitude`    | `object` |                                                                                            |
+| ├─ `parameter`| `string` | Custom parameter name for the latitude. Defaults to `"latitude"`. _(Optional)_             |
+| `longitude`   | `object` |                                                                                            |
+| ├─ `parameter`| `string` | Custom parameter name for the longitude. Defaults to `"longitude"`. _(Optional)_           |
+
+#### Error Codes
+
+- [GeolocationPositionError](https://developer.mozilla.org/en-US/docs/Web/API/GeolocationPositionError)
+
+In addition to the error codes defined in the `GeolocationPositionError` reference, an error code of `0` means the browser does not have the `window.navigator.geolocation.getCurrentPosition` method available. 
+
+---
+
 ### button
 
 An array of buttons, each with its own action. Buttons are exclusively used within Cards & Carousels to offer interactive options.
@@ -958,6 +1059,7 @@ An array of buttons, each with its own action. Buttons are exclusively used with
 | `action` | `object` | Defines the behavior of the button. Must be a single action, such as: |
 |          |          | - **[message](#message)**                                             |
 |          |          | - **[link](#link)**                                                   |
+|          |          | - **[location](#location)**                                           |
 
 ## AgentOne: Bot Card
 
