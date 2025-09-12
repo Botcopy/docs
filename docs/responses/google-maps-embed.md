@@ -18,29 +18,32 @@ Google Maps Embed API links should be set in the `image.url` field of a Card or 
 
 ```json
 {
-  "botcopy": [
-    {
-      "card": {
-        "title": "Card Title",
-        "subtitle": "Card Subtitle",
-        "body": "Card Body",
-        "image": {
-          "url": "https://www.google.com/maps/embed/v1/MAP_MODE?key=YOUR_API_KEY&PARAMETERS",
-        },
-        "action": {
-          "buttons": [
-            {
-              "action": {
-                "link": {
-                  "url": "https://botcopy.com"
+    "botcopy": [
+        {
+            "card": {
+                // ... other card properties
+                "image": {
+                    "url": "https://www.google.com/maps/embed/v1/MAP_MODE?key=YOUR_API_KEY&PARAMETERS"
                 }
-              },
-              "title": "Visit Website"
             }
-          ]
         }
-      }
-    }
-  ]
+    ]
+}
+```
+
+```json
+{
+    "botcopy": [
+        {
+            "carousel": [
+                {
+                    // ... other carousel item properties
+                    "image": {
+                        "url": "https://www.google.com/maps/embed/v1/MAP_MODE?key=YOUR_API_KEY&PARAMETERS"
+                    }
+                }
+            ]
+        }
+    ]
 }
 ```
