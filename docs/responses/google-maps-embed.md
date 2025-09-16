@@ -8,7 +8,7 @@ Google Maps Embed URLs use the following format `https://www.google.com/maps/emb
 
 [Google Maps Platform - Restrict your API keys](https://developers.google.com/maps/api-security-best-practices#restricting-api-keys)
 
-API keys will appear publicly in the `src` attribute of the `iframe` used to embed them. It is recommended to set application and API restrictions on an API key used for embedding maps inside Botcopy. An exmaple configuration of an API key that can only be used for the Maps Embed API and on `https://www.botcopy.com`:
+API keys will appear publicly in the `src` attribute of the `iframe` used to embed them. It is recommended to set application and API restrictions on an API key used for embedding maps inside Botcopy. An example configuration of an API key that can only be used for the Maps Embed API and on `https://www.botcopy.com`:
 
 ![Example API Key Restrictions](../_assets/maps-embed-api-key-config.png)
 
