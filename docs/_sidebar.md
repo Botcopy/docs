@@ -14,6 +14,7 @@
   - [Botcopy Custom Payloads](responses/botcopy-custom-payloads.md "Botcopy Docs | Custom Payloads")
   - [Google Assistant (Legacy)](responses/google-assistant.md "Botcopy Docs | Google Assistant")
   - [Videos](responses/videos.md "Botcopy Docs | Videos")
+  - [Google Maps Embed](responses/google-maps-embed.md "Botcopy Docs | Google Maps Embed")
   - [Fulfillment Examples](responses/fulfillmentexamples.md "Botcopy Docs | Fulfillment Examples")
 - Live Chat
   - [Botcopy](livechat/botcopylc.md "Botcopy Docs | Live Chat")
