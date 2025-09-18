@@ -834,7 +834,7 @@ The [autocomplete](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/
 
 ## Actions
 
-[message](#message), [link](#link), and [location](#location) are used for Suggestions, Cards, Carousel Items, and List Items.
+[message](#message), [link](#link), and [location](#location) are used for Suggestions, Carousel Items, and List Items.
 
 Cards and Carousels can also use a [button](#button) action. Each button has its own action.
 
