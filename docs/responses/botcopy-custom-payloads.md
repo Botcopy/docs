@@ -146,7 +146,7 @@ Suggestions provide users with clickable buttons to guide them through the conve
 | `action`    | `object` | Defines what happens when the suggestion is clicked. Options include:                                                            |
 |             |          | - **[message](#message)**: Continues the conversation with a predefined command.                                                 |
 |             |          | - **[link](#link)**: Opens an external URL in a new window or tab.                                                               |
-|             |          | - **[location](#location)**: Gets the user's location.                                                                           |
+|             |          | - **[location](#location)**: Retrieves the user's location.                                                                      |
 | `ariaLabel` | `string` | _(Optional)_ Custom accessibility label for screen readers. Overrides the default aria-label (which defaults to the title text). |
 
 ## Basic Cards
@@ -202,22 +202,19 @@ Basic cards present structured information using a title, subtitle, body, and op
 
 #### Properties
 
-| **Name**   | **Type** | **Description**                                        |
-| ---------- | -------- | ------------------------------------------------------ |
-| `title`    | `string` | Main heading for the card.                             |
-| `subtitle` | `string` | Subheading to provide additional context. _(Optional)_ |
-| `body`     | `string` | Detailed text or description. _(Optional)_             |
-| `image`    | `object` | Contains media information. _(Optional)_               |
-| ├─ `url`   | `string` | Link to the media.                                     |
-| └─ `alt`   | `string` | Alternative text for accessibility. _(Optional)_       |
-| `action`   | `object` | Defines the behavior of the card. Options include:     |
-|            |          | - **[message](#message)**                              |
-|            |          | - **[link](#link)**                                    |
-|            |          | - **[button](#button)**                                |
+| **Name**   | **Type** | **Description**                                                                            |
+| ---------- | -------- | -------------------------------------------------------------------------------------------|
+| `title`    | `string` | Main heading for the card.                                                                 |
+| `subtitle` | `string` | Subheading to provide additional context. _(Optional)_                                     |
+| `body`     | `string` | Detailed text or description. _(Optional)_                                                 |
+| `image`    | `object` | Contains media information. _(Optional)_                                                   |
+| ├─ `url`   | `string` | Link to the media.                                                                         |
+| └─ `alt`   | `string` | Alternative text for accessibility. _(Optional)_                                           |
+| `action`   | `object` | Defines the behavior of the card. Can only be a **[button](#button)** action. _(Optional)_ |
 
 ## Carousels
 
-Carousels present multiple cards in a scrollable format, each with a title, subtitle, body, and optional media. Each card can include an action such as [message](#message), [link](#link), or [button](#button).
+Carousels present multiple cards in a scrollable format, each with a title, subtitle, body, and optional media. Each card can include an action such as [message](#message), [link](#link), [location](#location), or [button](#button).
 
 **Usage:**
 
@@ -847,7 +844,7 @@ Only one action should be assigned to each payload element. In case of conflicti
 
 - [Message](#message): Continues the conversation within the chat.
 - [Link](#link): Opens a URL in a new tab or webview.
-- [Location](#location): Gets the user's location.
+- [Location](#location): Retrieves the user's location.
 - [Button](#button): Used within cards, combining multiple actions.
 
 #### Choosing the Right Action
