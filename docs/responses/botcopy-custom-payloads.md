@@ -921,7 +921,7 @@ Opens a destination URL in a new tab or a Botcopy webview when the user selects 
 
 - [Geolocation: getCurrentPosition() method](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition)
 
-Gets the user's current location using the `window.navigator.geolocation.getCurrentPosition` method. If the user has not consented to this on the website the bot is on before, the user will be prompted to consent or deny. Most browsers save this perference on a per website basis and this can be reset in browser settings. See the [getCurrentPosition() reference](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition) for more.
+Gets the user's current location using the `window.navigator.geolocation.getCurrentPosition` method. If the user has not consented to this on the website the bot is on before, the user will be prompted to consent or deny. Most browsers save this preference on a per website basis and this can be reset in browser settings. See the [getCurrentPosition() reference](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition) for more.
 
 If the outcome of the location prompt is successful (user consents), the sub-action defined in the `success` field will be executed. If the outcome of the location prompt is unsuccessful (user denies or error occurs), the sub-action defined in the `error` field will be executed. The result of the location prompt is added to conversation parameters in Dialogflow CX and conversation context in Dialogflow ES.
 
