@@ -7,6 +7,7 @@
 - Advanced Features
   - [Authorizing Users](advanced/bc-auth.md "Botcopy Docs | Authorizing Users")
   - [Markdown](advanced/markdown.md "Botcopy Docs | Markdown")
+  - [Session Management](advanced/session-management.md "Botcopy Docs | Session Management")
   - [Snippet Parameter](advanced/snippet-parameter.md "Botcopy Docs | Snippet Parameter")
   - [URL Ref Parameter](advanced/url-ref-parameter.md "Botcopy Docs | URL Ref Parameter")
   - [Voice to Text](advanced/voice-to-text.md "Botcopy Docs | Voice to Text")
