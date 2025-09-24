@@ -47,3 +47,7 @@ Google Maps Embed API links should be set in the `image.url` field of a Card or 
     ]
 }
 ```
+
+## Links
+
+Google Maps Embed API URLs should not be used for `link` action URLs in Botcopy custom payloads. For generating links equivalent to a Google Map Embed, see the [Google Map URLs documentation](https://developers.google.com/maps/documentation/urls/get-started). 
