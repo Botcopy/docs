@@ -925,6 +925,8 @@ Gets the user's current location using the `window.navigator.geolocation.getCurr
 
 If the outcome of the location prompt is successful (user consents), the sub-action defined in the `success` field will be executed. If the outcome of the location prompt is unsuccessful (user denies or error occurs), the sub-action defined in the `error` field will be executed. The result of the location prompt is added to conversation parameters in Dialogflow CX and conversation context in Dialogflow ES.
 
+This action can be used on Cards (inside buttons), Carousels, Suggestions, and Lists.
+
 **Usage**: 
 
 - This action is useful for getting the longitude and latitude of a user and placing it in conversation context.
