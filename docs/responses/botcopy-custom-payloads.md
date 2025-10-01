@@ -203,7 +203,7 @@ Basic cards present structured information using a title, subtitle, body, and op
 #### Properties
 
 | **Name**   | **Type** | **Description**                                                                            |
-| ---------- | -------- | -------------------------------------------------------------------------------------------|
+| ---------- | -------- | ------------------------------------------------------------------------------------------ |
 | `title`    | `string` | Main heading for the card.                                                                 |
 | `subtitle` | `string` | Subheading to provide additional context. _(Optional)_                                     |
 | `body`     | `string` | Detailed text or description. _(Optional)_                                                 |
@@ -927,7 +927,7 @@ If the outcome of the location prompt is successful (user consents), the sub-act
 
 This action can be used on Cards (inside buttons), Carousels, Suggestions, and Lists.
 
-**Usage**: 
+**Usage**:
 
 - This action is useful for getting the longitude and latitude of a user and placing it in conversation context.
 
@@ -977,7 +977,7 @@ For the example action above, if the outcome of location sharing is successful t
   "geolocation": {
     "customLatitude": 12.34,
     "customLongitude": 56.78
-  }, 
+  },
   "actionParam": "training success"
 }
 ```
@@ -995,23 +995,23 @@ For the example action above, if the outcome of the location sharing ends with a
 
 #### Properties
 
-| **Name**      | **Type** | **Description**                                                                            |
-| ------------- | -------- | -------------------------------------------------------------------------------------------|
-| `success`     | `object` | **[message](#message)** action executed when the user successfully shares their location.  |
-| `error`       | `object` | **[message](#message)** action executed when an error occurs during location sharing.      |
-| `parameter`   | `string` | Custom parameter name for the map that holds the outcome of location sharing.              |
-| `errorCode`   | `object` |                                                                                            |
-| ├─ `parameter`| `string` | Custom parameter name for the error code. Defaults to `"errorCode"`. _(Optional)_          |
-| `latitude`    | `object` |                                                                                            |
-| ├─ `parameter`| `string` | Custom parameter name for the latitude. Defaults to `"latitude"`. _(Optional)_             |
-| `longitude`   | `object` |                                                                                            |
-| ├─ `parameter`| `string` | Custom parameter name for the longitude. Defaults to `"longitude"`. _(Optional)_           |
+| **Name**       | **Type** | **Description**                                                                           |
+| -------------- | -------- | ----------------------------------------------------------------------------------------- |
+| `success`      | `object` | **[message](#message)** action executed when the user successfully shares their location. |
+| `error`        | `object` | **[message](#message)** action executed when an error occurs during location sharing.     |
+| `parameter`    | `string` | Custom parameter name for the map that holds the outcome of location sharing.             |
+| `errorCode`    | `object` |                                                                                           |
+| ├─ `parameter` | `string` | Custom parameter name for the error code. Defaults to `"errorCode"`. _(Optional)_         |
+| `latitude`     | `object` |                                                                                           |
+| ├─ `parameter` | `string` | Custom parameter name for the latitude. Defaults to `"latitude"`. _(Optional)_            |
+| `longitude`    | `object` |                                                                                           |
+| ├─ `parameter` | `string` | Custom parameter name for the longitude. Defaults to `"longitude"`. _(Optional)_          |
 
 #### Error Codes
 
 - [GeolocationPositionError](https://developer.mozilla.org/en-US/docs/Web/API/GeolocationPositionError)
 
-In addition to the error codes defined in the `GeolocationPositionError` reference, an error code of `0` means the browser does not have the `window.navigator.geolocation.getCurrentPosition` method available. 
+In addition to the error codes defined in the `GeolocationPositionError` reference, an error code of `0` means the browser does not have the `window.navigator.geolocation.getCurrentPosition` method available.
 
 ---
 
@@ -1149,11 +1149,11 @@ Reference a pre-configured bot list stored in AgentOne.
 
 #### Properties
 
-| **Name**           | **Type**  | **Description**                                                                                              |
-| ------------------ | --------- | ------------------------------------------------------------------------------------------------------------ |
-| `title`            | `string`  | The list title (e.g., “Select a Department”).                                                                |
-| `botListId`        | `string`  | The ID of a saved bot list. Manage bot lists in the [AgentOne Portal](https://portal.botcopy.com/agent-one). |
-| `enableForwarding` | `boolean` | _(Optional)_ If `true`, forwards the user’s triggering message to all listed bots. Defaults to `false`.      |
+| **Name**       | **Type**  | **Description**                                                                                              |
+| -------------- | --------- | ------------------------------------------------------------------------------------------------------------ |
+| `title`        | `string`  | The list title (e.g., “Select a Department”).                                                                |
+| `botListId`    | `string`  | The ID of a saved bot list. Manage bot lists in the [AgentOne Portal](https://portal.botcopy.com/agent-one). |
+| `queryPreview` | `boolean` | _(Optional)_ If `true`, send the user’s triggering query to all listed bots. Defaults to `false`.            |
 
 #### Option 2: Using a List of `botIds`
 
@@ -1178,11 +1178,11 @@ Embed bot IDs directly in the payload.
 
 #### Properties
 
-| **Name**           | **Type**  | **Description**                                                                                          |
-| ------------------ | --------- | -------------------------------------------------------------------------------------------------------- |
-| `title`            | `string`  | The list title (e.g., “Select a Department”).                                                            |
-| `bots`             | `array`   | An array of bot objects, each containing an `id` field. Bot names and logos are looked up automatically. |
-| `enableForwarding` | `boolean` | _(Optional)_ If `true`, forwards the user’s triggering message to all listed bots. Defaults to `false`.  |
+| **Name**       | **Type**  | **Description**                                                                                          |
+| -------------- | --------- | -------------------------------------------------------------------------------------------------------- |
+| `title`        | `string`  | The list title (e.g., “Select a Department”).                                                            |
+| `bots`         | `array`   | An array of bot objects, each containing an `id` field. Bot names and logos are looked up automatically. |
+| `queryPreview` | `boolean` | _(Optional)_ If `true`, send the user’s triggering query to all listed bots. Defaults to `false`.        |
 
 #### Behavior
 
@@ -1204,11 +1204,11 @@ Use Bot Lists when you want to:
 - **Error prevention**: Invalid IDs won’t render, avoiding broken handoffs.
 - **Streamlined UX**: Users can easily choose the right bot without guessing.
 
-### Bot List Forwarding
+### Bot List Query Preview
 
-When `enableForwarding` is set to `true`:
+When `queryPreview` is set to `true`:
 
-- The **original user query** (the one that triggered the bot list fulfillment) is forwarded to all bots in the list.
+- The **original user query** (the one that triggered the bot list fulfillment) is sent to all bots in the list.
 - Each bot’s **preview response** is shown to the user.
 - The user can then choose the most relevant bot based on these previews.
 
