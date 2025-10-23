@@ -4,6 +4,9 @@ Session duration, session expiration behavior, and the messaging displayed to us
 
 Session duration and session expiration behavior can be configured on the Session Management page in Portal. Session expiration messaging can be configured under the Session Expiration dropdown on the Localization page.
 
+![Portal Session Management Page](../_assets/portal-session-management-page.png)
+*Session Management page in Portal*
+
 ## Session Duration
 
 Session duration is the time between the last user interaction and the end of the session. A user interaction is defined as any query sent to Dialogflow in the form of a training phrase or an event.
