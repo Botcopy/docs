@@ -5,7 +5,6 @@ Session duration, session expiration behavior, and the messaging displayed to us
 Session duration and session expiration behavior can be configured on the Session Management page in Portal. Session expiration messaging can be configured under the Session Expiration dropdown on the Localization page.
 
 ![Portal Session Management Page](../_assets/portal-session-management-page.png)
-*Session Management page in Portal*
 
 ## Session Duration
 
@@ -31,7 +30,8 @@ When the user session expires, two different behaviors can be configured, "Keep 
 This will preserve the conversation history from the previous session and a message is pushed to the chat to act as a divider between the sessions. After the divider is added to the chat, the configured bot prompt is triggered in the new session.
 
 ![Keep History](../_assets/keep-history.png)
-*"Your session has expired" is the default message if a custom one is not set*
+
+"Your session has expired" is the default message if a custom one is not set.
 
 ### Clear History
 
@@ -42,7 +42,9 @@ Conversation history is cleared and the configured bot prompt is triggered in th
 In "Keep History" mode the message sent that acts as the divider between sessions can be customized on the Localization page under the Session Expiration dropdown. Messaging can be customized for all the languages your bot supports.
 
 ![Portal Custom Session Expiration Messaging](../_assets/portal-custom-session-expiration-message.png)
-*Configured custom session expiration message for English in Portal*
+
+Configured custom session expiration message for English in Portal.
 
 ![Chat Custom Session Expiration Messaging](../_assets/custom-session-expiration-message.png)
-*Custom session expiration message shown in the chat*
+
+Custom session expiration message shown in the chat.
