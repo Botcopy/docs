@@ -13,6 +13,7 @@
   - [Voice to Text](advanced/voice-to-text.md "Botcopy Docs | Voice to Text")
 - Messaging and Response Types
   - [Botcopy Custom Payloads](responses/botcopy-custom-payloads.md "Botcopy Docs | Custom Payloads")
+  - [Data Sources](responses/data-sources.md "Botcopy Docs | Data Sources")
   - [Google Assistant (Legacy)](responses/google-assistant.md "Botcopy Docs | Google Assistant")
   - [Videos](responses/videos.md "Botcopy Docs | Videos")
   - [Google Maps Embed](responses/google-maps-embed.md "Botcopy Docs | Google Maps Embed")
