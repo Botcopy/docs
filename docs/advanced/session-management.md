@@ -14,10 +14,10 @@ An Intent Prompt counts as a user interaction as a query is sent to Dialogflow. 
 
 Session duration can be customized per platform as follows:
 
-| **Platform**  | **Default** | **Lower Bound** | **Upper Bound**         |
-|---------------|-------------|-----------------|-------------------------|
-| Dialogflow CX | 30 minutes  | 1 minute        | 1440 minutes (24 hours) |
-| Dialogflow ES | 20 minutes  | 1 minute        | 20 minutes              |
+| **Platform**  | **Default** | **Lower Bound** | **Upper Bound**          |
+|---------------|-------------|-----------------|--------------------------|
+| Dialogflow CX | 30 minutes  | 1 minute        | 1439 minutes (~24 hours) |
+| Dialogflow ES | 20 minutes  | 1 minute        | 20 minutes               |
 
 ## Session Expiration Behavior
 
