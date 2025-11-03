@@ -25,7 +25,7 @@ When the user session expires, two different behaviors can be configured, "Keep 
 - If the user does not interact with the chat during a session. 
 - If the user is currently in a live chat with a human agent and their session expires. This ensures the human conversation remains uninterrupted.
 
-### Keep History (default)
+### Keep History
 
 This will preserve the conversation history from the previous session and a message is pushed to the chat to act as a divider between the sessions. After the divider is added to the chat, the configured bot prompt is triggered in the new session.
 
@@ -33,7 +33,7 @@ This will preserve the conversation history from the previous session and a mess
 
 "Your session has expired" is the default message if a custom one is not set.
 
-### Clear History
+### Clear History (default)
 
 Conversation history is cleared and the configured bot prompt is triggered in the new session. This behavior is the same as if the user clicked the Clear History button.
 
