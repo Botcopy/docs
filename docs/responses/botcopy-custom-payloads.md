@@ -1112,9 +1112,9 @@ An array of buttons, each with its own action. Buttons are exclusively used with
 
 ## AgentOne: Bot Card
 
-The Bot Card is a chat widget component that you can send to users by adding it as a custom payload in a Dialogflow fulfillment response. When triggered, it renders inside the conversation as a card showing the target bot’s name and logo (looked up automatically from the botId) and a customizable action button.
+The Bot Card is a special component designed to help users switch between different bots seamlessly. It's a chat widget component that you can send to users by adding it as a custom payload in a Dialogflow fulfillment response. When triggered, it renders inside the conversation as a card showing the target bot’s name and logo (looked up automatically from the botId) and a customizable action button.
 
-When the user clicks the button, the widget instantly switches the conversation to the specified bot.
+When the user clicks the button, the widget instantly switches the conversation to the specified bot. This is useful for routing users to specialized bots, such as moving from a general support bot to a billing-specific bot.
 
 ![Bot Card Preview](../_assets/talk-with-support.png)
 
@@ -1157,6 +1157,66 @@ When the user clicks the button, the widget instantly switches the conversation 
 - Automatic Branding: Bot names and logos are resolved automatically from the ID, ensuring accuracy.
 - Customizable Call-to-Action: Button text adapts to the conversation context.
 - Error Prevention: Only valid bot IDs are rendered, reducing broken handoffs.
+
+### Bot Card Custom Actions
+
+Bot cards support custom actions that trigger events or training phrases when clicked, giving you more control over conversation flow
+without switching bots.
+
+The `action` property allows bot cards to trigger specific intents or events in your bot instead of switching to a different bot.
+
+**Requirements**:
+- This feature requires the `BOT_CARD_CUSTOMIZATION` feature flag to be enabled for your organization
+- Without this flag, bot cards will use the legacy bot-switching behavior via `botId`
+
+#### Payload Structure
+
+```json
+{
+  "botcopy": [
+    {
+      "botCard": {
+        "buttonText": "Report Issue",
+        "action": {
+          "message": {
+            "command": "REPORT_ISSUE",
+            "type": "event"
+          }
+        }
+      }
+    }
+  ]
+}
+```
+
+#### Action Types
+
+##### Event Trigger:
+```json
+"action": {
+  "message": {
+    "command": "EVENT_NAME",
+    "type": "event"
+  }
+}
+```
+
+##### Training Phrase:
+```json
+"action": {
+  "message": {
+    "command": "Check my eligibility",
+    "type": "training"
+  }
+}
+```
+
+#### Properties
+
+- `action` (optional): Custom action configuration
+  - `message` (required): Message action object
+	- `command` (required): The event name or training phrase to trigger
+	- `type` (required): Either "event" or "training"
 
 ## AgentOne: Bot Lists
 
