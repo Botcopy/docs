@@ -144,6 +144,8 @@ field.
 
 ![User Typing](../_assets/portal_user_typing.png)
 
+Botcopy sends a request with the following JSON:
+
 ```json5
 "Content-Type": "application/json",
 "Authorization": "BOT_ACCESS_TOKEN",
