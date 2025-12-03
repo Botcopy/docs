@@ -156,7 +156,7 @@ Botcopy sends a request with the following JSON:
 {
     "userId": string, // identifies the Customer
     "botId": string, // identifies the bot invoking livechat
-    "sessionId": string, // identfies a session for a unique user of the bot
+    "sessionId": string, // identifies a session for a unique user of the bot
     "eventType": "user_typing" // user typing event type
 }
 ```
