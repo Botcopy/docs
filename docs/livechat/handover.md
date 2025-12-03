@@ -119,7 +119,8 @@ Botcopy sends a request with the following JSON:
         "contexts": [],
         "payload": {},
         "webhookHeaders": {}
-    }
+    },
+    "eventType": "message" // this additional field is only sent if User Typing is enabled
 }
 ```
 
@@ -136,7 +137,10 @@ If you wish to end the conversation with the user in any of these 2 cases return
 
 **Purpose:** Client receives a webhook call when the bot is paused and the user is typing.
 
-**How to enable** In Portal under the Integrations tab, select "Typing" under the "Live Chat User Events" field.
+**How to enable** In Portal under the Integrations tab, select "Typing" under the "Live Chat User Events" 
+field.
+
+**Limit** This event will be sent at most every four seconds
 
 ![User Typing](../_assets/portal_user_typing.png)
 
