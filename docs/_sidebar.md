@@ -17,7 +17,7 @@
   - [Videos](responses/videos.md "Botcopy Docs | Videos")
   - [Google Maps Embed](responses/google-maps-embed.md "Botcopy Docs | Google Maps Embed")
   - [Fulfillment Examples](responses/fulfillmentexamples.md "Botcopy Docs | Fulfillment Examples")
-  - [Dialogflow CX Parameters](responses/parameters.md "Botcopy Docs | Dialogflow CX Parameters")
+  - [Dialogflow Parameters](responses/parameters.md "Botcopy Docs | Dialogflow Parameters")
 - Live Chat
   - [Botcopy](livechat/botcopylc.md "Botcopy Docs | Live Chat")
   - [API](livechat/handover.md "Botcopy Docs | Human Handover")
