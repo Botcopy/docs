@@ -42,7 +42,14 @@ You'll also need your **Account SID**, found on the Twilio Console dashboard.
 4. Navigate to **Workflows** within your workspace
 5. Note the **Workflow SID** (starts with `WW`) for routing Botcopy tasks
 
-### Step 3: Configure Botcopy Portal
+### Step 3: Get Conversations Service Details
+
+1. In Twilio Console, navigate to **Conversations** > **Services**
+2. Select or create a Conversations service for Botcopy
+3. Note the **Service SID** (starts with `IS`)
+4. Note the **Service Name** for reference
+
+### Step 4: Configure Botcopy Portal
 
 1. Log in to the [Botcopy Portal](https://portal.botcopy.com)
 2. Navigate to **Account Settings**
@@ -60,9 +67,9 @@ Enter your Twilio credentials:
 
 Click **Save Credentials** to store your API credentials securely.
 
-#### Workspaces
+#### Workspace
 
-Add your TaskRouter workspace:
+Add your TaskRouter workspace (one workspace per organization):
 
 | Field | Description | Format |
 |-------|-------------|--------|
@@ -72,7 +79,18 @@ Add your TaskRouter workspace:
 
 Click **Add Workspace** to save.
 
-### Step 4: Configure Twilio Webhooks
+#### Conversations Service
+
+Configure your Twilio Conversations service:
+
+| Field | Description | Format |
+|-------|-------------|--------|
+| Service Name | A friendly name for reference | e.g., "Botcopy Conversations" |
+| Conversations Service SID | Your Conversations service identifier | `ISxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+
+Click **Add Service** to save.
+
+### Step 5: Configure Twilio Webhooks
 
 Configure Twilio to send events to Botcopy by setting up webhooks in your Twilio Console.
 
@@ -104,17 +122,17 @@ Configure Twilio to send events to Botcopy by setting up webhooks in your Twilio
    - `task.wrapup`
    - `task.canceled`
 
-### Step 5: Configure Bot Integration
+### Step 6: Configure Bot Integration
 
-Each bot can be configured to use a specific Twilio Flex workspace for handover.
+Each bot inherits your organization's Twilio Flex workspace configuration.
 
 1. In the Botcopy Portal, navigate to your bot's **Integrations** page
-2. Under **Twilio Flex**, select a **Workspace** from the dropdown
-   - Only workspaces configured in your organization's Account Settings will appear
+2. Under **Twilio Flex**, you will see:
+   - **Workspace**: Displays your organization's configured workspace (read-only)
 3. Optionally, override the **Workflow SID** if this bot should use a different workflow than the workspace default
 4. Click **Save**
 
-### Step 6: Configure Handover Trigger
+### Step 7: Configure Handover Trigger
 
 Configure when the bot should hand over to Twilio Flex:
 
@@ -176,6 +194,12 @@ When an agent accepts a conversation:
 1. Verify your Workspace SID and Workflow SID are correct
 2. Check that your API credentials have the necessary permissions
 3. Ensure the workflow has available workers
+
+### Conversations Service issues
+
+1. Verify your Conversations Service SID is correctly configured in Account Settings
+2. Ensure the service exists and is active in your Twilio Console
+3. Check that webhooks are configured on the correct Conversations service
 
 ## Security
 
