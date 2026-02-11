@@ -25,7 +25,9 @@
   - [Window Events](window/events.md "Botcopy Docs | Window Events")
   - [Window Methods](window/methods.md "Botcopy Docs | Window Methods")
 - WCAG 2.1
-
   - [Compliance](wcag/focus-trap.md "Botcopy Docs | Focus Trap")
-
-  <footer id="mb-footer"></footer>
+- IAM
+  - [Overview](iam/overview.md "Botcopy Docs | Overview")
+  - [Users Page](iam/users.md "Botcopy Docs | Users Page")
+  - [Roles Page](iam/roles.md "Botcopy Docs | Roles Page")
+<footer id="mb-footer"></footer>
