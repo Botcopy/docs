@@ -13,4 +13,4 @@ The IAM application is used to manage user roles, delete users, and invite new u
 
 ### Access
 
-All users in an organization have access to the IAM application. However, only users with the `PORTAL_ADMIN` role will be able to edit roles, delete users, and invite new users. `PORTAL_ADMINS` cannot edit their own access or delete themselves from an organzation, that needs to be done by another `PORTAL_ADMIN`.
+All users in an organization have access to the IAM application. However, only users with the `PORTAL_ADMIN` role will be able to edit roles, delete users, and invite new users. `PORTAL_ADMINS` cannot edit their own access or delete themselves from an organization, that needs to be done by another `PORTAL_ADMIN`.
