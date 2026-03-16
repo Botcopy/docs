@@ -11,7 +11,7 @@ Click the "Grant Access" button to open a modal where users can be invited and a
 - users that have never been invited to any organization
 - users that were deleted from another organization
 
-Upon clicking the “Grant” button, the invited email addresses will receive an email that contains a link to Portal.
+Upon clicking the “Grant” button, the invited email addresses will receive an email that contains a link to Portal. Invitation emails no longer expire. Once a user has been added via the "Grant Access" functionality they have access to the organization right away. 
 
 ### Deleting Users
 
