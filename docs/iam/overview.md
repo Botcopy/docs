@@ -11,6 +11,8 @@ The IAM application is used to manage user roles, delete users, and invite new u
 | `PORTAL_MARKETER` | Portal marketer role, access to some portal features. For users that only need permission to edit bot branding. |
 | `PORTAL_BILLING`  | Portal billing role, access to some portal features. For users that only need access to billing.                |
 
+More granular roles are planned for release in the future.
+
 ### Access
 
 All users in an organization have access to the IAM application. However, only users with the `PORTAL_ADMIN` role will be able to edit roles, delete users, and invite new users. `PORTAL_ADMINS` cannot edit their own access or delete themselves from an organization, that needs to be done by another `PORTAL_ADMIN`.
