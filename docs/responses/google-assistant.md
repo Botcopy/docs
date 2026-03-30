@@ -1,8 +1,8 @@
-# Google Assistant
+# Google Assistant (Deprecated)
 
-**Warning: Google Assistant Conversational Actions will be sunsetted from Dialogflow ES on June 13, 2023. At that time, this Dialogflow Google Assistant integration will be removed. For details, see [Conversational Actions sunset](https://developers.google.com/assistant/ca-sunset).**
+> **Deprecated:** Google Assistant Conversational Actions were sunsetted from Dialogflow ES on June 13, 2023. This integration is no longer available. For details, see [Conversational Actions sunset](https://developers.google.com/assistant/ca-sunset). For building rich chat experiences going forward, use [Botcopy Custom Payloads](/responses/botcopy-custom-payloads).
 
-Dialogflow ES comes with rich response types out-of-the-box with **Google Assistant**. This section provides a quick overview of each response type with a visual aid.
+Dialogflow ES previously supported rich response types out-of-the-box with **Google Assistant**. This section is a reference for each response type.
 
 We've also included an example of using each response type in the **Fulfillment** inline editor or a webhook. Each example will be using the `actions-on-google` package by declaring `agent.conv()` before the response. Each response type must be imported.
 
