@@ -4,7 +4,7 @@ Botcopy is a powerful, deeply-customizable chat window that allows you to augmen
 
 ## Getting Started
 
-New to Botcopy? Here's how to get up and running:
+New to Botcopy? Here's how to get up and running. You'll need a [Dialogflow ES or CX](https://cloud.google.com/dialogflow ":target=_blank") agent to connect to Botcopy.
 
 1. **[Sign up](https://portal.botcopy.com/signup/step1/ ":target=_blank")** for a free Botcopy account.
 2. **[Connect](/basics/connect)** your Dialogflow agent to your bot on the Portal.
@@ -23,7 +23,12 @@ New to Botcopy? Here's how to get up and running:
 | [Window Events & Methods](/window/events) | Listen to chat events and control the bot programmatically |
 | [WCAG 2.1](/wcag/focus-trap) | Accessibility compliance and focus trap configuration |
 
-# You can count on us.
+## You can count on us.
 
-<div style="display: flex; flex-direction: row">
-We send millions of messages per day for the world's best companies, and <div onclick='Botcopy.sendEvent("docs"); Botcopy.openWindow()' style="color: #4B60CC; cursor: pointer">&nbsp;we're here to help.</div></div>
+We send millions of messages per day for the world's best companies, and we're here to help.
+
+## Need Help?
+
+- **Email:** [support@botcopy.com](mailto:support@botcopy.com)
+- **Portal:** [portal.botcopy.com](https://portal.botcopy.com ":target=_blank")
+- **Website:** [botcopy.com](https://botcopy.com ":target=_blank")
