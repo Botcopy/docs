@@ -44,6 +44,58 @@ This flexible approach allows you to design more precise and engaging interactio
 - Cards and Suggestions can direct users to the next step efficiently with buttons or links.
   By combining different response types, you can create a seamless and intuitive chatbot experience.
 
+### Returning Payloads from a Webhook
+
+To send Botcopy custom payloads from a Dialogflow CX webhook, return them in the `fulfillmentResponse.messages` array with the `payload` field:
+
+```js
+// Dialogflow CX webhook (Node.js / Cloud Function)
+exports.myWebhook = (req, res) => {
+  const tag = req.body.fulfillmentInfo?.tag;
+
+  if (tag === "product-carousel") {
+    res.json({
+      fulfillmentResponse: {
+        messages: [
+          {
+            payload: {
+              botcopy: [
+                {
+                  suggestions: [
+                    { title: "View All", action: { message: { command: "show all products" } } },
+                    { title: "Help", action: { message: { command: "help" } } },
+                  ],
+                },
+                {
+                  carousel: {
+                    card: [
+                      {
+                        title: "Product A",
+                        description: "$29.99",
+                        imageUri: "https://example.com/a.png",
+                        action: { link: { url: "https://example.com/a" } },
+                      },
+                      {
+                        title: "Product B",
+                        description: "$49.99",
+                        imageUri: "https://example.com/b.png",
+                        action: { message: { command: "details Product B" } },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    });
+  }
+};
+```
+
+For Dialogflow ES, set the custom payload in the fulfillment response's `payload` field using the `actions-on-google` format, or return it directly from your webhook as a [custom payload](https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook#webhook_response ":target=_blank").
+
 ## Text Responses
 
 An array of text responses used to convey static information.
