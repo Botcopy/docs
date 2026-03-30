@@ -1,16 +1,20 @@
 # Chat Components
 
-Botcopy offers some added utility with **Chat Components**. Modular control for custom chat window experiences.
+Botcopy offers some added utility with **Chat Components** — optional widgets you can enable to customize the chat window experience. Use these to control input, collect feedback, display user profiles, show privacy consent, and embed webviews.
 
 ## Disable Input Bar
 
-**Dialogflow ES**
+<!-- tabs:start -->
+
+#### **Dialogflow CX**
+
+To disable the input bar and force users to make a selection (suggestion chips, card buttons etc), add a **session parameter** of **bcDisableInputBar** with a value of **true**.
+
+#### **Dialogflow ES**
 
 To disable the input bar and force users to make a selection (suggestion chips, card buttons etc), add **botcopy-disable-inputbar** (lifespan: 1) as an **output context** to an intent.
 
-**Dialogflow CX**
-
-To disable the input bar and force users to make a selection (suggestion chips, card buttons etc), add a **session parameter** of **bcDisableInputBar** with a value of **true**.
+<!-- tabs:end -->
 
 ## Feedback
 
@@ -40,7 +44,9 @@ Can be triggered through your bot or website.
 
 Use a session parameter (**bcWebviewUrl**) for Dialogflow CX or a context (**openWebview**) for Dialogflow ES to display a webview.
 
-**DialogflowCX**
+<!-- tabs:start -->
+
+#### **Dialogflow CX**
 
 Set as a parameter preset in the CX GUI or in [fulfillment](https://cloud.google.com/dialogflow/cx/docs/concept/parameter ":target=_blank").
 
@@ -49,7 +55,7 @@ Parameter: bcWebviewUrl
 Value: https://botcopy.com
 ```
 
-**DialogflowES**
+#### **Dialogflow ES**
 
 ```
 const webviewContext =  {
@@ -100,3 +106,13 @@ const { BasicCard, Button } = require('actions-on-google')
  	agent.add(conv);
  }
 ```
+
+<!-- tabs:end -->
+
+---
+
+## Related
+
+- [Branding](/basics/branding) — Customize the chat window's look and feel
+- [Window Methods](/window/methods) — Control components programmatically (e.g., `Botcopy.showFeedback()`)
+- [WCAG Compliance](/wcag/focus-trap) — Focus trap and accessibility configuration

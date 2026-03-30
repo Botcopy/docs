@@ -24,7 +24,13 @@ You could use the custom snippet parameter to provide a property ID on each webs
 
 ## Snippet Parameter in Practice
 
-### Dialogflow ES
+<!-- tabs:start -->
+
+#### **Dialogflow CX**
+
+To reference the custom value in Dialogflow CX, use `$session.params.botcopySnippetValue`.
+
+#### **Dialogflow ES**
 
 The value of your **snippet parameter** is passed to a context named `botcopy-ref-context` as a parameter named `botcopySnippetRefValue`. The context has a lifespan of two intents, so it is best to pull the custom value at the beginning of a conversation.
 
@@ -46,6 +52,4 @@ function snippetTest(agent) {
 }
 ```
 
-### Dialogflow CX
-
-To reference the custom value in Dialogflow CX, use `$session.params.botcopySnippetValue`.
+<!-- tabs:end -->

@@ -71,6 +71,17 @@
           --sidebar-padding: 0 1em;
           --content-max-width: 100%;
         }
+
+        .markdown-section table {
+          display: block;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+
+        .markdown-section img {
+          max-width: 100%;
+          height: auto;
+        }
       }
     </style>
   </head>
@@ -87,6 +98,13 @@
         name: "Botcopy", // required for sidebar logo to display
         nameLink: "https://botcopy.com", // link from sidebar logo
         externalLinkTarget: "_blank", // open external links in new tab
+        tabs: {
+          persist: true,
+          sync: true,
+          theme: "classic",
+          tabComments: true,
+          tabHeadings: true,
+        },
         pagination: {
           // Pagination
           previousText: "Previous",
@@ -117,6 +135,8 @@
     <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
     <!-- Full Text Search  -->
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+    <!-- Tabs  -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
 
     <!-- Footer  -->
     <script src="https://cdn.jsdelivr.net/npm/@markbattistella/docsify-sidebarfooter@latest"></script>
