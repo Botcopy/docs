@@ -2,6 +2,18 @@
 
 The global Botcopy object has a number of **methods** which can be used to control the bot's behavior through an app or website. The Botcopy object is available once the chat window is [initialized](window/events?id=bc-initialized).
 
+!> **Important:** All methods require the chat window to be initialized first. Wait for the `bc-initialized` event before calling any method. Calling methods before initialization will have no effect.
+
+```js
+// Recommended: wait for initialization before calling methods
+window.addEventListener("botcopy-events", function (e) {
+  if (e.detail.type === "bc-initialized") {
+    // Botcopy methods are now safe to call
+    Botcopy.sendEvent("welcome");
+  }
+});
+```
+
 ## Send Event
 
 Sends an event name to trigger a specific intent.
