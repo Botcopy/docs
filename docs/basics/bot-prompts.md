@@ -4,7 +4,7 @@ Bot Prompts are the first messages users see that "prompt" users to engage with 
 
 For example, a page for Pricing might have a different call to action than a page for Support.
 
-![pricing prompt](/images/pricingprompt.png)
+![pricing prompt](images/pricingprompt.png)
 
 Botcopy offers different types of prompts and settings to better suit the needs of a variety of use cases.
 
