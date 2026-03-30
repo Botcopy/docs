@@ -119,8 +119,7 @@ Suggestions provide users with clickable buttons to guide them through the conve
               "type": "training"
             }
           },
-          "title": "Message Suggestion",
-          "ariaLabel": "Learn about pricing options"
+          "title": "Message Suggestion"
         },
         {
           "action": {
@@ -129,8 +128,7 @@ Suggestions provide users with clickable buttons to guide them through the conve
               "url": "https://botcopy.com"
             }
           },
-          "title": "Link Suggestion",
-          "ariaLabel": "Visit Botcopy website"
+          "title": "Link Suggestion"
         }
       ]
     }
@@ -147,7 +145,6 @@ Suggestions provide users with clickable buttons to guide them through the conve
 |             |          | - **[message](#message)**: Continues the conversation with a predefined command.                                                 |
 |             |          | - **[link](#link)**: Opens an external URL in a new window or tab.                                                               |
 |             |          | - **[location](#location)**: Retrieves the user's location.                                                                      |
-| `ariaLabel` | `string` | _(Optional)_ Custom accessibility label for screen readers. Overrides the default aria-label (which defaults to the title text). |
 
 ## Basic Cards
 
