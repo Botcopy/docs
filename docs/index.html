@@ -30,12 +30,24 @@
       href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css"
     />
 
+    <!-- Google Fonts -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
+    />
+
     <!-- Custom theme styles -->
     <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
       :root {
-        /* --theme-color: #2f3c80;
-        --base-color: #2f3c80; */
-        --base-font-family: "Helvetica Now Display", "Lato", Helvetica;
+        --theme-color: #2f3c80;
+        --base-color: #2f3c80;
+        --base-font-family: "Helvetica Now Display", "Lato", Helvetica, Arial, sans-serif;
         --sidebar-padding: 0 2em;
         --content-max-width: 70em;
         --cover-color: #2f3c80;
@@ -47,6 +59,18 @@
         --sidebar-nav-link-color--active: #4b60cc;
         --sidebar-nav-link-border-color--active: #4b60cc;
         --strong-color: #2f3c80;
+      }
+
+      a:focus-visible {
+        outline: 2px solid var(--theme-color);
+        outline-offset: 2px;
+      }
+
+      @media screen and (max-width: 768px) {
+        :root {
+          --sidebar-padding: 0 1em;
+          --content-max-width: 100%;
+        }
       }
     </style>
   </head>
