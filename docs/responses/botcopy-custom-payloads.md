@@ -23,6 +23,7 @@ Examples:
 - [Lists](#lists)
 - [Forms](#forms)
 - [Bot Lists](#bot-lists)
+- [Actions](#actions)
 
 ## Botcopy Payload Implementation
 

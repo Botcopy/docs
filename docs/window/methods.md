@@ -24,7 +24,9 @@ Botcopy.sendEvent("event-name", {
 
 Button example:
 
-`<button onclick="Botcopy.sendEvent("event-name")">Send event</button>`
+```html
+<button onclick='Botcopy.sendEvent("event-name")'>Send event</button>
+```
 
 ### Dialogflow CX
 
@@ -43,7 +45,9 @@ Botcopy.sendCXEvent("event-name", {
 
 Button example:
 
-`<button onclick="Botcopy.sendCXEvent("event-name")">Send event</button>`
+```html
+<button onclick='Botcopy.sendCXEvent("event-name")'>Send event</button>
+```
 
 ## Send Silent Event
 
@@ -64,7 +68,10 @@ Botcopy.sendEventSilent("event-name", {
 ```
 
 Button example:
-`<button onclick="Botcopy.sendEventSilent("event-name")">Silently send event and open chat window</button>`
+
+```html
+<button onclick='Botcopy.sendEventSilent("event-name")'>Silently send event and open chat window</button>
+```
 
 ### Dialogflow CX
 
@@ -330,3 +337,5 @@ Button example:
 `<button onClick="Botcopy.setWindowStyle('fullscreen')">Set window style to fullscreen</button>`
 
 Supported styles: classic, fullscreen
+
+---
