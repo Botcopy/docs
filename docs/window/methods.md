@@ -2,6 +2,18 @@
 
 The global Botcopy object has a number of **methods** which can be used to control the bot's behavior through an app or website. The Botcopy object is available once the chat window is [initialized](window/events?id=bc-initialized).
 
+!> **Important:** All methods require the chat window to be initialized first. Wait for the `bc-initialized` event before calling any method. Calling methods before initialization will have no effect.
+
+```js
+// Recommended: wait for initialization before calling methods
+window.addEventListener("botcopy-events", function (e) {
+  if (e.detail.type === "bc-initialized") {
+    // Botcopy methods are now safe to call
+    Botcopy.sendEvent("welcome");
+  }
+});
+```
+
 ## Send Event
 
 Sends an event name to trigger a specific intent.
@@ -24,7 +36,9 @@ Botcopy.sendEvent("event-name", {
 
 Button example:
 
-`<button onclick="Botcopy.sendEvent("event-name")">Send event</button>`
+```html
+<button onclick='Botcopy.sendEvent("event-name")'>Send event</button>
+```
 
 ### Dialogflow CX
 
@@ -43,7 +57,9 @@ Botcopy.sendCXEvent("event-name", {
 
 Button example:
 
-`<button onclick="Botcopy.sendCXEvent("event-name")">Send event</button>`
+```html
+<button onclick='Botcopy.sendCXEvent("event-name")'>Send event</button>
+```
 
 ## Send Silent Event
 
@@ -64,7 +80,10 @@ Botcopy.sendEventSilent("event-name", {
 ```
 
 Button example:
-`<button onclick="Botcopy.sendEventSilent("event-name")">Silently send event and open chat window</button>`
+
+```html
+<button onclick='Botcopy.sendEventSilent("event-name")'>Silently send event and open chat window</button>
+```
 
 ### Dialogflow CX
 
@@ -330,3 +349,5 @@ Button example:
 `<button onClick="Botcopy.setWindowStyle('fullscreen')">Set window style to fullscreen</button>`
 
 Supported styles: classic, fullscreen
+
+---

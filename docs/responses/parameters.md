@@ -21,3 +21,10 @@ Botcopy sends the following session parameters attached to every query it makes 
 | `botcopy-current-url` | The origin, pathname, and href of current URL.      | `{origin: "https://test.com", path: "/hello", url: "https://test.com/hello"}` | Yes                 |
 | `botcopy-timezone`    | The current time and timezone relative to the user. | `{time: "11:01:37 AM", tz: "America/Chicago"}`                                | Yes                 |
 | `botcopy-is-mobile`   | Identifies if a user is using a mobile device.      | `{isMobile: "true"}`                                                          | No                  |
+
+---
+
+## Related
+
+- [Snippet Parameter](/advanced/snippet-parameter) — Pass custom data via the embed snippet
+- [URL Ref Parameter](/advanced/url-ref-parameter) — Pass URL query params to Dialogflow

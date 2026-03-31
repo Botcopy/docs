@@ -28,7 +28,7 @@ The **Embed Snippet** section gives you two options for embedding the bot to you
 2. Paste the embed snippet between `<body>` and `</body>` of your website.
 3. Your branded chat window will appear in the bottom right of your website
 
-Sometimes you might encounter an undefined error if you're using a service like Atlassian or Confluence. In that case, add `data-requireJSOff="true"` as an attribute to the snippet.
+?> **Troubleshooting:** If you encounter undefined errors on services like Atlassian or Confluence, add `data-requireJSOff="true"` as an attribute to the snippet.
 
 ## Environments
 

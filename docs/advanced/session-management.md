@@ -21,8 +21,10 @@ Session duration can be customized per platform as follows:
 
 ## Session Expiration Behavior
 
-When the user session expires, two different behaviors can be configured, "Keep History" and "Clear History". There are two scenarios where a session can expire silently without the end of session behavior taking place: 
-- If the user does not interact with the chat during a session. 
+When the user session expires, two different behaviors can be configured, "Keep History" and "Clear History".
+
+!> **Note:** There are two scenarios where a session can expire silently without the end of session behavior taking place:
+- If the user does not interact with the chat during a session.
 - If the user is currently in a live chat with a human agent and their session expires. This ensures the human conversation remains uninterrupted.
 
 ### Keep History
