@@ -1,10 +1,10 @@
 ## General
 
-Botcopy conforms with and supports WCAG 2.1 AA [criteria](https://www.w3.org/TR/WCAG21/ ":target=_blank"), thus helping you meet ADA compliance.
+Botcopy conforms with and supports WCAG 2.2 AA [criteria](https://www.w3.org/TR/WCAG22/ ":target=_blank"), thus helping you meet ADA compliance.
 
-Download our [Botcopy Accessibility Conformance Report](<https://uploads-ssl.webflow.com/62de16403533f6963c00f375/63a4b4bed004d085757b6558_Zenyth_ACR_BotCopy_10-27-2022%20(1).pdf> ":target=_blank") for a comprehensive list of the accessibility criteria we support and summary descriptions.
+Download our <a href="_assets/VPAT2.5WCAG_BotCopyApril2026.pdf" target="_blank" rel="noopener noreferrer">Botcopy Accessibility Conformance Report</a> for a comprehensive list of the accessibility criteria we support and summary descriptions.
 
-!> **Note:** WCAG 2.1 AA is legally mandated in several US states, including California, New York, Illinois, and Massachusetts. Additionally, many organizations choose to comply with the guidelines in order to demonstrate their commitment to making their content accessible to all users, regardless of ability. Failure to comply with these guidelines may result in legal action.
+!> **Note:** WCAG 2.1 AA conformance is required for US state and local government websites and mobile apps under the US Department of Justice's April 2024 [final rule](https://www.ada.gov/resources/2024-03-08-web-rule/ ":target=_blank") implementing ADA Title II. Per the DOJ's April 20, 2026 Interim Final Rule, compliance deadlines were extended by one year: April 26, 2027 for public entities serving populations of 50,000 or more, and April 26, 2028 for smaller public entities and special district governments. WCAG 2.1 AA is also legally mandated in several US states, including California, New York, Illinois, and Massachusetts. Failure to comply may result in legal action.
 
 Audited by [Zenyth Group](https://www.zenythgroup.com/index ":target=_blank").
 
