@@ -21,6 +21,8 @@
 - Live Chat
   - [Botcopy](livechat/botcopylc.md "Botcopy Docs | Live Chat")
   - [API](livechat/handover.md "Botcopy Docs | Human Handover")
+  - [Twilio Flex](livechat/twilio-flex.md "Botcopy Docs | Twilio Flex Live Chat")
+  - [Twilio Flex Translation](livechat/twilio-flex-translation.md "Botcopy Docs | Twilio Flex Auto-Translation")
 - Window Events and Methods
   - [Window Events](window/events.md "Botcopy Docs | Window Events")
   - [Window Methods](window/methods.md "Botcopy Docs | Window Methods")
