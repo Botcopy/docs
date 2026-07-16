@@ -27,9 +27,13 @@ Note: All other events and [methods](window/methods?id=window-methods) occur/can
 ```js
 {
   type: 'bc-initialized',
-  payload: {}
+  payload: {
+    sessionExpiresAt: "string" // ISO 8601 timestamp of when the current session will expire
+  }
 }
 ```
+
+`sessionExpiresAt` reflects the actual session expiration set by the backend at load time. Use it to schedule your own reminder (e.g. warn a user shortly before their session expires) instead of estimating from a fixed offset, since it always reflects the true expiration. See [Session Management](advanced/session-management.md) for how session duration is configured.
 
 ## bc-agent-entered-chat
 
@@ -93,7 +97,8 @@ Fires when a response is received from a bot.
 {
   type: "bc-bot-response",
   payload: {
-    intentName: "string" // name of the intent
+    intentName: "string", // name of the intent
+    sessionExpiresAt: "string" // ISO 8601 timestamp of when the current session will expire
   }
 }
 ```
@@ -108,10 +113,13 @@ Fires when a response is received from a bot.
     currentPage: "string", // id of the current page
     intentName: "string", // name of the intent
     previousFlow: "string", // id of the previous flow
-    previousPage: "string" // id of the previous page
+    previousPage: "string", // id of the previous page
+    sessionExpiresAt: "string" // ISO 8601 timestamp of when the current session will expire
   }
 }
 ```
+
+`sessionExpiresAt` is included on every response, on all platforms, and reflects the current session expiration as of that response. Since sending a message extends the session, use this value to keep any session-expiration reminder on your website in sync rather than relying on a fixed offset calculated at page load. See [Session Management](advanced/session-management.md) for how session duration is configured.
 
 ## bc-button-clicked
 
