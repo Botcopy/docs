@@ -27,6 +27,8 @@ When the user session expires, two different behaviors can be configured, "Keep 
 - If the user does not interact with the chat during a session.
 - If the user is currently in a live chat with a human agent and their session expires. This ensures the human conversation remains uninterrupted.
 
+If the user sends a message in a session that has silently expired, this action will begin a new session and their original request is queried against the entrypoint of the agent.
+
 ### Keep History
 
 This will preserve the conversation history from the previous session and a message is pushed to the chat to act as a divider between the sessions. After the divider is added to the chat, the configured bot prompt is triggered in the new session.
