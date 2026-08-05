@@ -21,7 +21,7 @@ New to Botcopy? Here's how to get up and running. You'll need a [Dialogflow ES o
 | [Messaging & Responses](/responses/botcopy-custom-payloads) | Custom Payloads, Videos, Google Maps, Fulfillment Examples |
 | [Live Chat](/livechat/botcopylc) | Departments, handover API, and third-party integrations |
 | [Window Events & Methods](/window/events) | Listen to chat events and control the bot programmatically |
-| [WCAG 2.1](/wcag/focus-trap) | Accessibility compliance and focus trap configuration |
+| [WCAG 2.2](/wcag/focus-trap) | Accessibility compliance and focus trap configuration |
 
 ## You can count on us.
 
