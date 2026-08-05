@@ -24,7 +24,7 @@
 - Window Events and Methods
   - [Window Events](window/events.md "Botcopy Docs | Window Events")
   - [Window Methods](window/methods.md "Botcopy Docs | Window Methods")
-- WCAG 2.1
+- WCAG 2.2
   - [Compliance](wcag/focus-trap.md "Botcopy Docs | Focus Trap")
 - IAM
   - [Overview](iam/overview.md "Botcopy Docs | Overview")
