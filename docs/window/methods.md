@@ -150,6 +150,16 @@ Botcopy.setCXParameters({
 });
 ```
 
+### CX Agent Studio (CES)
+
+Set variables to be included on the next request to the agent.
+
+```js
+Botcopy.setVariables({
+  hello: 'world'
+})
+```
+
 ## Show Feedback
 
 Shows the feedback box.
