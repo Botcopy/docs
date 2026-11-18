@@ -12,6 +12,8 @@ New to Botcopy? Here's how to get up and running. You'll need a [Dialogflow ES o
 4. **[Set up Bot Prompts](/basics/bot-prompts)** to engage visitors with contextual calls to action.
 5. **Embed** the snippet from the Connect page into your website's `<body>` tag.
 
+?> **Prefer a slide-by-slide walkthrough?** <a href="/_assets/Botcopy%20Portal%20Feature%20Guide.pdf" target="_blank" rel="noopener noreferrer">Download the Botcopy Portal Feature Guide</a> (PDF). It covers Connect, Themes, Bot Prompts, Feedback, and Privacy Policy.
+
 ## Explore the Docs
 
 | Section | Description |
